@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:AR Localizer View.xcodeproj">
+      location = "self:/Users/jedrzejgronek/Documents/Projects/AR Localizer View/AR Localizer.xcodeproj">
    </FileRef>
 </Workspace>

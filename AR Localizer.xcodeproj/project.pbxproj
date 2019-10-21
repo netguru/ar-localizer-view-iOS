@@ -23,12 +23,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A0BDE665235D9FB4006BBD03 /* AR Localizer View.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR Localizer View.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0BDE665235D9FB4006BBD03 /* AR Localizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR Localizer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0BDE668235D9FB4006BBD03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0BDE671235D9FB5006BBD03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0BDE674235D9FB5006BBD03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0BDE676235D9FB5006BBD03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A0BDE67B235D9FB5006BBD03 /* AR Localizer ViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AR Localizer ViewTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0BDE67B235D9FB5006BBD03 /* AR LocalizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AR LocalizerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0BDE681235D9FB5006BBD03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0BDE693235DB509006BBD03 /* Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Application.xcconfig; sourceTree = "<group>"; };
 		A0BDE694235DB509006BBD03 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 		A0BDE65C235D9FB4006BBD03 = {
 			isa = PBXGroup;
 			children = (
-				A0BDE667235D9FB4006BBD03 /* AR Localizer View */,
+				A0BDE667235D9FB4006BBD03 /* AR Localizer */,
 				A0BDE68D235DAF9D006BBD03 /* Supporting Files */,
 				A0BDE692235DB509006BBD03 /* Configuration */,
 				A0BDE67E235D9FB5006BBD03 /* Unit Tests */,
@@ -69,20 +69,20 @@
 		A0BDE666235D9FB4006BBD03 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A0BDE665235D9FB4006BBD03 /* AR Localizer View.app */,
-				A0BDE67B235D9FB5006BBD03 /* AR Localizer ViewTests.xctest */,
+				A0BDE665235D9FB4006BBD03 /* AR Localizer.app */,
+				A0BDE67B235D9FB5006BBD03 /* AR LocalizerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A0BDE667235D9FB4006BBD03 /* AR Localizer View */ = {
+		A0BDE667235D9FB4006BBD03 /* AR Localizer */ = {
 			isa = PBXGroup;
 			children = (
 				A0BDE68A235DAF75006BBD03 /* Source Files */,
 				A0BDE68B235DAF7E006BBD03 /* Resources */,
 				A0BDE68C235DAF86006BBD03 /* Interface */,
 			);
-			path = "AR Localizer View";
+			path = "AR Localizer";
 			sourceTree = "<group>";
 		};
 		A0BDE67E235D9FB5006BBD03 /* Unit Tests */ = {
@@ -140,9 +140,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A0BDE664235D9FB4006BBD03 /* AR Localizer View */ = {
+		A0BDE664235D9FB4006BBD03 /* AR Localizer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0BDE684235D9FB5006BBD03 /* Build configuration list for PBXNativeTarget "AR Localizer View" */;
+			buildConfigurationList = A0BDE684235D9FB5006BBD03 /* Build configuration list for PBXNativeTarget "AR Localizer" */;
 			buildPhases = (
 				A0BDE661235D9FB4006BBD03 /* Sources */,
 				A0BDE662235D9FB4006BBD03 /* Frameworks */,
@@ -152,14 +152,14 @@
 			);
 			dependencies = (
 			);
-			name = "AR Localizer View";
+			name = "AR Localizer";
 			productName = "AR Localizer View";
-			productReference = A0BDE665235D9FB4006BBD03 /* AR Localizer View.app */;
+			productReference = A0BDE665235D9FB4006BBD03 /* AR Localizer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A0BDE67A235D9FB5006BBD03 /* AR Localizer ViewTests */ = {
+		A0BDE67A235D9FB5006BBD03 /* AR LocalizerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0BDE687235D9FB5006BBD03 /* Build configuration list for PBXNativeTarget "AR Localizer ViewTests" */;
+			buildConfigurationList = A0BDE687235D9FB5006BBD03 /* Build configuration list for PBXNativeTarget "AR LocalizerTests" */;
 			buildPhases = (
 				A0BDE677235D9FB5006BBD03 /* Sources */,
 				A0BDE678235D9FB5006BBD03 /* Frameworks */,
@@ -170,9 +170,9 @@
 			dependencies = (
 				A0BDE67D235D9FB5006BBD03 /* PBXTargetDependency */,
 			);
-			name = "AR Localizer ViewTests";
+			name = "AR LocalizerTests";
 			productName = "AR Localizer ViewTests";
-			productReference = A0BDE67B235D9FB5006BBD03 /* AR Localizer ViewTests.xctest */;
+			productReference = A0BDE67B235D9FB5006BBD03 /* AR LocalizerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -193,7 +193,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A0BDE660235D9FB4006BBD03 /* Build configuration list for PBXProject "AR Localizer View" */;
+			buildConfigurationList = A0BDE660235D9FB4006BBD03 /* Build configuration list for PBXProject "AR Localizer" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -206,8 +206,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A0BDE664235D9FB4006BBD03 /* AR Localizer View */,
-				A0BDE67A235D9FB5006BBD03 /* AR Localizer ViewTests */,
+				A0BDE664235D9FB4006BBD03 /* AR Localizer */,
+				A0BDE67A235D9FB5006BBD03 /* AR LocalizerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -252,7 +252,7 @@
 /* Begin PBXTargetDependency section */
 		A0BDE67D235D9FB5006BBD03 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A0BDE664235D9FB4006BBD03 /* AR Localizer View */;
+			target = A0BDE664235D9FB4006BBD03 /* AR Localizer */;
 			targetProxy = A0BDE67C235D9FB5006BBD03 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -287,6 +287,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A0BDE693235DB509006BBD03 /* Application.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				PRODUCT_NAME = "AR Localizer";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -294,6 +298,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A0BDE693235DB509006BBD03 /* Application.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				PRODUCT_NAME = "AR Localizer";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
@@ -301,6 +309,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A0BDE696235DB509006BBD03 /* Tests.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				PRODUCT_NAME = "AR LocalizerTests";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 			};
 			name = Debug;
 		};
@@ -308,13 +321,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A0BDE696235DB509006BBD03 /* Tests.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				PRODUCT_NAME = "AR LocalizerTests";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A0BDE660235D9FB4006BBD03 /* Build configuration list for PBXProject "AR Localizer View" */ = {
+		A0BDE660235D9FB4006BBD03 /* Build configuration list for PBXProject "AR Localizer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0BDE682235D9FB5006BBD03 /* Debug */,
@@ -323,7 +341,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0BDE684235D9FB5006BBD03 /* Build configuration list for PBXNativeTarget "AR Localizer View" */ = {
+		A0BDE684235D9FB5006BBD03 /* Build configuration list for PBXNativeTarget "AR Localizer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0BDE685235D9FB5006BBD03 /* Debug */,
@@ -332,7 +350,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0BDE687235D9FB5006BBD03 /* Build configuration list for PBXNativeTarget "AR Localizer ViewTests" */ = {
+		A0BDE687235D9FB5006BBD03 /* Build configuration list for PBXNativeTarget "AR LocalizerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0BDE688235D9FB5006BBD03 /* Debug */,

@@ -285,11 +285,11 @@ workflows:
                 View on Bitrise|${BITRISE_BUILD_URL}
                 View on HockeyApp|https://rink.hockeyapp.net/apps/${HOCKEYAPP_APP_ID}
 
-    brew-bundle:
+  brew-bundle:
     steps:
-        - script:
-            title: Brew bundle
-            inputs:
-            - content: |-
-                #!/bin/bash
-                brew bundle
+    - script:
+        title: Brew bundle
+        inputs:
+        - content: |-
+            #!/bin/bash
+            brew bundle

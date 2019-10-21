@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0578331235E0ABA005A34E7 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0578330235E0ABA005A34E7 /* AppDelegateTests.swift */; };
 		A0BDE669235D9FB4006BBD03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BDE668235D9FB4006BBD03 /* AppDelegate.swift */; };
 		A0BDE672235D9FB5006BBD03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0BDE671235D9FB5006BBD03 /* Assets.xcassets */; };
 		A0BDE675235D9FB5006BBD03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0BDE673235D9FB5006BBD03 /* LaunchScreen.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A0578330235E0ABA005A34E7 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		A0BDE665235D9FB4006BBD03 /* AR Localizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR Localizer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0BDE668235D9FB4006BBD03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0BDE671235D9FB5006BBD03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				A0BDE681235D9FB5006BBD03 /* Info.plist */,
+				A0578330235E0ABA005A34E7 /* AppDelegateTests.swift */,
 			);
 			path = "Unit Tests";
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 					};
 					A0BDE67A235D9FB5006BBD03 = {
 						CreatedOnToolsVersion = 11.1;
+						LastSwiftMigration = 1110;
 						TestTargetID = A0BDE664235D9FB4006BBD03;
 					};
 				};
@@ -265,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0578331235E0ABA005A34E7 /* AppDelegateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

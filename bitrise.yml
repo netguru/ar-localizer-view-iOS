@@ -177,6 +177,7 @@ workflows:
       - XCODEBUILD_SCHEME: Debug
     before_run:
       - cache-pull
+      - brew-bundle
       - bootstrap-carthage
       - test-xcode
     after_run:
@@ -283,3 +284,12 @@ workflows:
             - buttons: |-
                 View on Bitrise|${BITRISE_BUILD_URL}
                 View on HockeyApp|https://rink.hockeyapp.net/apps/${HOCKEYAPP_APP_ID}
+
+    brew-bundle:
+    steps:
+        - script:
+            title: Brew bundle
+            inputs:
+            - content: |-
+                #!/bin/bash
+                brew bundle

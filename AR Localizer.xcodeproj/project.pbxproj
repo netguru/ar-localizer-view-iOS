@@ -287,10 +287,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A0BDE693235DB509006BBD03 /* Application.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 9HJ69C5G9K;
-				PRODUCT_NAME = "AR Localizer";
-				PROVISIONING_PROFILE_SPECIFIER = "AR_Localizer Development";
 			};
 			name = Debug;
 		};
@@ -298,10 +294,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A0BDE693235DB509006BBD03 /* Application.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 9HJ69C5G9K;
-				PRODUCT_NAME = "AR Localizer";
-				PROVISIONING_PROFILE_SPECIFIER = "AR_Localizer Development";
 			};
 			name = Release;
 		};
@@ -309,13 +301,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A0BDE696235DB509006BBD03 /* Tests.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 9HJ69C5G9K;
-				PRODUCT_NAME = "AR LocalizerTests";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 			};
 			name = Debug;
 		};
@@ -323,13 +308,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A0BDE696235DB509006BBD03 /* Tests.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 9HJ69C5G9K;
-				PRODUCT_NAME = "AR LocalizerTests";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 			};
 			name = Release;
 		};

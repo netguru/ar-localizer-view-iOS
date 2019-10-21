@@ -86,16 +86,13 @@ trigger_map:
   - pull_request_target_branch: master
     workflow: build-release-candidate
 
-  - pull_request_target_branch: release/*
-    workflow: build-pull-request
-
 # Environment configuration.
 #
 # This list contains the default environment variables shared between workflows.
 
 app:
   envs:
-    - XCODEBUILD_PROJECT: ./Project.xcodeproj or ./Project.xcworkspace
+    - XCODEBUILD_PROJECT: ./AR Localizer.xcodeproj
     - XCODEBUILD_OPTIONS: _BUILD_NUMBER=$BITRISE_BUILD_NUMBER
 
 # Workflow declarations.
@@ -181,16 +178,15 @@ workflows:
 
   build-pull-request:
     envs:
-      - XCODEBUILD_SCHEME: Staging
+      - XCODEBUILD_SCHEME: Debug
     before_run:
       - cache-pull
       - bootstrap-carthage
-      - bootstrap-cocoapods
       - test-xcode
     after_run:
       - cache-push
       - deploy-bitriseio
-      - notify-slack
+  #    - notify-slack
 
   # Pull previously cached directories.
 
@@ -210,7 +206,6 @@ workflows:
           inputs:
             - cache_paths: |-
                 ./Carthage
-                ./Pods
 
   # Bootstrap dependencies using Carthage package manager.
   #
@@ -223,14 +218,6 @@ workflows:
             - carthage_command: bootstrap
             - carthage_options: --platform iOS --cache-builds
             - github_access_token: $GITHUB_ACCESS_TOKEN
-
-  # Bootstrap dependencies using CocoaPods package manager.
-  #
-  # If you don't use this package manager, you can remove this workflow.
-
-  bootstrap-cocoapods:
-    steps:
-      - cocoapods-install: {}
 
   # Bootstrap code signing by installing certificates and provisioning profiles.
 
@@ -300,18 +287,3 @@ workflows:
             - buttons: |-
                 View on Bitrise|${BITRISE_BUILD_URL}
                 View on HockeyApp|https://rink.hockeyapp.net/apps/${HOCKEYAPP_APP_ID}
-
-  # Post Jira comment and move ticket to Ready for QA
-
-  jira-ticket-transition:
-    steps:
-      - git::https://github.com/netguru/bitrise-step-ng-jira-step.git@master:
-          title: ng-jira-step
-          inputs:
-            - host: $JIRA_HOST
-            - user: $JIRA_USER
-            - api_token: $JIRA_API_TOKEN
-            - qa_transition_id: $JIRA_QA_TRANSACTION_ID
-            - no_qa_transition_id: $JIRA_NO_QA_TRANSACTION_ID
-            - add_bitrise_public_download_url: false
-            - extra_info_in_comment: "You can download build from project's builds {provider}/{distribution tool}."

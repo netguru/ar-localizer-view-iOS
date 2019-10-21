@@ -114,7 +114,6 @@ workflows:
     before_run:
       - cache-pull
       - bootstrap-carthage
-      - bootstrap-cocoapods
       - test-xcode
       - bootstrap-code-signing
       - archive-xcode
@@ -123,7 +122,6 @@ workflows:
       - deploy-hockeyapp
       - deploy-bitriseio
       - notify-slack
-      - jira-ticket-transition
 
   # Build, test and deploy a release candidate app.
   #
@@ -138,7 +136,6 @@ workflows:
     before_run:
       - cache-pull
       - bootstrap-carthage
-      - bootstrap-cocoapods
       - test-xcode
       - bootstrap-code-signing
       - archive-xcode
@@ -161,7 +158,6 @@ workflows:
     before_run:
       - cache-pull
       - bootstrap-carthage
-      - bootstrap-cocoapods
       - test-xcode
       - bootstrap-code-signing
       - archive-xcode

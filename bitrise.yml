@@ -1,0 +1,49 @@
+---
+format_version: 1.3.1
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+trigger_map:
+- push_branch: develop
+  workflow: forward-push
+- push_branch: master
+  workflow: forward-push
+- pull_request_target_branch: develop
+  workflow: forward-pull-request
+- pull_request_target_branch: master
+  workflow: forward-pull-request
+app:
+  envs:
+  - BITRISE_YML: "./bitrise.yml"
+workflows:
+  clone:
+    steps:
+    - activate-ssh-key:
+        title: activate-ssh-key
+    - git-clone:
+        title: git-clone
+        inputs:
+        - clone_depth: 1
+  forward-push:
+    before_run:
+    - clone
+    steps:
+    - script:
+        title: run-bitrise-cli
+        inputs:
+        - content: bitrise trigger --push-branch $BITRISE_GIT_BRANCH --config $BITRISE_YML
+  forward-pull-request:
+    before_run:
+    - clone
+    steps:
+    - script:
+        title: run-bitrise-cli
+        inputs:
+        - content: bitrise trigger --pr-source-branch $BITRISEIO_PULL_REQUEST_HEAD_BRANCH
+            --pr-target-branch $BITRISEIO_GIT_BRANCH_DEST --config $BITRISE_YML
+  brew-bundle:
+    steps:
+    - script:
+        title: Brew bundle
+        inputs:
+        - content: |-
+            #!/bin/bash
+            brew bundle

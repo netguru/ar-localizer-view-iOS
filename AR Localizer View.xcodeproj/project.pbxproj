@@ -8,12 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A0BDE669235D9FB4006BBD03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BDE668235D9FB4006BBD03 /* AppDelegate.swift */; };
-		A0BDE66B235D9FB4006BBD03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BDE66A235D9FB4006BBD03 /* SceneDelegate.swift */; };
-		A0BDE66D235D9FB4006BBD03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BDE66C235D9FB4006BBD03 /* ViewController.swift */; };
-		A0BDE670235D9FB4006BBD03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0BDE66E235D9FB4006BBD03 /* Main.storyboard */; };
 		A0BDE672235D9FB5006BBD03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0BDE671235D9FB5006BBD03 /* Assets.xcassets */; };
 		A0BDE675235D9FB5006BBD03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0BDE673235D9FB5006BBD03 /* LaunchScreen.storyboard */; };
-		A0BDE680235D9FB5006BBD03 /* AR_Localizer_ViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BDE67F235D9FB5006BBD03 /* AR_Localizer_ViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,14 +25,10 @@
 /* Begin PBXFileReference section */
 		A0BDE665235D9FB4006BBD03 /* AR Localizer View.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR Localizer View.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0BDE668235D9FB4006BBD03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A0BDE66A235D9FB4006BBD03 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A0BDE66C235D9FB4006BBD03 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A0BDE66F235D9FB4006BBD03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A0BDE671235D9FB5006BBD03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0BDE674235D9FB5006BBD03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0BDE676235D9FB5006BBD03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0BDE67B235D9FB5006BBD03 /* AR Localizer ViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AR Localizer ViewTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0BDE67F235D9FB5006BBD03 /* AR_Localizer_ViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AR_Localizer_ViewTests.swift; sourceTree = "<group>"; };
 		A0BDE681235D9FB5006BBD03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,7 +54,8 @@
 			isa = PBXGroup;
 			children = (
 				A0BDE667235D9FB4006BBD03 /* AR Localizer View */,
-				A0BDE67E235D9FB5006BBD03 /* AR Localizer ViewTests */,
+				A0BDE68D235DAF9D006BBD03 /* Supporting Files */,
+				A0BDE67E235D9FB5006BBD03 /* Unit Tests */,
 				A0BDE666235D9FB4006BBD03 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -79,24 +72,51 @@
 		A0BDE667235D9FB4006BBD03 /* AR Localizer View */ = {
 			isa = PBXGroup;
 			children = (
-				A0BDE668235D9FB4006BBD03 /* AppDelegate.swift */,
-				A0BDE66A235D9FB4006BBD03 /* SceneDelegate.swift */,
-				A0BDE66C235D9FB4006BBD03 /* ViewController.swift */,
-				A0BDE66E235D9FB4006BBD03 /* Main.storyboard */,
-				A0BDE671235D9FB5006BBD03 /* Assets.xcassets */,
-				A0BDE673235D9FB5006BBD03 /* LaunchScreen.storyboard */,
-				A0BDE676235D9FB5006BBD03 /* Info.plist */,
+				A0BDE68A235DAF75006BBD03 /* Source Files */,
+				A0BDE68B235DAF7E006BBD03 /* Resources */,
+				A0BDE68C235DAF86006BBD03 /* Interface */,
 			);
 			path = "AR Localizer View";
 			sourceTree = "<group>";
 		};
-		A0BDE67E235D9FB5006BBD03 /* AR Localizer ViewTests */ = {
+		A0BDE67E235D9FB5006BBD03 /* Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
-				A0BDE67F235D9FB5006BBD03 /* AR_Localizer_ViewTests.swift */,
 				A0BDE681235D9FB5006BBD03 /* Info.plist */,
 			);
-			path = "AR Localizer ViewTests";
+			path = "Unit Tests";
+			sourceTree = "<group>";
+		};
+		A0BDE68A235DAF75006BBD03 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				A0BDE668235D9FB4006BBD03 /* AppDelegate.swift */,
+			);
+			path = "Source Files";
+			sourceTree = "<group>";
+		};
+		A0BDE68B235DAF7E006BBD03 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A0BDE671235D9FB5006BBD03 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A0BDE68C235DAF86006BBD03 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				A0BDE673235D9FB5006BBD03 /* LaunchScreen.storyboard */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		A0BDE68D235DAF9D006BBD03 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A0BDE676235D9FB5006BBD03 /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,7 +201,6 @@
 			files = (
 				A0BDE675235D9FB5006BBD03 /* LaunchScreen.storyboard in Resources */,
 				A0BDE672235D9FB5006BBD03 /* Assets.xcassets in Resources */,
-				A0BDE670235D9FB4006BBD03 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,9 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0BDE66D235D9FB4006BBD03 /* ViewController.swift in Sources */,
 				A0BDE669235D9FB4006BBD03 /* AppDelegate.swift in Sources */,
-				A0BDE66B235D9FB4006BBD03 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,7 +226,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0BDE680235D9FB5006BBD03 /* AR_Localizer_ViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,14 +240,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A0BDE66E235D9FB4006BBD03 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A0BDE66F235D9FB4006BBD03 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A0BDE673235D9FB5006BBD03 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -362,7 +370,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "AR Localizer View/Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -379,7 +387,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "AR Localizer View/Info.plist";
+				INFOPLIST_FILE = "Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -397,7 +405,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "AR Localizer ViewTests/Info.plist";
+				INFOPLIST_FILE = "Unit Tests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -418,7 +426,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "AR Localizer ViewTests/Info.plist";
+				INFOPLIST_FILE = "Unit Tests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

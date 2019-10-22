@@ -1,2 +1,0 @@
-#include "Base.xcconfig"
-#include "../Carthage/Checkouts/xcconfigs/Configurations/Debug.xcconfig"

@@ -1,0 +1,11 @@
+//
+//  App-Staging.xcconfig
+//  AR Localizer
+//
+
+#include "App-Base.xcconfig"
+
+__BUNDLE_IDENTIFIER_SUFFIX = .staging
+
+_CODESIGN_IDENTITY = iPhone Distribution
+_CODESIGN_PROFILE_SPECIFIER = ARLocalizer Staging

@@ -1,5 +1,0 @@
-#include "../Carthage/Checkouts/xcconfigs/Platforms/iOS.xcconfig"
-#include "../Carthage/Checkouts/xcconfigs/Targets/Tests.xcconfig"
-
-_BUNDLE_IDENTIFIER = com.netguru.internal.ar-localizer.tests
-_BUNDLE_INFOPLIST_PATH = $(PROJECT_DIR)/Unit Tests/Info.plist

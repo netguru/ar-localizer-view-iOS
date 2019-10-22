@@ -26,6 +26,7 @@ DerivedData
 *.hmap
 *.ipa
 *.dSYM.zip
+*.xcworkspacedata
 
 timeline.xctimeline
 playground.xcworkspace

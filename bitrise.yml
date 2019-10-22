@@ -6,45 +6,6 @@
 # an iOS app repository. You can strip the comments in your `bitrise.yml`, if
 # you want.
 #
-# Scripts in the following `bitrise.yml` file makes use of the following
-# environment variables that should be set up as secret:
-#
-# - `HOCKEYAPP_APP_ID_STAGING`, `HOCKEYAPP_APP_ID_PRODUCTION`: App IDs of
-#   staging and production HockeyApp apps.
-#
-# - `HOCKEYAPP_API_TOKEN_STAGING`, `HOCKEYAPP_API_TOKEN_PRODUCTION`: API tokens
-#   used to upload and release builds to HockeyApp app.
-#
-# - `SLACK_WEBHOOK_URL`: A generic webhook integration URL used to post
-#   notifications to Slack.
-#
-# - `JIRA_USER`, `JIRA_API_TOKEN`: Credentials for the account used by comment step.
-#   You can find these credentials in iOS vault in 1Password.
-#
-# - `JIRA_HOST`: Jira url address. (e.g. `https://netguru.atlassian.net`)
-#
-# - `JIRA_QA_TRANSACTION_ID`, `JIRA_NO_QA_TRANSACTION_ID`: IDs of transactions used by Jira.
-#   Can be found by using script described on `https://github.com/netguru/bitrise-step-ng-jira-step`.
-#   In case of no `NO QA` transaction, use `not used` as value.
-#
-# - `SLACK_CHANNEL` (optional): A target Slack channel to post notifications to.
-#   If not present, the default channel of the integration is used.
-#
-# - `JIRA_DOMAIN` (optional): A domain URL to the JIRA installation, typically a
-#   subdomain on `atlassian.net`. If not present, information about JIRA task
-#   will not be included in a Slack notification.
-#
-# - `JIRA_PROJECT_KEY` (optional): A JIRA project key assocciated with the
-#   repository. If not present, information about JIRA task will not be included
-#   in a Slack notification.
-#
-# - `GITHUB_ACCESS_TOKEN` (optional, but recommended): You should ask our Support team
-#   for proper access token. They can find it under "github - CI - Token" name.
-#   Setting up Carthage with access token will allow it to download
-#   libraries without hitting API rate limit. This way Carthage step will
-#   run faster - if library can be downloaded, Carthage will do that, rather than
-#   compiling dependency.
-#
 # Also, those scripts use the following environment variables that are declared
 # publicly in the following file:
 #
@@ -77,14 +38,8 @@ trigger_map:
   - push_branch: develop
     workflow: build-staging
 
-  - push_branch: master
-    workflow: build-production
-
   - pull_request_target_branch: develop
     workflow: build-pull-request
-
-  - pull_request_target_branch: master
-    workflow: build-release-candidate
 
 # Environment configuration.
 #
@@ -109,63 +64,16 @@ workflows:
   build-staging:
     envs:
       - XCODEBUILD_SCHEME: Staging
-      - HOCKEYAPP_API_TOKEN: $HOCKEYAPP_API_TOKEN_STAGING
-      - HOCKEYAPP_APP_ID: $HOCKEYAPP_APP_ID_STAGING
     before_run:
       - cache-pull
+      - brew-bundle
       - bootstrap-carthage
       - test-xcode
       - bootstrap-code-signing
       - archive-xcode
     after_run:
       - cache-push
-      - deploy-hockeyapp
       - deploy-bitriseio
-      - notify-slack
-
-  # Build, test and deploy a release candidate app.
-  #
-  # This workflow pulls dependencies, builds and tests an app with release candidate
-  # scheme and finally pushes the archived build to HockeyApp.
-
-  build-release-candidate:
-    envs:
-      - XCODEBUILD_SCHEME: RC
-      - HOCKEYAPP_API_TOKEN: $HOCKEYAPP_API_TOKEN_PRODUCTION
-      - HOCKEYAPP_APP_ID: $HOCKEYAPP_APP_ID_PRODUCTION
-    before_run:
-      - cache-pull
-      - bootstrap-carthage
-      - test-xcode
-      - bootstrap-code-signing
-      - archive-xcode
-    after_run:
-      - cache-push
-      - deploy-hockeyapp
-      - deploy-bitriseio
-      - notify-slack
-
-  # Build, test and deploy a production app.
-  #
-  # This workflow pulls dependencies, builds and tests an app with production
-  # scheme and finally pushes the archived build to HockeyApp.
-
-  build-production:
-    envs:
-      - XCODEBUILD_SCHEME: Production
-      - HOCKEYAPP_API_TOKEN: $HOCKEYAPP_API_TOKEN_PRODUCTION
-      - HOCKEYAPP_APP_ID: $HOCKEYAPP_APP_ID_PRODUCTION
-    before_run:
-      - cache-pull
-      - bootstrap-carthage
-      - test-xcode
-      - bootstrap-code-signing
-      - archive-xcode
-    after_run:
-      - cache-push
-      - deploy-hockeyapp
-      - deploy-bitriseio
-      - notify-slack
 
   # Build and test a staging app.
   #
@@ -174,7 +82,7 @@ workflows:
 
   build-pull-request:
     envs:
-      - XCODEBUILD_SCHEME: Debug
+      - XCODEBUILD_SCHEME: Staging
     before_run:
       - cache-pull
       - brew-bundle
@@ -183,7 +91,6 @@ workflows:
     after_run:
       - cache-push
       - deploy-bitriseio
-  #    - notify-slack
 
   # Pull previously cached directories.
 
@@ -214,7 +121,6 @@ workflows:
           inputs:
             - carthage_command: bootstrap
             - carthage_options: --platform iOS --cache-builds
-            - github_access_token: $GITHUB_ACCESS_TOKEN
 
   # Bootstrap code signing by installing certificates and provisioning profiles.
 
@@ -244,16 +150,6 @@ workflows:
             - scheme: $XCODEBUILD_SCHEME
             - xcodebuild_options: $XCODEBUILD_OPTIONS
 
-  # Deploy a built app to HockeyApp.
-
-  deploy-hockeyapp:
-    steps:
-      - hockeyapp-deploy:
-          inputs:
-            - api_token: $HOCKEYAPP_API_TOKEN
-            - app_id: $HOCKEYAPP_APP_ID
-            - notify: 0
-
   # Deploy build artifacts to bitrise.io.
 
   deploy-bitriseio:
@@ -263,27 +159,7 @@ workflows:
             - notify_user_groups: none
             - is_enable_public_page: false
 
-  # Notify about build on Slack.
-  #
-  # If you don't use Slack integration, you can remove this workflow.
-
-  notify-slack:
-    steps:
-      - slack@2.7.2:
-          inputs:
-            - webhook_url: $SLACK_WEBHOOK_URL
-            - channel: $SLACK_CHANNEL
-            - channel_on_error: $SLACK_CHANNEL
-            - message: $GIT_CLONE_COMMIT_MESSAGE_SUBJECT
-            - author_name: 'Build #$BITRISE_BUILD_NUMBER triggered by $GIT_CLONE_COMMIT_AUTHOR_NAME'
-            - title: ''
-            - fields: |-
-                Branch|${BITRISE_GIT_BRANCH}
-                Commit|${BITRISE_GIT_COMMIT}
-                Workflow|${BITRISE_TRIGGERED_WORKFLOW_ID}
-            - buttons: |-
-                View on Bitrise|${BITRISE_BUILD_URL}
-                View on HockeyApp|https://rink.hockeyapp.net/apps/${HOCKEYAPP_APP_ID}
+  # Brew bundle to get SwiftLint.
 
   brew-bundle:
     steps:

@@ -1,0 +1,11 @@
+//
+//  App-Development.xcconfig
+//  AR Localizer
+//
+
+#include "App-Base.xcconfig"
+
+__BUNDLE_IDENTIFIER_SUFFIX = .development
+
+_CODESIGN_IDENTITY = iPhone Developer
+_CODESIGN_PROFILE_SPECIFIER = ARLocalizer Development

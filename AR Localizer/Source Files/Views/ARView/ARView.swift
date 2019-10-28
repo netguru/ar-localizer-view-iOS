@@ -25,7 +25,11 @@ class ARView: UIView {
     let label = UILabel()
     label.translatesAutoresizingMaskIntoConstraints = false
     label.textAlignment = .center
-    label.backgroundColor = .systemBackground
+    if #available(iOS 13.0, *) {
+      label.backgroundColor = .systemBackground
+    } else {
+      label.backgroundColor = .white
+    }
     return label
   }()
 

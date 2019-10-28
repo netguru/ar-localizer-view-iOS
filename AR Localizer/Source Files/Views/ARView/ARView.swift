@@ -52,7 +52,7 @@ class ARView: UIView {
   }
 
   // MARK: Init
-  
+
   override init(frame: CGRect) {
     super.init(frame: frame)
 
@@ -72,7 +72,8 @@ class ARView: UIView {
   // MARK: Methods
 
   private func activateConstaints() {
-    NSLayoutConstraint.activate([
+    NSLayoutConstraint.activate(
+      [
       cameraPreview.heightAnchor.constraint(equalTo: heightAnchor),
       cameraPreview.widthAnchor.constraint(equalTo: widthAnchor),
       cameraPreview.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -90,7 +91,8 @@ class ARView: UIView {
       distanceLabel.heightAnchor.constraint(equalToConstant: 50),
       distanceLabelCenterXConstraint,
       distanceLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
-    ])
+      ]
+    )
   }
 
   func startCameraPreview() {

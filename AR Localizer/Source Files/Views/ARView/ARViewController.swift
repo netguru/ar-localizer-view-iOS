@@ -11,7 +11,7 @@ class ARViewController: UIViewController {
   private let viewModel = ARViewModel(targetLocation: CLLocation(latitude: 52.4015279, longitude: 16.8918892))
   private let locationManager = CLLocationManager()
   private var arView: ARView { view as! ARView }
-  
+
   override func loadView() {
     view = ARView(frame: UIScreen.main.bounds)
   }
@@ -38,8 +38,7 @@ class ARViewController: UIViewController {
   }
 }
 
-
-//MARK: - Location Manager Delegate
+// MARK: - Location Manager Delegate
 
 extension ARViewController: CLLocationManagerDelegate {
   func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {

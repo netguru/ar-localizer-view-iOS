@@ -9,7 +9,8 @@ import CoreLocation
 typealias Angle = Double
 
 extension Angle {
-  /// Calculates smallest difference between two angles. Returns positive value for clockwise rotation or negative for counterclockwise.
+  /// Calculates smallest difference between two angles.
+  /// Returns positive value for clockwise rotation or negative for counterclockwise.
   func smallestDifference(to angle: Angle) -> Angle {
     let difference = self - angle
 
@@ -38,7 +39,7 @@ class ARViewModel {
   private let targetLocation: CLLocation
 
   private var distanceToTargetLocation: Double = 0.0 {
-    didSet{
+    didSet {
       distanceLabelText = "\(Int(distanceToTargetLocation)) m"
     }
   }
@@ -60,7 +61,7 @@ class ARViewModel {
   private var minimalAngleOfVisibility: Double {
     var angle = azimuthToTargetLocation - azimuthToNorthAccuracy - 15
     if angle < 0 {
-      angle += 360;
+      angle += 360
     }
     return angle
   }
@@ -102,15 +103,16 @@ class ARViewModel {
   // MARK: Update Distance Label
 
   private func updateDistanceLabel() {
-    let shouldBeVisible = isBetween(leftBound: minimalAngleOfVisibility,
-                                    rightBound: maximalAngleOfVisibilty,
-                                    angle: azimuthToNorth)
+    let shouldBeVisible = isBetween(
+      leftBound: minimalAngleOfVisibility,
+      rightBound: maximalAngleOfVisibilty,
+      angle: azimuthToNorth
+    )
 
     if shouldBeVisible {
       calculateDistanceLabelXOffset()
       distanceLabelIsHidden = false
-    }
-    else {
+    } else {
       distanceLabelIsHidden = true
     }
   }

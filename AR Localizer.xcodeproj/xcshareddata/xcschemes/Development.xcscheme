@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A0BDE67A235D9FB5006BBD03"
-               BuildableName = "AR Localizer.xctest"
+               BuildableName = "AR LocalizerTests.xctest"
                BlueprintName = "AR LocalizerTests"
                ReferencedContainer = "container:AR Localizer.xcodeproj">
             </BuildableReference>

@@ -111,6 +111,40 @@
 			path = "Source Files";
 			sourceTree = "<group>";
 		};
+		A09047CD23675CE90027EA41 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				A09047C723675C6B0027EA41 /* ARViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		A09047CE23675CF30027EA41 /* ARView */ = {
+			isa = PBXGroup;
+			children = (
+				A09047C923675C860027EA41 /* ARViewController.swift */,
+				A09047C523675C520027EA41 /* ARView.swift */,
+			);
+			path = ARView;
+			sourceTree = "<group>";
+		};
+		A09047CF23675D0B0027EA41 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A09047CE23675CF30027EA41 /* ARView */,
+				A09047CB23675C9E0027EA41 /* CameraPreview.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A09047D023675D150027EA41 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				A0BDE668235D9FB4006BBD03 /* AppDelegate.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		A0BDE65C235D9FB4006BBD03 = {
 			isa = PBXGroup;
 			children = (
@@ -153,11 +187,9 @@
 		A0BDE68A235DAF75006BBD03 /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
-				A0BDE668235D9FB4006BBD03 /* AppDelegate.swift */,
-				A09047C923675C860027EA41 /* ARViewController.swift */,
-				A09047C723675C6B0027EA41 /* ARViewModel.swift */,
-				A09047C523675C520027EA41 /* ARView.swift */,
-				A09047CB23675C9E0027EA41 /* CameraPreview.swift */,
+				A09047D023675D150027EA41 /* Other */,
+				A09047CF23675D0B0027EA41 /* Views */,
+				A09047CD23675CE90027EA41 /* View Models */,
 			);
 			path = "Source Files";
 			sourceTree = "<group>";

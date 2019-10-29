@@ -102,12 +102,11 @@ final class ARViewModel: ARViewModelProtocol {
   }
 
   private func updateDistanceLabelOffsetAndVisibility() {
-    let shouldBeVisible = isAngleInsideBounds(
+    let shouldBeVisible = isAngleInSector(
       azimuthToNorth,
-      leftBound: minimalAngleOfVisibility,
-      rightBound: maximalAngleOfVisibilty
-    )
-
+      withLeftBound: minimalAngleOfVisibility,
+      withRightBound: maximalAngleOfVisibilty
+      )
     if shouldBeVisible {
       calculateDistanceLabelXOffset()
       distanceLabelIsHidden = false
@@ -127,28 +126,15 @@ extension ARViewModel {
     distanceLabelXOffset = CGFloat(offsetInPixels)
   }
 
-  private func isAngleInsideBounds(
+  private func isAngleInSector(
     _ angle: Angle,
-    leftBound: Angle,
-    rightBound: Angle
+    withLeftBound leftBound: Angle,
+    withRightBound rightBound: Angle
   ) -> Bool {
     if leftBound > rightBound {
-      let isBetweenLeftBoundAnd360 = isAngleInsideBounds(
-        angle,
-        leftBound: leftBound,
-        rightBound: 360
-      )
-      let isBetween0AndRightBound = isAngleInsideBounds(
-        angle,
-        leftBound: 0,
-        rightBound: rightBound
-      )
-
-      return  isBetweenLeftBoundAnd360 || isBetween0AndRightBound
+      return  (leftBound...360).contains(angle) || (0...rightBound).contains(angle)
     } else {
-      let isBiggerThanLeftBound = angle >= leftBound
-      let isSmallerThanRightBound = angle <= rightBound
-      return  isBiggerThanLeftBound && isSmallerThanRightBound
+      return  angle >= leftBound && angle <= rightBound
     }
   }
 

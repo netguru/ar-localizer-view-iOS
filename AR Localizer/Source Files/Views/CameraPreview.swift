@@ -6,7 +6,7 @@
 import UIKit
 import AVFoundation
 
-class CameraPreview: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
+final class CameraPreview: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
   private let session = AVCaptureSession()
 
   func start() {
@@ -38,9 +38,13 @@ class CameraPreview: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
   }
 
   private func setupSession() {
-    guard let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back),
-          let deviceInput = try? AVCaptureDeviceInput(device: device),
-          session.canAddInput(deviceInput) else { return }
+    guard
+      let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back),
+      let deviceInput = try? AVCaptureDeviceInput(device: device),
+      session.canAddInput(deviceInput)
+    else {
+      return
+    }
 
     session.addInput(deviceInput)
     session.sessionPreset = .hd1280x720

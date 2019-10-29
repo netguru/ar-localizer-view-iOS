@@ -6,9 +6,10 @@
 import UIKit
 import CoreLocation
 
-class ARViewController: UIViewController {
+final class ARViewController: UIViewController {
 
-  private let viewModel = ARViewModel(targetLocation: CLLocation(latitude: 52.4015279, longitude: 16.8918892))
+  private var viewModel: ARViewModelProtocol =
+    ARViewModel(targetLocation: CLLocation(latitude: 52.4015279, longitude: 16.8918892))
   private let locationManager = CLLocationManager()
   private var arView: ARView { view as! ARView }
 

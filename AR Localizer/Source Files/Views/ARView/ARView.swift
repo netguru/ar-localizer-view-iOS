@@ -5,19 +5,12 @@
 
 import UIKit
 
-class ARView: UIView {
+final class ARView: UIView {
 
-  // MARK: Private properties
-
-  private let cameraPreview: CameraPreview = {
-    let cameraPreview = CameraPreview()
-    cameraPreview.translatesAutoresizingMaskIntoConstraints = false
-    return cameraPreview
-  }()
-
-  private lazy var distanceLabelCenterXConstraint: NSLayoutConstraint = {
-    distanceLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
-  }()
+  private enum Constants {
+    static let DistanceLabelWidth: CGFloat = 100
+    static let DistanceLabelHeight: CGFloat = 50
+  }
 
   // MARK: Public properties
 
@@ -50,6 +43,18 @@ class ARView: UIView {
       distanceLabelCenterXConstraint.constant = distanceLabelXOffset
     }
   }
+
+  // MARK: Private properties
+
+  private let cameraPreview: CameraPreview = {
+    let cameraPreview = CameraPreview()
+    cameraPreview.translatesAutoresizingMaskIntoConstraints = false
+    return cameraPreview
+  }()
+
+  private lazy var distanceLabelCenterXConstraint: NSLayoutConstraint = {
+    distanceLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+  }()
 
   // MARK: Init
 
@@ -87,8 +92,8 @@ class ARView: UIView {
       azimuthToTargetLocationLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
       azimuthToTargetLocationLabel.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
 
-      distanceLabel.widthAnchor.constraint(equalToConstant: 100),
-      distanceLabel.heightAnchor.constraint(equalToConstant: 50),
+      distanceLabel.widthAnchor.constraint(equalToConstant: Constants.DistanceLabelWidth),
+      distanceLabel.heightAnchor.constraint(equalToConstant: Constants.DistanceLabelHeight),
       distanceLabelCenterXConstraint,
       distanceLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
       ]

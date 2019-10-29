@@ -24,9 +24,29 @@ extension Angle {
   }
 }
 
-class ARViewModel {
+final class ARViewModel: ARViewModelProtocol {
 
-  // MARK: View mappings
+  // MARK: Public properties
+
+  var heading: CLHeading? {
+    didSet {
+      guard let heading = heading else { return }
+      azimuthToNorth = heading.trueHeading
+      azimuthToNorthAccuracy = heading.headingAccuracy
+      updateDistanceLabelOffsetAndVisibility()
+    }
+  }
+
+  var currentLocation: CLLocation? {
+    didSet {
+      guard let currentLocation = currentLocation else { return }
+      azimuthToTargetLocation = calculateAzimuth(from: currentLocation, to: targetLocation)
+      updateDistanceLabelText(currentLocation: currentLocation)
+      updateDistanceLabelOffsetAndVisibility()
+    }
+  }
+
+  // MARK: View mapping properties
 
   private(set) var distanceLabelXOffset = CGFloat(0.0)
   private(set) var distanceLabelText = ""
@@ -37,12 +57,6 @@ class ARViewModel {
   // MARK: Private properties
 
   private let targetLocation: CLLocation
-
-  private var distanceToTargetLocation: Double = 0.0 {
-    didSet {
-      distanceLabelText = "\(Int(distanceToTargetLocation)) m"
-    }
-  }
 
   private var azimuthToNorth: Angle = 0 {
     didSet {
@@ -74,39 +88,24 @@ class ARViewModel {
     return angle
   }
 
-  // MARK: Public properties
-
-  var heading: CLHeading? {
-    didSet {
-      guard let heading = heading else { return }
-      azimuthToNorth = heading.trueHeading
-      azimuthToNorthAccuracy = heading.headingAccuracy
-      updateDistanceLabel()
-    }
-  }
-
-  var currentLocation: CLLocation? {
-    didSet {
-      guard let currentLocation = currentLocation else { return }
-      azimuthToTargetLocation = calculateAzimuth(from: currentLocation, to: targetLocation)
-      distanceToTargetLocation = targetLocation.distance(from: currentLocation)
-      updateDistanceLabel()
-    }
-  }
-
   // MARK: Init
 
   init(targetLocation: CLLocation) {
     self.targetLocation = targetLocation
   }
 
-  // MARK: Update Distance Label
+  // MARK: Update view mapping properties
 
-  private func updateDistanceLabel() {
-    let shouldBeVisible = isBetween(
+  private func updateDistanceLabelText(currentLocation: CLLocation) {
+    let distanceToTargetLocation = targetLocation.distance(from: currentLocation)
+    distanceLabelText = "\(Int(distanceToTargetLocation)) m"
+  }
+
+  private func updateDistanceLabelOffsetAndVisibility() {
+    let shouldBeVisible = isAngleInsideBounds(
+      azimuthToNorth,
       leftBound: minimalAngleOfVisibility,
-      rightBound: maximalAngleOfVisibilty,
-      angle: azimuthToNorth
+      rightBound: maximalAngleOfVisibilty
     )
 
     if shouldBeVisible {
@@ -128,10 +127,23 @@ extension ARViewModel {
     distanceLabelXOffset = CGFloat(offsetInPixels)
   }
 
-  private func isBetween(leftBound: Angle, rightBound: Angle, angle: Angle) -> Bool {
+  private func isAngleInsideBounds(
+    _ angle: Angle,
+    leftBound: Angle,
+    rightBound: Angle
+  ) -> Bool {
     if leftBound > rightBound {
-      let isBetweenLeftBoundAnd360 = isBetween(leftBound: leftBound, rightBound: 360, angle: angle)
-      let isBetween0AndRightBound = isBetween(leftBound: 0, rightBound: rightBound, angle: angle)
+      let isBetweenLeftBoundAnd360 = isAngleInsideBounds(
+        angle,
+        leftBound: leftBound,
+        rightBound: 360
+      )
+      let isBetween0AndRightBound = isAngleInsideBounds(
+        angle,
+        leftBound: 0,
+        rightBound: rightBound
+      )
+
       return  isBetweenLeftBoundAnd360 || isBetween0AndRightBound
     } else {
       let isBiggerThanLeftBound = angle >= leftBound
@@ -152,8 +164,8 @@ extension ARViewModel {
       return 180 + phiAngle
     } else if dX > 0 && dY < 0 {
       return 360 - phiAngle
-    } else {
-      return phiAngle
     }
+
+    return phiAngle
   }
 }

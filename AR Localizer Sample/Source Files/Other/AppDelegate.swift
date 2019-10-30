@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import ARLocalizer
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {

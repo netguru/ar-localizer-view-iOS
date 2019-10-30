@@ -15,15 +15,29 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A0BDE664235D9FB4006BBD03"
-               BuildableName = "AR Localizer Sample.app"
-               BlueprintName = "AR Localizer Sample"
-               ReferencedContainer = "container:AR Localizer.xcodeproj">
+               BuildableName = "ARLocalizerViewSample.app"
+               BlueprintName = "Sample"
+               ReferencedContainer = "container:ARLocalizerView.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A09047FB236973FD0027EA41"
+               BuildableName = "ARLocalizerViewTests.xctest"
+               BlueprintName = "Unit Tests"
+               ReferencedContainer = "container:ARLocalizerView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Development"
+      buildConfiguration = "Staging"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
@@ -32,16 +46,16 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A0BDE67A235D9FB5006BBD03"
-               BuildableName = "AR LocalizerTests.xctest"
-               BlueprintName = "AR LocalizerTests"
-               ReferencedContainer = "container:AR Localizer.xcodeproj">
+               BlueprintIdentifier = "A09047FB236973FD0027EA41"
+               BuildableName = "ARLocalizerViewTests.xctest"
+               BlueprintName = "Unit Tests"
+               ReferencedContainer = "container:ARLocalizerView.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Development"
+      buildConfiguration = "Staging"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -55,14 +69,14 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0BDE664235D9FB4006BBD03"
-            BuildableName = "AR Localizer Sample.app"
-            BlueprintName = "AR Localizer Sample"
-            ReferencedContainer = "container:AR Localizer.xcodeproj">
+            BuildableName = "ARLocalizerViewSample.app"
+            BlueprintName = "Sample"
+            ReferencedContainer = "container:ARLocalizerView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Development"
+      buildConfiguration = "Staging"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
@@ -72,17 +86,17 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0BDE664235D9FB4006BBD03"
-            BuildableName = "AR Localizer Sample.app"
-            BlueprintName = "AR Localizer Sample"
-            ReferencedContainer = "container:AR Localizer.xcodeproj">
+            BuildableName = "ARLocalizerViewSample.app"
+            BlueprintName = "Sample"
+            ReferencedContainer = "container:ARLocalizerView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Development">
+      buildConfiguration = "Staging">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Development"
+      buildConfiguration = "Staging"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

@@ -6,12 +6,14 @@
 #include "../../Carthage/Checkouts/xcconfigs/Platforms/iOS.xcconfig"
 #include "../../Carthage/Checkouts/xcconfigs/Targets/Framework.xcconfig"
 
-_BUNDLE_NAME = ARLocalizer
-_PRODUCT_NAME = ARLocalizer
-_BUNDLE_INFOPLIST_PATH = $(SRCROOT)/AR Localizer Sample/Supporting Files/Info.plist
+_BUNDLE_NAME = ARLocalizerView
+_PRODUCT_NAME = ARLocalizerView
+_BUNDLE_INFOPLIST_PATH = $(SRCROOT)/ARLocalizerView/Supporting Files/Info.plist
 _BUNDLE_IDENTIFIER = com.netguru.internal.ar-localizer$(__BUNDLE_IDENTIFIER_SUFFIX)
 
 _ASSET_ICON = AppIcon
 
 _CODESIGN_STYLE = Manual
 _CODESIGN_DEVELOPMENT_TEAM = 9HJ69C5G9K
+
+ENABLE_TESTABILITY = YES

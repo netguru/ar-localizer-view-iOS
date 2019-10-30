@@ -14,30 +14,30 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A0BDE664235D9FB4006BBD03"
-               BuildableName = "AR Localizer Sample.app"
-               BlueprintName = "AR Localizer Sample"
-               ReferencedContainer = "container:AR Localizer.xcodeproj">
+               BlueprintIdentifier = "A09047F3236973FD0027EA41"
+               BuildableName = "ARLocalizerView.framework"
+               BlueprintName = "Framework"
+               ReferencedContainer = "container:ARLocalizerView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "NO"
+            buildForRunning = "YES"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A0BDE67A235D9FB5006BBD03"
-               BuildableName = "AR LocalizerTests.xctest"
-               BlueprintName = "AR LocalizerTests"
-               ReferencedContainer = "container:AR Localizer.xcodeproj">
+               BlueprintIdentifier = "A0BDE664235D9FB4006BBD03"
+               BuildableName = "ARLocalizerViewSample.app"
+               BlueprintName = "Sample"
+               ReferencedContainer = "container:ARLocalizerView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Staging"
+      buildConfiguration = "Development"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
@@ -46,16 +46,16 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A0BDE67A235D9FB5006BBD03"
-               BuildableName = "AR LocalizerTests.xctest"
-               BlueprintName = "AR LocalizerTests"
-               ReferencedContainer = "container:AR Localizer.xcodeproj">
+               BlueprintIdentifier = "A09047FB236973FD0027EA41"
+               BuildableName = "ARLocalizerViewTests.xctest"
+               BlueprintName = "Unit Tests"
+               ReferencedContainer = "container:ARLocalizerView.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Staging"
+      buildConfiguration = "Development"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -64,39 +64,28 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A0BDE664235D9FB4006BBD03"
-            BuildableName = "AR Localizer Sample.app"
-            BlueprintName = "AR Localizer Sample"
-            ReferencedContainer = "container:AR Localizer.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Staging"
+      buildConfiguration = "Development"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A0BDE664235D9FB4006BBD03"
-            BuildableName = "AR Localizer Sample.app"
-            BlueprintName = "AR Localizer Sample"
-            ReferencedContainer = "container:AR Localizer.xcodeproj">
+            BlueprintIdentifier = "A09047F3236973FD0027EA41"
+            BuildableName = "ARLocalizerView.framework"
+            BlueprintName = "Framework"
+            ReferencedContainer = "container:ARLocalizerView.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Staging">
+      buildConfiguration = "Development">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Staging"
+      buildConfiguration = "Development"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A09047F3236973FD0027EA41"
-               BuildableName = "ARLocalizer.framework"
-               BlueprintName = "ARLocalizer"
-               ReferencedContainer = "container:AR Localizer.xcodeproj">
+               BuildableName = "ARLocalizerView.framework"
+               BlueprintName = "Framework"
+               ReferencedContainer = "container:ARLocalizerView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A0BDE664235D9FB4006BBD03"
-               BuildableName = "AR Localizer Sample.app"
-               BlueprintName = "AR Localizer Sample"
-               ReferencedContainer = "container:AR Localizer.xcodeproj">
+               BuildableName = "ARLocalizerViewSample.app"
+               BlueprintName = "Sample"
+               ReferencedContainer = "container:ARLocalizerView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A09047FB236973FD0027EA41"
-               BuildableName = "AR Localizer ViewTests.xctest"
-               BlueprintName = "AR Localizer ViewTests"
-               ReferencedContainer = "container:AR Localizer.xcodeproj">
+               BuildableName = "ARLocalizerViewTests.xctest"
+               BlueprintName = "Unit Tests"
+               ReferencedContainer = "container:ARLocalizerView.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A09047F3236973FD0027EA41"
-            BuildableName = "ARLocalizer.framework"
-            BlueprintName = "ARLocalizer"
-            ReferencedContainer = "container:AR Localizer.xcodeproj">
+            BuildableName = "ARLocalizerView.framework"
+            BlueprintName = "Framework"
+            ReferencedContainer = "container:ARLocalizerView.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

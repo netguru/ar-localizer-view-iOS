@@ -69,7 +69,7 @@
 		A09047F7236973FD0027EA41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A09047FC236973FD0027EA41 /* ARLocalizerViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARLocalizerViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0904801236973FD0027EA41 /* AR_Localizer_ViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AR_Localizer_ViewTests.swift; path = ../AR_Localizer_ViewTests.swift; sourceTree = "<group>"; };
-		A0904803236973FD0027EA41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		A0904803236973FD0027EA41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A09048202369758C0027EA41 /* App-Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-Development.xcconfig"; sourceTree = "<group>"; };
 		A09048212369758C0027EA41 /* App-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-Base.xcconfig"; sourceTree = "<group>"; };
 		A09048222369758C0027EA41 /* App-Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-Staging.xcconfig"; sourceTree = "<group>"; };
@@ -546,10 +546,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A09048202369758C0027EA41 /* App-Development.xcconfig */;
 			buildSettings = {
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
 			};
 			name = Development;
 		};
@@ -564,10 +560,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A09048222369758C0027EA41 /* App-Staging.xcconfig */;
 			buildSettings = {
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
 			};
 			name = Staging;
 		};
@@ -589,8 +581,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A090485023698C290027EA41 /* Tests-Base.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARLocalizerViewSample.app/ARLocalizerViewSample";
 			};
 			name = Development;
 		};
@@ -598,8 +588,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A090485023698C290027EA41 /* Tests-Base.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARLocalizerViewSample.app/ARLocalizerViewSample";
 			};
 			name = Staging;
 		};

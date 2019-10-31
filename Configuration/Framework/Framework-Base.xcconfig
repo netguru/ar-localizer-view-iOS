@@ -9,11 +9,6 @@
 _BUNDLE_NAME = ARLocalizerView
 _PRODUCT_NAME = ARLocalizerView
 _BUNDLE_INFOPLIST_PATH = $(SRCROOT)/ARLocalizerView/Supporting Files/Info.plist
-_BUNDLE_IDENTIFIER = com.netguru.internal.ar-localizer$(__BUNDLE_IDENTIFIER_SUFFIX)
-
-_ASSET_ICON = AppIcon
-
-_CODESIGN_STYLE = Manual
-_CODESIGN_DEVELOPMENT_TEAM = 9HJ69C5G9K
+_BUNDLE_IDENTIFIER = com.netguru.lib.ar-localizer-view$(__BUNDLE_IDENTIFIER_SUFFIX)
 
 ENABLE_TESTABILITY = YES

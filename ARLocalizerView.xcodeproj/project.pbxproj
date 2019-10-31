@@ -74,8 +74,6 @@
 		A09048212369758C0027EA41 /* App-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-Base.xcconfig"; sourceTree = "<group>"; };
 		A09048222369758C0027EA41 /* App-Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-Staging.xcconfig"; sourceTree = "<group>"; };
 		A09048242369758C0027EA41 /* Framework-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Base.xcconfig"; sourceTree = "<group>"; };
-		A09048252369758C0027EA41 /* Framework-Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Development.xcconfig"; sourceTree = "<group>"; };
-		A09048262369758C0027EA41 /* Framework-Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Staging.xcconfig"; sourceTree = "<group>"; };
 		A090482A2369758C0027EA41 /* Common-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Common-Base.xcconfig"; sourceTree = "<group>"; };
 		A090482B2369758C0027EA41 /* Common-Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Common-Development.xcconfig"; sourceTree = "<group>"; };
 		A090482C2369758C0027EA41 /* Common-Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Common-Staging.xcconfig"; sourceTree = "<group>"; };
@@ -192,8 +190,6 @@
 			isa = PBXGroup;
 			children = (
 				A09048242369758C0027EA41 /* Framework-Base.xcconfig */,
-				A09048252369758C0027EA41 /* Framework-Development.xcconfig */,
-				A09048262369758C0027EA41 /* Framework-Staging.xcconfig */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
@@ -577,14 +573,14 @@
 		};
 		A0904805236973FD0027EA41 /* Development */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A09048252369758C0027EA41 /* Framework-Development.xcconfig */;
+			baseConfigurationReference = A09048242369758C0027EA41 /* Framework-Base.xcconfig */;
 			buildSettings = {
 			};
 			name = Development;
 		};
 		A0904806236973FD0027EA41 /* Staging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A09048262369758C0027EA41 /* Framework-Staging.xcconfig */;
+			baseConfigurationReference = A09048242369758C0027EA41 /* Framework-Base.xcconfig */;
 			buildSettings = {
 			};
 			name = Staging;

@@ -15,9 +15,23 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A0BDE664235D9FB4006BBD03"
-               BuildableName = "AR Localizer.app"
-               BlueprintName = "AR Localizer"
-               ReferencedContainer = "container:AR Localizer.xcodeproj">
+               BuildableName = "ARLocalizerViewSample.app"
+               BlueprintName = "Sample"
+               ReferencedContainer = "container:ARLocalizerView.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A09047FB236973FD0027EA41"
+               BuildableName = "ARLocalizerViewTests.xctest"
+               BlueprintName = "Unit Tests"
+               ReferencedContainer = "container:ARLocalizerView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +46,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A0BDE67A235D9FB5006BBD03"
-               BuildableName = "AR LocalizerTests.xctest"
-               BlueprintName = "AR LocalizerTests"
-               ReferencedContainer = "container:AR Localizer.xcodeproj">
+               BlueprintIdentifier = "A09047FB236973FD0027EA41"
+               BuildableName = "ARLocalizerViewTests.xctest"
+               BlueprintName = "Unit Tests"
+               ReferencedContainer = "container:ARLocalizerView.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +69,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0BDE664235D9FB4006BBD03"
-            BuildableName = "AR Localizer.app"
-            BlueprintName = "AR Localizer"
-            ReferencedContainer = "container:AR Localizer.xcodeproj">
+            BuildableName = "ARLocalizerViewSample.app"
+            BlueprintName = "Sample"
+            ReferencedContainer = "container:ARLocalizerView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +86,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0BDE664235D9FB4006BBD03"
-            BuildableName = "AR Localizer.app"
-            BlueprintName = "AR Localizer"
-            ReferencedContainer = "container:AR Localizer.xcodeproj">
+            BuildableName = "ARLocalizerViewSample.app"
+            BlueprintName = "Sample"
+            ReferencedContainer = "container:ARLocalizerView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

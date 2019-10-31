@@ -47,7 +47,7 @@ trigger_map:
 
 app:
   envs:
-    - XCODEBUILD_PROJECT: ./AR Localizer.xcodeproj
+    - XCODEBUILD_PROJECT: ./ARLocalizerView.xcodeproj
     - XCODEBUILD_OPTIONS: _BUILD_NUMBER=$BITRISE_BUILD_NUMBER
 
 # Workflow declarations.
@@ -63,7 +63,7 @@ workflows:
 
   build-staging:
     envs:
-      - XCODEBUILD_SCHEME: Staging
+      - XCODEBUILD_SCHEME: Sample-Staging
     before_run:
       - cache-pull
       - brew-bundle
@@ -82,7 +82,7 @@ workflows:
 
   build-pull-request:
     envs:
-      - XCODEBUILD_SCHEME: Staging
+      - XCODEBUILD_SCHEME: Sample-Staging
     before_run:
       - cache-pull
       - brew-bundle

@@ -1,0 +1,14 @@
+//
+//  App-Base.xcconfig
+//  AR Localizer
+//
+
+#include "../../Carthage/Checkouts/xcconfigs/Platforms/iOS.xcconfig"
+#include "../../Carthage/Checkouts/xcconfigs/Targets/Framework.xcconfig"
+
+_BUNDLE_NAME = ARLocalizerView
+_PRODUCT_NAME = ARLocalizerView
+_BUNDLE_INFOPLIST_PATH = $(SRCROOT)/ARLocalizerView/Supporting Files/Info.plist
+_BUNDLE_IDENTIFIER = com.netguru.lib.ar-localizer-view$(__BUNDLE_IDENTIFIER_SUFFIX)
+
+ENABLE_TESTABILITY = YES

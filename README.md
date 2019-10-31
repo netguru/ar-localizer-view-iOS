@@ -1,6 +1,6 @@
-# AR Localizer View iOS
+# ARLocalizerView iOS
 
-Welcome to the AR Localizer View iOS project. It's an application made for displaying chosen locations distances on a camera preview.
+Welcome to the ARLocalizerView for iOS project. It's an application made for displaying chosen locations distances on a camera preview.
 
 ## Team
 
@@ -40,7 +40,7 @@ Welcome to the AR Localizer View iOS project. It's an application made for displ
 	carthage bootstrap --platform iOS --cache-builds
 	```
 
-3. Open `AR Localizer.xcodeproj` file and build the project.
+3. Open `ARLocalizerView.xcodeproj` file and build the project.
 
 
 ## Coding guidelines

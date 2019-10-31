@@ -1,15 +1,18 @@
 //
 //  Tests-Base.xcconfig
-//  AR Localizer
+//  ARLocalizerView
 //
 
 #include "../../Carthage/Checkouts/xcconfigs/Platforms/iOS.xcconfig"
 #include "../../Carthage/Checkouts/xcconfigs/Targets/Tests.xcconfig"
 
-_BUNDLE_NAME = AR Localizer
+_BUNDLE_NAME = ARLocalizerView
 PRODUCT_NAME = $(_BUNDLE_NAME)Tests
-_BUNDLE_INFOPLIST_PATH = $(SRCROOT)/AR LocalizerTests/Supporting Files/Info.plist
 _BUNDLE_IDENTIFIER = com.netguru.internal.ar-localizer.tests
+_BUNDLE_INFOPLIST_PATH = $(SRCROOT)/Unit Tests/Supporting Files/Info.plist
+
+TEST_HOST = $(BUILT_PRODUCTS_DIR)/ARLocalizerViewSample.app/ARLocalizerViewSample
+BUNDLE_LOADER = $(TEST_HOST)
 
 _CODESIGN_STYLE =
 _CODESIGN_DEVELOPMENT_TEAM =

@@ -8,65 +8,24 @@ import UIKit
 final class ARView: UIView {
 
   private enum Constants {
-    static let DistanceLabelWidth: CGFloat = 100
-    static let DistanceLabelHeight: CGFloat = 50
+    static let POILabelWidth: CGFloat = 100
+    static let POILabelHeight: CGFloat = 50
   }
 
   // MARK: Public properties
-
-  let distanceLabel: UILabel = {
-    let label = UILabel()
-    label.translatesAutoresizingMaskIntoConstraints = false
-    label.textAlignment = .center
-    if #available(iOS 13.0, *) {
-      label.backgroundColor = .systemBackground
-    } else {
-      label.backgroundColor = .white
-    }
-    return label
-  }()
-
-  let azimuthToNorthLabel: UILabel = {
-    let label = UILabel()
-    label.translatesAutoresizingMaskIntoConstraints = false
-    return label
-  }()
-
-  let azimuthToTargetLocationLabel: UILabel = {
-    let label = UILabel()
-    label.translatesAutoresizingMaskIntoConstraints = false
-    return label
-  }()
-
-  var distanceLabelXOffset: CGFloat = 0.0 {
-    didSet {
-      distanceLabelCenterXConstraint.constant = distanceLabelXOffset
-    }
-  }
+  var poiLabels: [POI: UILabel] = [:]
 
   // MARK: Private properties
-
   private let cameraPreview: CameraPreview = {
     let cameraPreview = CameraPreview()
     cameraPreview.translatesAutoresizingMaskIntoConstraints = false
     return cameraPreview
   }()
 
-  private lazy var distanceLabelCenterXConstraint: NSLayoutConstraint = {
-    distanceLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
-  }()
-
   // MARK: Init
-
   override init(frame: CGRect) {
     super.init(frame: frame)
-
-    addSubview(cameraPreview)
-    addSubview(distanceLabel)
-    addSubview(azimuthToNorthLabel)
-    addSubview(azimuthToTargetLocationLabel)
-
-    activateConstaints()
+    setupCameraPreview()
   }
 
   @available(*, unavailable)
@@ -74,33 +33,65 @@ final class ARView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
 
-  // MARK: Methods
+  // MARK: Public Methods
+  func setupLabels(for pois: [POI]) {
+    poiLabels.removeAll()
 
-  private func activateConstaints() {
+    pois.forEach {
+      let label = UILabel()
+      label.translatesAutoresizingMaskIntoConstraints = false
+      label.textAlignment = .center
+      label.isHidden = true
+      if #available(iOS 13.0, *) {
+        label.backgroundColor = .systemBackground
+      } else {
+        label.backgroundColor = .white
+      }
+      addSubview(label)
+      activateConstraints(forDistanceLabel: label)
+      poiLabels[$0] = label
+    }
+  }
+
+  func updateLabel(forPOI poi: POI, withProperties properties: POILabelProperties) {
+    guard let label = poiLabels[poi] else { return }
+    label.isHidden = properties.isHidden
+    label.text = properties.text
+    let centerXConstraint = constraints.first { $0.firstAnchor == label.centerXAnchor }
+    centerXConstraint?.constant = properties.xOffset
+    let centerYConstraint = constraints.first { $0.firstAnchor == label.centerYAnchor }
+    centerYConstraint?.constant = properties.yOffset
+  }
+
+  func startCameraPreview() {
+    cameraPreview.start()
+  }
+
+  // MARK: Private Methods
+  private func setupCameraPreview() {
+    addSubview(cameraPreview)
+    activateConstaintsForCameraPreview()
+  }
+
+  private func activateConstaintsForCameraPreview() {
     NSLayoutConstraint.activate(
       [
       cameraPreview.heightAnchor.constraint(equalTo: heightAnchor),
       cameraPreview.widthAnchor.constraint(equalTo: widthAnchor),
       cameraPreview.centerXAnchor.constraint(equalTo: centerXAnchor),
-      cameraPreview.centerYAnchor.constraint(equalTo: centerYAnchor),
-
-      azimuthToNorthLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-      azimuthToNorthLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
-      azimuthToNorthLabel.bottomAnchor.constraint(equalTo: azimuthToTargetLocationLabel.topAnchor),
-
-      azimuthToTargetLocationLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-      azimuthToTargetLocationLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
-      azimuthToTargetLocationLabel.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
-
-      distanceLabel.widthAnchor.constraint(equalToConstant: Constants.DistanceLabelWidth),
-      distanceLabel.heightAnchor.constraint(equalToConstant: Constants.DistanceLabelHeight),
-      distanceLabelCenterXConstraint,
-      distanceLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+      cameraPreview.centerYAnchor.constraint(equalTo: centerYAnchor)
       ]
     )
   }
 
-  func startCameraPreview() {
-    cameraPreview.start()
+  private func activateConstraints(forDistanceLabel label: UILabel) {
+    NSLayoutConstraint.activate(
+      [
+      label.widthAnchor.constraint(equalToConstant: 100),
+      label.heightAnchor.constraint(equalToConstant: 50),
+      label.centerXAnchor.constraint(equalTo: centerXAnchor),
+      label.centerYAnchor.constraint(equalTo: centerYAnchor)
+      ]
+    )
   }
 }

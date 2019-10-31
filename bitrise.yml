@@ -63,7 +63,7 @@ workflows:
 
   build-staging:
     envs:
-      - XCODEBUILD_SCHEME: Framework-Staging
+      - XCODEBUILD_SCHEME: Sample-Staging
     before_run:
       - cache-pull
       - brew-bundle
@@ -82,7 +82,7 @@ workflows:
 
   build-pull-request:
     envs:
-      - XCODEBUILD_SCHEME: Framework-Staging
+      - XCODEBUILD_SCHEME: Sample-Staging
     before_run:
       - cache-pull
       - brew-bundle

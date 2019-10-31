@@ -4,7 +4,7 @@
 //
 
 import XCTest
-@testable import ARLocalizer
+@testable import ARLocalizerView
 
 class ARViewTests: XCTestCase {
 

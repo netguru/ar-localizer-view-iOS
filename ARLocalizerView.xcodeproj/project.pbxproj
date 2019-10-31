@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A09047FD236973FD0027EA41 /* ARLocalizerView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09047F4236973FD0027EA41 /* ARLocalizerView.framework */; };
-		A0904802236973FD0027EA41 /* AR_Localizer_ViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0904801236973FD0027EA41 /* AR_Localizer_ViewTests.swift */; };
+		A0904802236973FD0027EA41 /* ARLocalizerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0904801236973FD0027EA41 /* ARLocalizerViewTests.swift */; };
 		A0904831236977D40027EA41 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09047CB23675C9E0027EA41 /* CameraPreview.swift */; };
 		A0904832236977DB0027EA41 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09047C923675C860027EA41 /* ARViewController.swift */; };
 		A0904833236977DB0027EA41 /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09047C523675C520027EA41 /* ARView.swift */; };
@@ -68,7 +68,7 @@
 		A09047F4236973FD0027EA41 /* ARLocalizerView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARLocalizerView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09047F7236973FD0027EA41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A09047FC236973FD0027EA41 /* ARLocalizerViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARLocalizerViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0904801236973FD0027EA41 /* AR_Localizer_ViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AR_Localizer_ViewTests.swift; path = ../AR_Localizer_ViewTests.swift; sourceTree = "<group>"; };
+		A0904801236973FD0027EA41 /* ARLocalizerViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ARLocalizerViewTests.swift; path = ../ARLocalizerViewTests.swift; sourceTree = "<group>"; };
 		A0904803236973FD0027EA41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A09048202369758C0027EA41 /* App-Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-Development.xcconfig"; sourceTree = "<group>"; };
 		A09048212369758C0027EA41 /* App-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-Base.xcconfig"; sourceTree = "<group>"; };
@@ -223,7 +223,7 @@
 		A090482E236977330027EA41 /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
-				A0904801236973FD0027EA41 /* AR_Localizer_ViewTests.swift */,
+				A0904801236973FD0027EA41 /* ARLocalizerViewTests.swift */,
 			);
 			path = "Source Files";
 			sourceTree = "<group>";
@@ -491,7 +491,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0904802236973FD0027EA41 /* AR_Localizer_ViewTests.swift in Sources */,
+				A0904802236973FD0027EA41 /* ARLocalizerViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

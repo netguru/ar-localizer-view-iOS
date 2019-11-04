@@ -4,24 +4,21 @@
 //
 
 import UIKit
-import ARLocalizerView
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
+  private var mainCoordinator: MainCoordinator?
 
   func application(
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
   ) -> Bool {
-    guard let fileURL = Bundle.main.url(forResource: "NetguruOffices", withExtension: "json") else { return true }
-
-    let filePOIProvider = FilePOIProvider(fileURL: fileURL)
-    let viewModel = ARViewModel(poiProvider: filePOIProvider)
-
     window = UIWindow(frame: UIScreen.main.bounds)
-    window!.rootViewController = ARViewController(viewModel: viewModel)
-    window!.makeKeyAndVisible()
+    mainCoordinator = MainCoordinator(navigationController: UINavigationController(), factory: Factory())
+    window?.rootViewController = mainCoordinator?.navigationController
+    window?.makeKeyAndVisible()
+    mainCoordinator?.start()
 
     return true
   }

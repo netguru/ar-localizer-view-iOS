@@ -15,10 +15,7 @@ final class ARView: UIView {
   var poiLabels: [POI: UILabel] = [:]
 
   // MARK: Private properties
-  private let cameraPreview: CameraPreview = {
-    let cameraPreview = CameraPreview().layoutable()
-    return cameraPreview
-  }()
+  private let cameraPreview = CameraPreview().layoutable()
 
   // MARK: Init
   override init(frame: CGRect) {

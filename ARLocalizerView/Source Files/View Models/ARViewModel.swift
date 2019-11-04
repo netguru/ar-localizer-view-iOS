@@ -74,7 +74,7 @@ final public class ARViewModel: ARViewModelProtocol {
     let rightBound = maximalAngleOfVisibility(forAzimuth: azimuthForPOI)
     let shouldBeVisible = isAngleInSector(deviceAzimuth, withLeftBound: leftBound, withRightBound: rightBound)
     let text = distanceText(forPOI: poi)
-    let xOffset = UIScreen.main.xOffset(forDeviceAzimuth: deviceAzimuth, andAzimutForPOI: azimuthForPOI)
+    let xOffset = labelXOffset(forAzimut: azimuthForPOI)
 
     return POILabelProperties(xOffset: xOffset, yOffset: 0, text: text, isHidden: !shouldBeVisible)
   }
@@ -134,10 +134,9 @@ extension ARViewModel {
     }
   }
 
-  private func labelXOffset(forAzimut azimutToPOI: Angle) -> CGFloat {
-    let pixelsForOneDegree = Double(UIScreen.main.bounds.width / 30.0)
-    let offsetInDegrees = azimutToPOI.smallestDifference(to: deviceAzimuth)
-    let offsetInPixels = offsetInDegrees * pixelsForOneDegree
+  private func labelXOffset(forAzimut azimutForPOI: Angle) -> CGFloat {
+    let offsetInDegrees = azimutForPOI.smallestDifference(to: deviceAzimuth)
+    let offsetInPixels = offsetInDegrees * UIScreen.main.pixelsForOneDegree
     return CGFloat(offsetInPixels)
   }
 }

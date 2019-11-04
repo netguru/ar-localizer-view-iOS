@@ -1,6 +1,6 @@
 //
 //  CameraPreview.swift
-//  AR Localizer
+//  ARLocalizerView
 //
 
 import UIKit

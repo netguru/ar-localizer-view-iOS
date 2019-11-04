@@ -1,12 +1,11 @@
 //
 //  ARView.swift
-//  AR Localizer
+//  ARLocalizerView
 //
 
 import UIKit
 
 final class ARView: UIView {
-
   private enum Constants {
     static let POILabelWidth: CGFloat = 100
     static let POILabelHeight: CGFloat = 50
@@ -76,10 +75,10 @@ final class ARView: UIView {
   private func activateConstaintsForCameraPreview() {
     NSLayoutConstraint.activate(
       [
-      cameraPreview.heightAnchor.constraint(equalTo: heightAnchor),
-      cameraPreview.widthAnchor.constraint(equalTo: widthAnchor),
-      cameraPreview.centerXAnchor.constraint(equalTo: centerXAnchor),
-      cameraPreview.centerYAnchor.constraint(equalTo: centerYAnchor)
+        cameraPreview.heightAnchor.constraint(equalTo: heightAnchor),
+        cameraPreview.widthAnchor.constraint(equalTo: widthAnchor),
+        cameraPreview.centerXAnchor.constraint(equalTo: centerXAnchor),
+        cameraPreview.centerYAnchor.constraint(equalTo: centerYAnchor)
       ]
     )
   }
@@ -87,10 +86,10 @@ final class ARView: UIView {
   private func activateConstraints(forDistanceLabel label: UILabel) {
     NSLayoutConstraint.activate(
       [
-      label.widthAnchor.constraint(equalToConstant: 100),
-      label.heightAnchor.constraint(equalToConstant: 50),
-      label.centerXAnchor.constraint(equalTo: centerXAnchor),
-      label.centerYAnchor.constraint(equalTo: centerYAnchor)
+        label.widthAnchor.constraint(equalToConstant: Constants.POILabelWidth),
+        label.heightAnchor.constraint(equalToConstant: Constants.POILabelHeight),
+        label.centerXAnchor.constraint(equalTo: centerXAnchor),
+        label.centerYAnchor.constraint(equalTo: centerYAnchor)
       ]
     )
   }

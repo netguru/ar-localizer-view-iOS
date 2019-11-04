@@ -1,6 +1,6 @@
 //
 //  FilePOIProvider.swift
-//  AR Localizer
+//  ARLocalizerView
 //
 
 import Foundation

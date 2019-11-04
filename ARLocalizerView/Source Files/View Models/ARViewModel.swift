@@ -1,6 +1,6 @@
 //
 //  ARViewModel.swift
-//  AR Localizer
+//  ARLocalizerView
 //
 
 import UIKit

@@ -1,6 +1,6 @@
 //
 //  POIProvider.swift
-//  AR Localizer
+//  ARLocalizerView
 //
 
 import CoreLocation

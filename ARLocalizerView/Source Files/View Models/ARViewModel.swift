@@ -39,7 +39,9 @@ final public class ARViewModel: ARViewModelProtocol {
       updatePOILabelsProperties()
     }
   }
-  public var pois: [POI] { poiLabelsProperties.map { $0.key } }
+  public var pois: [POI] {
+    poiLabelsProperties.map { $0.key }
+  }
 
   // MARK: Private properties
   private(set) var poiLabelsProperties: [POI: POILabelProperties]
@@ -61,9 +63,9 @@ final public class ARViewModel: ARViewModelProtocol {
 
   // MARK: POI Label Methods
   private func updatePOILabelsProperties() {
-    var newPOILabelsProperties: [POI: POILabelProperties] = [:]
-    pois.forEach { newPOILabelsProperties[$0] = poiLabelProperties(forPOI: $0) }
-    poiLabelsProperties = newPOILabelsProperties
+    pois.forEach {
+      poiLabelsProperties[$0] = poiLabelProperties(forPOI: $0)
+    }
   }
 
   private func poiLabelProperties(forPOI poi: POI) -> POILabelProperties {
@@ -72,13 +74,13 @@ final public class ARViewModel: ARViewModelProtocol {
     let rightBound = maximalAngleOfVisibility(forAzimuth: azimuthForPOI)
     let shouldBeVisible = isAngleInSector(deviceAzimuth, withLeftBound: leftBound, withRightBound: rightBound)
     let text = distanceText(forPOI: poi)
-    let xOffset = labelXOffset(forAzimut: azimuthForPOI)
+    let xOffset = UIScreen.main.xOffset(forDeviceAzimuth: deviceAzimuth, andAzimutForPOI: azimuthForPOI)
 
     return POILabelProperties(xOffset: xOffset, yOffset: 0, text: text, isHidden: !shouldBeVisible)
   }
 
   private func distanceText(forPOI poi: POI) -> String {
-    guard let deviceLocation = deviceLocation else { return "" }
+    guard let deviceLocation = deviceLocation else { fatalError("No device location data.") }
     let distanceToPOI = Int(poi.clLocation.distance(from: deviceLocation))
     return "\(distanceToPOI) m"
   }
@@ -87,9 +89,9 @@ final public class ARViewModel: ARViewModelProtocol {
 // MARK: - Calulations
 extension ARViewModel {
   private func azimuth(forPOI poi: POI) -> Angle {
-    guard let currentLocation = deviceLocation else { return 0 }
-    let dX = poi.latitude - currentLocation.coordinate.latitude
-    let dY = poi.longitude - currentLocation.coordinate.longitude
+    guard let deviceLocation = deviceLocation else { fatalError("No device location data.") }
+    let dX = poi.latitude - deviceLocation.coordinate.latitude
+    let dY = poi.longitude - deviceLocation.coordinate.longitude
     let tanPhi = Float(abs(dY / dX))
     let phiAngle = Angle(atan(tanPhi) * 180 / .pi)
 

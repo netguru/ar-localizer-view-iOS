@@ -10,13 +10,12 @@ final public class ARViewController: UIViewController {
 
   // MARK: Private properties
   private let viewModel: ARViewModel
-  private let locationManager: CLLocationManager
+  private let locationManager = CLLocationManager()
   private var arView: ARView { view as! ARView }
 
   // MARK: Init
   public init(viewModel: ARViewModel) {
     self.viewModel = viewModel
-    locationManager = CLLocationManager()
 
     super.init(nibName: nil, bundle: nil)
 

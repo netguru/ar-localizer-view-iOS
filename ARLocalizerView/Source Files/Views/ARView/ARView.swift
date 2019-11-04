@@ -16,8 +16,7 @@ final class ARView: UIView {
 
   // MARK: Private properties
   private let cameraPreview: CameraPreview = {
-    let cameraPreview = CameraPreview()
-    cameraPreview.translatesAutoresizingMaskIntoConstraints = false
+    let cameraPreview = CameraPreview().layoutable()
     return cameraPreview
   }()
 
@@ -37,8 +36,7 @@ final class ARView: UIView {
     poiLabels.removeAll()
 
     pois.forEach {
-      let label = UILabel()
-      label.translatesAutoresizingMaskIntoConstraints = false
+      let label = UILabel().layoutable()
       label.textAlignment = .center
       label.isHidden = true
       if #available(iOS 13.0, *) {
@@ -56,9 +54,15 @@ final class ARView: UIView {
     guard let label = poiLabels[poi] else { return }
     label.isHidden = properties.isHidden
     label.text = properties.text
-    let centerXConstraint = constraints.first { $0.firstAnchor == label.centerXAnchor }
+
+    let centerXConstraint = constraints.first {
+      $0.firstAnchor === label.centerXAnchor
+    }
     centerXConstraint?.constant = properties.xOffset
-    let centerYConstraint = constraints.first { $0.firstAnchor == label.centerYAnchor }
+
+    let centerYConstraint = constraints.first {
+      $0.firstAnchor === label.centerYAnchor
+    }
     centerYConstraint?.constant = properties.yOffset
   }
 

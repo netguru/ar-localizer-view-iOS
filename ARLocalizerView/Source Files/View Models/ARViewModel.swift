@@ -49,7 +49,10 @@ final public class ARViewModel: ARViewModelProtocol {
   // MARK: Init
   public init(poiProvider: POIProvider) {
     var newPOILabelsProperties: [POI: POILabelProperties] = [:]
-    poiProvider.pois.forEach { newPOILabelsProperties[$0] = (xOffset: 0, yOffset: 0, text: "", isHidden: true) }
+
+    poiProvider.pois.forEach {
+      newPOILabelsProperties[$0] = POILabelProperties(xOffset: 0, yOffset: 0, text: "", isHidden: true)
+    }
 
     poiLabelsProperties = newPOILabelsProperties
     deviceAzimuth = 0
@@ -59,22 +62,19 @@ final public class ARViewModel: ARViewModelProtocol {
   // MARK: POI Label Methods
   private func updatePOILabelsProperties() {
     var newPOILabelsProperties: [POI: POILabelProperties] = [:]
-    pois.forEach { poi in
-      let azimuthForPOI = azimuth(forPOI: poi)
-      let leftBound = minimalAngleOfVisibility(forAzimuth: azimuthForPOI)
-      let rightBound = maximalAngleOfVisibility(forAzimuth: azimuthForPOI)
-
-      let shouldBeVisible = isAngleInSector(
-        deviceAzimuth,
-        withLeftBound: leftBound,
-        withRightBound: rightBound
-      )
-
-      let text = distanceText(forPOI: poi)
-      let xOffset = labelXOffset(forAzimut: azimuthForPOI)
-      newPOILabelsProperties[poi] = (xOffset: xOffset, yOffset: 0, text: text, isHidden: !shouldBeVisible)
-    }
+    pois.forEach { newPOILabelsProperties[$0] = poiLabelProperties(forPOI: $0) }
     poiLabelsProperties = newPOILabelsProperties
+  }
+
+  private func poiLabelProperties(forPOI poi: POI) -> POILabelProperties {
+    let azimuthForPOI = azimuth(forPOI: poi)
+    let leftBound = minimalAngleOfVisibility(forAzimuth: azimuthForPOI)
+    let rightBound = maximalAngleOfVisibility(forAzimuth: azimuthForPOI)
+    let shouldBeVisible = isAngleInSector(deviceAzimuth, withLeftBound: leftBound, withRightBound: rightBound)
+    let text = distanceText(forPOI: poi)
+    let xOffset = labelXOffset(forAzimut: azimuthForPOI)
+
+    return POILabelProperties(xOffset: xOffset, yOffset: 0, text: text, isHidden: !shouldBeVisible)
   }
 
   private func distanceText(forPOI poi: POI) -> String {

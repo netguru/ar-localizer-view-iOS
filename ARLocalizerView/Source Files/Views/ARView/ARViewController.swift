@@ -6,8 +6,6 @@
 import UIKit
 import CoreLocation
 
-typealias POILabelProperties = (xOffset: CGFloat, yOffset: CGFloat, text: String, isHidden: Bool)
-
 final public class ARViewController: UIViewController {
 
   // MARK: Private properties

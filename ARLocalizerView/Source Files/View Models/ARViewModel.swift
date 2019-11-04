@@ -1,6 +1,6 @@
 //
 //  ARViewModel.swift
-//  AR Localizer
+//  ARLocalizerView
 //
 
 import UIKit
@@ -24,106 +24,102 @@ extension Angle {
   }
 }
 
-final class ARViewModel: ARViewModelProtocol {
-
+final public class ARViewModel: ARViewModelProtocol {
   // MARK: Public properties
-
-  var heading: CLHeading? {
+  public var deviceHeading: CLHeading? {
     didSet {
-      guard let heading = heading else { return }
-      azimuthToNorth = heading.trueHeading
-      azimuthToNorthAccuracy = heading.headingAccuracy
-      updateDistanceLabelOffsetAndVisibility()
+      guard let deviceHeading = deviceHeading else { return }
+      deviceAzimuth = deviceHeading.trueHeading
+      deviceAzimuthAccuracy = deviceHeading.headingAccuracy
+      updatePOILabelsProperties()
     }
   }
-
-  var currentLocation: CLLocation? {
+  public var deviceLocation: CLLocation? {
     didSet {
-      guard let currentLocation = currentLocation else { return }
-      azimuthToTargetLocation = calculateAzimuth(from: currentLocation, to: targetLocation)
-      updateDistanceLabelText(currentLocation: currentLocation)
-      updateDistanceLabelOffsetAndVisibility()
+      updatePOILabelsProperties()
     }
   }
-
-  // MARK: View mapping properties
-
-  private(set) var distanceLabelXOffset = CGFloat(0.0)
-  private(set) var distanceLabelText = ""
-  private(set) var distanceLabelIsHidden = true
-  private(set) var azimuthToNorthLabelText = ""
-  private(set) var azimuthToTargetLocationLabelText = ""
+  public var pois: [POI] {
+    poiLabelsProperties.map { $0.key }
+  }
 
   // MARK: Private properties
+  private(set) var poiLabelsProperties: [POI: POILabelProperties]
+  private var deviceAzimuth: Angle
+  private var deviceAzimuthAccuracy: Angle
 
-  private let targetLocation: CLLocation
+  // MARK: Init
+  public init(poiProvider: POIProvider) {
+    var newPOILabelsProperties: [POI: POILabelProperties] = [:]
 
-  private var azimuthToNorth: Angle = 0 {
-    didSet {
-      azimuthToNorthLabelText = "Azimuth to North: \(Int(azimuthToNorth))"
+    poiProvider.pois.forEach {
+      newPOILabelsProperties[$0] = POILabelProperties(xOffset: 0, yOffset: 0, text: "", isHidden: true)
+    }
+
+    poiLabelsProperties = newPOILabelsProperties
+    deviceAzimuth = 0
+    deviceAzimuthAccuracy = 0
+  }
+
+  // MARK: POI Label Methods
+  private func updatePOILabelsProperties() {
+    pois.forEach {
+      poiLabelsProperties[$0] = poiLabelProperties(forPOI: $0)
     }
   }
 
-  private var azimuthToTargetLocation: Angle = 0 {
-    didSet {
-      azimuthToTargetLocationLabelText = "Azimuth to Target Location: \(Int(azimuthToTargetLocation))"
+  private func poiLabelProperties(forPOI poi: POI) -> POILabelProperties {
+    let azimuthForPOI = azimuth(forPOI: poi)
+    let leftBound = minimalAngleOfVisibility(forAzimuth: azimuthForPOI)
+    let rightBound = maximalAngleOfVisibility(forAzimuth: azimuthForPOI)
+    let shouldBeVisible = isAngleInSector(deviceAzimuth, withLeftBound: leftBound, withRightBound: rightBound)
+    let text = distanceText(forPOI: poi)
+    let xOffset = UIScreen.main.xOffset(forDeviceAzimuth: deviceAzimuth, andAzimutForPOI: azimuthForPOI)
+
+    return POILabelProperties(xOffset: xOffset, yOffset: 0, text: text, isHidden: !shouldBeVisible)
+  }
+
+  private func distanceText(forPOI poi: POI) -> String {
+    guard let deviceLocation = deviceLocation else { fatalError("No device location data.") }
+    let distanceToPOI = Int(poi.clLocation.distance(from: deviceLocation))
+    return "\(distanceToPOI) m"
+  }
+}
+
+// MARK: - Calulations
+extension ARViewModel {
+  private func azimuth(forPOI poi: POI) -> Angle {
+    guard let deviceLocation = deviceLocation else { fatalError("No device location data.") }
+    let dX = poi.latitude - deviceLocation.coordinate.latitude
+    let dY = poi.longitude - deviceLocation.coordinate.longitude
+    let tanPhi = Float(abs(dY / dX))
+    let phiAngle = Angle(atan(tanPhi) * 180 / .pi)
+
+    if dX < 0 && dY > 0 {
+      return 180 - phiAngle
+    } else if dX < 0 && dY < 0 {
+      return 180 + phiAngle
+    } else if dX > 0 && dY < 0 {
+      return 360 - phiAngle
+    } else {
+      return phiAngle
     }
   }
 
-  private var azimuthToNorthAccuracy: Angle = 0
-
-  private var minimalAngleOfVisibility: Double {
-    var angle = azimuthToTargetLocation - azimuthToNorthAccuracy - 15
+  private func minimalAngleOfVisibility(forAzimuth azimuth: Angle) -> Angle {
+    var angle = azimuth - deviceAzimuthAccuracy - 15
     if angle < 0 {
       angle += 360
     }
     return angle
   }
 
-  private var maximalAngleOfVisibilty: Double {
-    var angle = azimuthToTargetLocation + azimuthToNorthAccuracy + 15
+  private func maximalAngleOfVisibility(forAzimuth azimuth: Angle) -> Angle {
+    var angle = azimuth + deviceAzimuthAccuracy + 15
     if angle >= 360 {
       angle -= 360
     }
     return angle
-  }
-
-  // MARK: Init
-
-  init(targetLocation: CLLocation) {
-    self.targetLocation = targetLocation
-  }
-
-  // MARK: Update view mapping properties
-
-  private func updateDistanceLabelText(currentLocation: CLLocation) {
-    let distanceToTargetLocation = targetLocation.distance(from: currentLocation)
-    distanceLabelText = "\(Int(distanceToTargetLocation)) m"
-  }
-
-  private func updateDistanceLabelOffsetAndVisibility() {
-    let shouldBeVisible = isAngleInSector(
-      azimuthToNorth,
-      withLeftBound: minimalAngleOfVisibility,
-      withRightBound: maximalAngleOfVisibilty
-      )
-    if shouldBeVisible {
-      calculateDistanceLabelXOffset()
-      distanceLabelIsHidden = false
-    } else {
-      distanceLabelIsHidden = true
-    }
-  }
-}
-
-// MARK: - Calulations
-
-extension ARViewModel {
-  private func calculateDistanceLabelXOffset() {
-    let pixelsForOneDegree = Double(UIScreen.main.bounds.width / 30.0)
-    let offsetInDegrees = azimuthToTargetLocation.smallestDifference(to: azimuthToNorth)
-    let offsetInPixels = offsetInDegrees * pixelsForOneDegree
-    distanceLabelXOffset = CGFloat(offsetInPixels)
   }
 
   private func isAngleInSector(
@@ -138,20 +134,10 @@ extension ARViewModel {
     }
   }
 
-  private func calculateAzimuth(from origin: CLLocation, to destination: CLLocation) -> Angle {
-    let dX = destination.coordinate.latitude - origin.coordinate.latitude
-    let dY = destination.coordinate.longitude - origin.coordinate.longitude
-    let tanPhi = Float(abs(dY / dX))
-    let phiAngle = Angle(atan(tanPhi) * 180 / .pi)
-
-    if dX < 0 && dY > 0 {
-      return 180 - phiAngle
-    } else if dX < 0 && dY < 0 {
-      return 180 + phiAngle
-    } else if dX > 0 && dY < 0 {
-      return 360 - phiAngle
-    }
-
-    return phiAngle
+  private func labelXOffset(forAzimut azimutToPOI: Angle) -> CGFloat {
+    let pixelsForOneDegree = Double(UIScreen.main.bounds.width / 30.0)
+    let offsetInDegrees = azimutToPOI.smallestDifference(to: deviceAzimuth)
+    let offsetInPixels = offsetInDegrees * pixelsForOneDegree
+    return CGFloat(offsetInPixels)
   }
 }

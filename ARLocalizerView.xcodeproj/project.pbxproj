@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A066984C23701F7700441CF1 /* POILabelProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A066984A23701ED800441CF1 /* POILabelProperties.swift */; };
+		A0669856237034EE00441CF1 /* POI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0669854237034CB00441CF1 /* POI.swift */; };
+		A066985A23703EF200441CF1 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A066985823703EF000441CF1 /* UIView+Layout.swift */; };
+		A066985C23703F2700441CF1 /* UIScreen+Offset.swift in Sources */ = {isa = PBXBuildFile; fileRef = A066985B23703F2700441CF1 /* UIScreen+Offset.swift */; };
 		A09047FD236973FD0027EA41 /* ARLocalizerView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09047F4236973FD0027EA41 /* ARLocalizerView.framework */; };
 		A0904802236973FD0027EA41 /* ARLocalizerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0904801236973FD0027EA41 /* ARLocalizerViewTests.swift */; };
 		A0904831236977D40027EA41 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09047CB23675C9E0027EA41 /* CameraPreview.swift */; };
@@ -19,6 +23,9 @@
 		A0BDE669235D9FB4006BBD03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BDE668235D9FB4006BBD03 /* AppDelegate.swift */; };
 		A0BDE672235D9FB5006BBD03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0BDE671235D9FB5006BBD03 /* Assets.xcassets */; };
 		A0BDE675235D9FB5006BBD03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0BDE673235D9FB5006BBD03 /* LaunchScreen.storyboard */; };
+		A0FE8E74236B008400516B87 /* NetguruOffices.json in Resources */ = {isa = PBXBuildFile; fileRef = A0FE8E73236B008400516B87 /* NetguruOffices.json */; };
+		A0FE8E7A236B04D600516B87 /* FilePOIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FE8E77236B00A500516B87 /* FilePOIProvider.swift */; };
+		A0FE8E7B236B04D600516B87 /* POIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FE8E76236B00A500516B87 /* POIProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +67,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A066984A23701ED800441CF1 /* POILabelProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POILabelProperties.swift; sourceTree = "<group>"; };
+		A0669854237034CB00441CF1 /* POI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POI.swift; sourceTree = "<group>"; };
+		A066985823703EF000441CF1 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		A066985B23703F2700441CF1 /* UIScreen+Offset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Offset.swift"; sourceTree = "<group>"; };
 		A09047C523675C520027EA41 /* ARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
 		A09047C723675C6B0027EA41 /* ARViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewModel.swift; sourceTree = "<group>"; };
 		A09047C923675C860027EA41 /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +94,9 @@
 		A0BDE671235D9FB5006BBD03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0BDE674235D9FB5006BBD03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0BDE676235D9FB5006BBD03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0FE8E73236B008400516B87 /* NetguruOffices.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NetguruOffices.json; sourceTree = "<group>"; };
+		A0FE8E76236B00A500516B87 /* POIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POIProvider.swift; sourceTree = "<group>"; };
+		A0FE8E77236B00A500516B87 /* FilePOIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilePOIProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +126,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A066984923701EC700441CF1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A066984A23701ED800441CF1 /* POILabelProperties.swift */,
+				A0669854237034CB00441CF1 /* POI.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A066985723703ED600441CF1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A066985823703EF000441CF1 /* UIView+Layout.swift */,
+				A066985B23703F2700441CF1 /* UIScreen+Offset.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		A09047CD23675CE90027EA41 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				A09047C723675C6B0027EA41 /* ARViewModel.swift */,
 				A09047D1236892220027EA41 /* ARViewModelProtocol.swift */,
+				A09047C723675C6B0027EA41 /* ARViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -239,6 +271,9 @@
 		A0904830236977BE0027EA41 /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
+				A066985723703ED600441CF1 /* Extensions */,
+				A066984923701EC700441CF1 /* Models */,
+				A0FE8E75236B008D00516B87 /* POIProvider */,
 				A09047CF23675D0B0027EA41 /* Views */,
 				A09047CD23675CE90027EA41 /* View Models */,
 			);
@@ -297,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				A0BDE671235D9FB5006BBD03 /* Assets.xcassets */,
+				A0FE8E73236B008400516B87 /* NetguruOffices.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -315,6 +351,15 @@
 				A0BDE676235D9FB5006BBD03 /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A0FE8E75236B008D00516B87 /* POIProvider */ = {
+			isa = PBXGroup;
+			children = (
+				A0FE8E77236B00A500516B87 /* FilePOIProvider.swift */,
+				A0FE8E76236B00A500516B87 /* POIProvider.swift */,
+			);
+			path = POIProvider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -448,6 +493,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0BDE675235D9FB5006BBD03 /* LaunchScreen.storyboard in Resources */,
+				A0FE8E74236B008400516B87 /* NetguruOffices.json in Resources */,
 				A0BDE672235D9FB5006BBD03 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,11 +525,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A066984C23701F7700441CF1 /* POILabelProperties.swift in Sources */,
+				A0669856237034EE00441CF1 /* POI.swift in Sources */,
 				A0904831236977D40027EA41 /* CameraPreview.swift in Sources */,
+				A0FE8E7B236B04D600516B87 /* POIProvider.swift in Sources */,
+				A066985A23703EF200441CF1 /* UIView+Layout.swift in Sources */,
 				A0904832236977DB0027EA41 /* ARViewController.swift in Sources */,
 				A0904835236977E10027EA41 /* ARViewModelProtocol.swift in Sources */,
+				A066985C23703F2700441CF1 /* UIScreen+Offset.swift in Sources */,
 				A0904833236977DB0027EA41 /* ARView.swift in Sources */,
 				A0904834236977E10027EA41 /* ARViewModel.swift in Sources */,
+				A0FE8E7A236B04D600516B87 /* FilePOIProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

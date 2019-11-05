@@ -7,19 +7,19 @@ import UIKit
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
-  var window: UIWindow?
-  private var mainCoordinator: MainCoordinator?
+    var window: UIWindow?
 
-  func application(
-    _ application: UIApplication,
-    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
-  ) -> Bool {
-    window = UIWindow(frame: UIScreen.main.bounds)
-    mainCoordinator = MainCoordinator(navigationController: UINavigationController(), factory: Factory())
-    window?.rootViewController = mainCoordinator?.navigationController
-    window?.makeKeyAndVisible()
-    mainCoordinator?.start()
+    private var mainCoordinator: MainCoordinator?
 
-    return true
-  }
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
+    ) -> Bool {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        mainCoordinator = MainCoordinator(factory: Factory())
+        window?.rootViewController = mainCoordinator?.navigationController
+        window?.makeKeyAndVisible()
+
+        return true
+    }
 }

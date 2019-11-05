@@ -6,18 +6,14 @@
 import UIKit
 
 final class MainCoordinator: Coordinator {
-  let navigationController: UINavigationController
-  let factory: Factory
+    let navigationController: UINavigationController = UINavigationController()
+    let factory: Factory
 
-  var childCoordinators: [Coordinator] = []
+    var childCoordinators: [Coordinator] = []
 
-  init(navigationController: UINavigationController, factory: Factory) {
-    self.navigationController = navigationController
-    self.factory = factory
-  }
-
-  func start() {
-    let initialViewController = factory.arViewController()
-    navigationController.pushViewController(initialViewController, animated: true)
-  }
+    init(factory: Factory) {
+        self.factory = factory
+        let initialViewController = factory.arViewController()
+        navigationController.pushViewController(initialViewController, animated: true)
+    }
 }

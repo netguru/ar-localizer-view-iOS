@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A02B198623719E8A008EAE20 /* Angle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02B198523719E8A008EAE20 /* Angle.swift */; };
 		A066984C23701F7700441CF1 /* POILabelProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A066984A23701ED800441CF1 /* POILabelProperties.swift */; };
 		A0669856237034EE00441CF1 /* POI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0669854237034CB00441CF1 /* POI.swift */; };
 		A066985A23703EF200441CF1 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A066985823703EF000441CF1 /* UIView+Layout.swift */; };
@@ -70,6 +71,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A02B198523719E8A008EAE20 /* Angle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Angle.swift; sourceTree = "<group>"; };
 		A066984A23701ED800441CF1 /* POILabelProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POILabelProperties.swift; sourceTree = "<group>"; };
 		A0669854237034CB00441CF1 /* POI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POI.swift; sourceTree = "<group>"; };
 		A066985823703EF000441CF1 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			children = (
 				A066985823703EF000441CF1 /* UIView+Layout.swift */,
 				A066985B23703F2700441CF1 /* UIScreen+Offset.swift */,
+				A02B198523719E8A008EAE20 /* Angle.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A066984C23701F7700441CF1 /* POILabelProperties.swift in Sources */,
+				A02B198623719E8A008EAE20 /* Angle.swift in Sources */,
 				A0669856237034EE00441CF1 /* POI.swift in Sources */,
 				A0904831236977D40027EA41 /* CameraPreview.swift in Sources */,
 				A0FE8E7B236B04D600516B87 /* POIProvider.swift in Sources */,

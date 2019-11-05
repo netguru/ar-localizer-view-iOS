@@ -6,7 +6,7 @@
 import UIKit
 
 extension UIScreen {
-  var pixelsForOneDegree: Double {
-    Double(bounds.width / 30.0)
+  var pixelsForOneDegree: CGFloat {
+    bounds.width / 30.0
   }
 }

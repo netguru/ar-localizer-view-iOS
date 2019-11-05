@@ -26,25 +26,13 @@ extension Angle {
 
 final public class ARViewModel: ARViewModelProtocol {
   // MARK: Public properties
-  public var deviceHeading: CLHeading? {
-    didSet {
-      guard let deviceHeading = deviceHeading else { return }
-      deviceAzimuth = deviceHeading.trueHeading
-      deviceAzimuthAccuracy = deviceHeading.headingAccuracy
-      updatePOILabelsProperties()
-    }
-  }
-  public var deviceLocation: CLLocation? {
-    didSet {
-      updatePOILabelsProperties()
-    }
-  }
   public var pois: [POI] {
     poiLabelsProperties.map { $0.key }
   }
 
   // MARK: Private properties
   private(set) var poiLabelsProperties: [POI: POILabelProperties]
+  private var deviceLocation: CLLocation?
   private var deviceAzimuth: Angle
   private var deviceAzimuthAccuracy: Angle
 
@@ -59,6 +47,22 @@ final public class ARViewModel: ARViewModelProtocol {
     poiLabelsProperties = newPOILabelsProperties
     deviceAzimuth = 0
     deviceAzimuthAccuracy = 0
+  }
+
+  // MARK: Properties setters
+  func setLocation(_ newLocation: CLLocation?, completion: () -> Void) {
+    deviceLocation = newLocation
+    guard deviceLocation != nil else { fatalError("No device location data.") }
+    updatePOILabelsProperties()
+    completion()
+  }
+
+  func setHeading(_ newHeading: CLHeading?, completion: () -> Void) {
+    guard let newHeading = newHeading else { fatalError("Tried to set nil heading.") }
+    deviceAzimuth = newHeading.trueHeading
+    deviceAzimuthAccuracy = newHeading.headingAccuracy
+    updatePOILabelsProperties()
+    completion()
   }
 
   // MARK: POI Label Methods
@@ -136,7 +140,7 @@ extension ARViewModel {
 
   private func labelXOffset(forAzimut azimutForPOI: Angle) -> CGFloat {
     let offsetInDegrees = azimutForPOI.smallestDifference(to: deviceAzimuth)
-    let offsetInPixels = offsetInDegrees * UIScreen.main.pixelsForOneDegree
-    return CGFloat(offsetInPixels)
+    let offsetInPixels = CGFloat(offsetInDegrees) * UIScreen.main.pixelsForOneDegree
+    return offsetInPixels
   }
 }

@@ -7,7 +7,6 @@ import UIKit
 import CoreLocation
 
 final public class ARViewController: UIViewController {
-
   // MARK: Private properties
   private let viewModel: ARViewModel
   private let locationManager = CLLocationManager()
@@ -63,15 +62,15 @@ extension ARViewController {
 // MARK: - Location Manager Delegate
 extension ARViewController: CLLocationManagerDelegate {
   public func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-    guard let deviceHeading = manager.heading else { return }
-    viewModel.deviceHeading = deviceHeading
-    updateView()
+    viewModel.setHeading(manager.heading) {
+      updateView()
+    }
   }
 
   public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    guard let deviceLocation = locations.first else { return }
-    viewModel.deviceLocation = deviceLocation
-    updateView()
+    viewModel.setLocation(locations.first) {
+      updateView()
+    }
   }
 
   public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

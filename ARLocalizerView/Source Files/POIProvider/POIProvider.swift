@@ -4,5 +4,5 @@
 //
 
 public protocol POIProvider {
-  var pois: [POI] { get set }
+    var pois: [POI] { get set }
 }

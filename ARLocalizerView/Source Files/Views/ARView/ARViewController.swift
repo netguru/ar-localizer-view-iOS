@@ -11,7 +11,9 @@ final public class ARViewController: UIViewController {
   // MARK: Private properties
   private let viewModel: ARViewModel
   private let locationManager = CLLocationManager()
-  private var arView: ARView { view as! ARView }
+  private var arView: ARView {
+    view as! ARView
+  }
 
   // MARK: Init
   public init(viewModel: ARViewModel) {
@@ -29,7 +31,12 @@ final public class ARViewController: UIViewController {
 
   // MARK: Methods
   private func updateView() {
-    viewModel.poiLabelsProperties.forEach { arView.updateLabel(forPOI: $0.key, withProperties: $0.value) }
+    viewModel.poiLabelsProperties.forEach {
+      arView.updateLabel(forPOI: $0.key, withProperties: $0.value)
+    }
+    UIView.animate(withDuration: 0.2) {
+      self.arView.layoutIfNeeded()
+    }
   }
 }
 

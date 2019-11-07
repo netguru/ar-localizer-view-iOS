@@ -11,6 +11,7 @@ final public class ARViewModel: ARViewModelProtocol {
     public var deviceLocation: CLLocation?
     public var deviceAzimuth: Angle
     public var deviceAzimuthAccuracy: Angle
+    public var deviceGravityZ: Double
     public var pois: [POI] {
         poiLabelsProperties.map { $0.key }
     }
@@ -29,18 +30,7 @@ final public class ARViewModel: ARViewModelProtocol {
         poiLabelsProperties = newPOILabelsProperties
         deviceAzimuth = 0
         deviceAzimuthAccuracy = 0
-    }
-
-    // MARK: Properties setters
-    func setLocation(_ newLocation: CLLocation) {
-        deviceLocation = newLocation
-        updatePOILabelsProperties()
-    }
-
-    func setHeading(_ newHeading: CLHeading) {
-        deviceAzimuth = newHeading.trueHeading
-        deviceAzimuthAccuracy = newHeading.headingAccuracy
-        updatePOILabelsProperties()
+        deviceGravityZ = 0
     }
 
     // MARK: POI Label Methods
@@ -57,7 +47,7 @@ final public class ARViewModel: ARViewModelProtocol {
 
         return POILabelProperties(
             xOffset: labelXOffset(forAzimut: azimuthForPOI),
-            yOffset: 0,
+            yOffset: labelsYOffset,
             text: distanceText(forPOI: poi),
             isHidden: !isAngleInSector(deviceAzimuth, withLeftBound: leftBound, withRightBound: rightBound)
         )
@@ -119,6 +109,11 @@ private extension ARViewModel {
     private func labelXOffset(forAzimut azimutForPOI: Angle) -> CGFloat {
         let offsetInDegrees = azimutForPOI.smallestDifference(to: deviceAzimuth)
         let offsetInPixels = CGFloat(offsetInDegrees) * UIScreen.main.pixelsForOneDegree
+        return offsetInPixels
+    }
+
+    private var labelsYOffset: CGFloat {
+        let offsetInPixels = CGFloat(deviceGravityZ) * UIScreen.main.pixelsForOneHoundrethOfGravity * 100.0
         return offsetInPixels
     }
 }

@@ -4,13 +4,13 @@ Welcome to the ARLocalizerView for iOS project. It's an application made for dis
 
 ## Team
 
-* [Arkadiusz Sielecki](mailto:arkadiusz.sielecki@netguru.com) - Project Manager
+* [Sandra Jaworska](mailto:sandra.jaworska@netguru.com) - Project Manager
 * [Jędrzej Gronek](mailto:jedrzej.gronek@netguru.com) - Developer
 
 ## Tools & Services
 
 * Tools:
-	* Xcode 11.1 with latest iOS SDK (13.1)
+	* Xcode 11.2 with latest iOS SDK (13.1)
 	* [Carthage](https://github.com/Carthage/Carthage) 0.33 or higher
 * Services:
 	* [JIRA](https://netguru.atlassian.net/secure/RapidBoard.jspa?rapidView=1254&view=detail)

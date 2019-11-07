@@ -12,6 +12,7 @@ final public class ARViewController: UIViewController {
     private let locationManager = CLLocationManager()
     private let motionManager = CMMotionManager()
     private var viewModel: ARViewModelProtocol
+    private var timer: Timer?
 
     // MARK: Private computed properties
     private var arView: ARView {
@@ -38,6 +39,10 @@ final public class ARViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    deinit {
+        timer?.invalidate()
+    }
+
     // MARK: Lifecycle methods
     override public func loadView() {
         view = ARView(frame: UIScreen.main.bounds)
@@ -53,8 +58,13 @@ final public class ARViewController: UIViewController {
         motionManager.deviceMotionUpdateInterval = 1.0 / 60.0
         motionManager.startDeviceMotionUpdates(using: .xTrueNorthZVertical)
 
-        Timer.scheduledTimer(withTimeInterval: 1.0 / 60.0, repeats: true) { _ in
-            guard CLLocationManager.authorizationStatus() == .authorizedWhenInUse else { return }
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0 / 60.0, repeats: true) { [weak self] _ in
+            guard
+                let self = self,
+                CLLocationManager.authorizationStatus() == .authorizedWhenInUse
+            else {
+                return
+            }
             self.viewModel.deviceGravityZ = self.deviceGravityZ
             self.viewModel.updatePOILabelsProperties()
             self.updateView()
@@ -82,7 +92,8 @@ final public class ARViewController: UIViewController {
 extension ARViewController: CLLocationManagerDelegate {
     public func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
         guard let heading = manager.heading else { return }
-        var newDeviceAzimuth = heading.trueHeading + deviceRotationInRadians.degreesFromRadians
+        let deviceRotation = AngleConverter.shared.convertToDegrees(radians: deviceRotationInRadians)
+        var newDeviceAzimuth = heading.trueHeading + deviceRotation
         if newDeviceAzimuth < 0 {
             newDeviceAzimuth += 360
         }

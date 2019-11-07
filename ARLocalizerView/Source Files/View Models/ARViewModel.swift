@@ -12,12 +12,16 @@ final public class ARViewModel: ARViewModelProtocol {
     public var deviceAzimuth: Angle
     public var deviceAzimuthAccuracy: Angle
     public var deviceGravityZ: Double
+    public var poiLabelsProperties: [POI: POILabelProperties]
     public var pois: [POI] {
         poiLabelsProperties.map { $0.key }
     }
 
     // MARK: Private properties
-    public var poiLabelsProperties: [POI: POILabelProperties]
+    private var labelsYOffset: CGFloat {
+        let offsetInPixels = CGFloat(deviceGravityZ) * UIScreen.main.pixelsForOneHoundrethOfGravity * 100.0
+        return offsetInPixels
+    }
 
     // MARK: Init
     public init(poiProvider: POIProvider) {
@@ -67,7 +71,7 @@ private extension ARViewModel {
         let dX = poi.latitude - deviceLocation.coordinate.latitude
         let dY = poi.longitude - deviceLocation.coordinate.longitude
         let tanPhi = abs(dY / dX)
-        let phiAngle = atan(tanPhi).degreesFromRadians
+        let phiAngle = AngleConverter.shared.convertToDegrees(radians: atan(tanPhi))
 
         if dX < 0 && dY > 0 {
             return 180 - phiAngle
@@ -109,11 +113,6 @@ private extension ARViewModel {
     private func labelXOffset(forAzimut azimutForPOI: Angle) -> CGFloat {
         let offsetInDegrees = azimutForPOI.smallestDifference(to: deviceAzimuth)
         let offsetInPixels = CGFloat(offsetInDegrees) * UIScreen.main.pixelsForOneDegree
-        return offsetInPixels
-    }
-
-    private var labelsYOffset: CGFloat {
-        let offsetInPixels = CGFloat(deviceGravityZ) * UIScreen.main.pixelsForOneHoundrethOfGravity * 100.0
         return offsetInPixels
     }
 }

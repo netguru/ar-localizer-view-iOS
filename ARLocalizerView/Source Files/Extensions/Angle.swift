@@ -7,10 +7,6 @@ import Foundation
 
 public typealias Angle = Double
 
-extension Double {
-    var degreesFromRadians: Angle { self * 180.0 / .pi }
-}
-
 extension Angle {
     /// Calculates smallest difference between two angles.
     /// Returns positive value for clockwise rotation or negative for counterclockwise.

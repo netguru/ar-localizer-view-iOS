@@ -5,7 +5,11 @@
 
 import Foundation
 
-typealias Angle = Double
+public typealias Angle = Double
+
+extension Double {
+    var degreesFromRadians: Angle { self * 180.0 / .pi }
+}
 
 extension Angle {
     /// Calculates smallest difference between two angles.

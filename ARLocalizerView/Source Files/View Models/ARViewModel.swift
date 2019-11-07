@@ -76,8 +76,8 @@ private extension ARViewModel {
         guard let deviceLocation = deviceLocation else { fatalError("No device location data.") }
         let dX = poi.latitude - deviceLocation.coordinate.latitude
         let dY = poi.longitude - deviceLocation.coordinate.longitude
-        let tanPhi = Float(abs(dY / dX))
-        let phiAngle = Angle(atan(tanPhi) * 180 / .pi)
+        let tanPhi = abs(dY / dX)
+        let phiAngle = atan(tanPhi).degreesFromRadians
 
         if dX < 0 && dY > 0 {
             return 180 - phiAngle

@@ -54,6 +54,7 @@ final public class ARViewController: UIViewController {
         motionManager.startDeviceMotionUpdates(using: .xTrueNorthZVertical)
 
         Timer.scheduledTimer(withTimeInterval: 1.0 / 60.0, repeats: true) { _ in
+            guard CLLocationManager.authorizationStatus() == .authorizedWhenInUse else { return }
             self.viewModel.deviceGravityZ = self.deviceGravityZ
             self.viewModel.updatePOILabelsProperties()
             self.updateView()

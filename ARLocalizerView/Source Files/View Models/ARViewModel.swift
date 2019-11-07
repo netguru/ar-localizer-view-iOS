@@ -8,15 +8,15 @@ import CoreLocation
 
 final public class ARViewModel: ARViewModelProtocol {
     // MARK: Public properties
+    public var deviceLocation: CLLocation?
+    public var deviceAzimuth: Angle
+    public var deviceAzimuthAccuracy: Angle
     public var pois: [POI] {
         poiLabelsProperties.map { $0.key }
     }
 
     // MARK: Private properties
-    private(set) var poiLabelsProperties: [POI: POILabelProperties]
-    private var deviceLocation: CLLocation?
-    private var deviceAzimuth: Angle
-    private var deviceAzimuthAccuracy: Angle
+    public var poiLabelsProperties: [POI: POILabelProperties]
 
     // MARK: Init
     public init(poiProvider: POIProvider) {
@@ -44,7 +44,7 @@ final public class ARViewModel: ARViewModelProtocol {
     }
 
     // MARK: POI Label Methods
-    private func updatePOILabelsProperties() {
+    public func updatePOILabelsProperties() {
         pois.forEach {
             poiLabelsProperties[$0] = poiLabelProperties(forPOI: $0)
         }

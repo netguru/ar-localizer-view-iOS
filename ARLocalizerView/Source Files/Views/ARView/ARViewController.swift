@@ -8,14 +8,14 @@ import CoreLocation
 
 final public class ARViewController: UIViewController {
     // MARK: Private properties
-    private let viewModel: ARViewModel
     private let locationManager = CLLocationManager()
+    private var viewModel: ARViewModelProtocol
     private var arView: ARView {
         view as! ARView
     }
 
     // MARK: Init
-    public init(viewModel: ARViewModel) {
+    public init(viewModel: ARViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         arView.setupLabels(for: viewModel.pois)

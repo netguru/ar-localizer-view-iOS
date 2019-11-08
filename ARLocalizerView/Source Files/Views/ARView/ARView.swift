@@ -26,15 +26,15 @@ final class ARView: UIView {
 
     // MARK: Public Methods
     func setupLabels(for pois: [POI]) {
-            poiLabelViews.removeAll()
+        poiLabelViews.removeAll()
 
-            pois.forEach {
-                let poiLabelView = poiLabelViewType.init().layoutable()
-                labelsView.addSubview(poiLabelView)
-                activateConstraints(forPOILabelView: poiLabelView)
-                poiLabelViews[$0] = poiLabelView
-            }
+        pois.forEach {
+            let poiLabelView = poiLabelViewType.init().layoutable()
+            labelsView.addSubview(poiLabelView)
+            activateConstraints(forPOILabelView: poiLabelView)
+            poiLabelViews[$0] = poiLabelView
         }
+    }
 
     func updateLabel(forPOI poi: POI, withProperties properties: POILabelProperties) {
         guard let poiLabelView = poiLabelViews[poi] else { return }
@@ -79,10 +79,10 @@ final class ARView: UIView {
     }
 
     private func activateConstaintsForLabelsView() {
-      NSLayoutConstraint.activate(
+        NSLayoutConstraint.activate(
             [
-                labelsView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height),
-                labelsView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.height),
+                labelsView.heightAnchor.constraint(equalToConstant: UIScreen.main.diagonal),
+                labelsView.widthAnchor.constraint(equalToConstant: UIScreen.main.diagonal),
                 labelsView.centerXAnchor.constraint(equalTo: centerXAnchor),
                 labelsView.centerYAnchor.constraint(equalTo: centerYAnchor)
             ]

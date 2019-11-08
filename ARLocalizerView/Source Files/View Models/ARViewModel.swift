@@ -39,7 +39,7 @@ final public class ARViewModel: ARViewModelProtocol {
         var newPOILabelsProperties: [POI: POILabelProperties] = [:]
 
         poiProvider.pois.forEach {
-            newPOILabelsProperties[$0] = POILabelProperties(xOffset: 0, yOffset: 0, text: "", isHidden: true)
+            newPOILabelsProperties[$0] = POILabelProperties(xOffset: 0, yOffset: 0, distance: 0, isHidden: true)
         }
 
         poiLabelsProperties = newPOILabelsProperties
@@ -63,15 +63,14 @@ final public class ARViewModel: ARViewModelProtocol {
         return POILabelProperties(
             xOffset: labelXOffset(forAzimut: azimuthForPOI),
             yOffset: labelsYOffset,
-            text: distanceText(forPOI: poi),
+            distance: distance(forPOI: poi),
             isHidden: !isAngleInSector(deviceAzimuth, withLeftBound: leftBound, withRightBound: rightBound)
         )
     }
 
-    private func distanceText(forPOI poi: POI) -> String {
+    private func distance(forPOI poi: POI) -> Double {
         guard let deviceLocation = deviceLocation else { fatalError("No device location data.") }
-        let distanceToPOI = Int(poi.clLocation.distance(from: deviceLocation))
-        return "\(distanceToPOI) m"
+        return poi.clLocation.distance(from: deviceLocation)
     }
 }
 

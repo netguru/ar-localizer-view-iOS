@@ -6,17 +6,14 @@
 import UIKit
 
 final class ARView: UIView {
-    private enum Constants {
-        static let POILabelWidth: CGFloat = 100
-        static let POILabelHeight: CGFloat = 50
-    }
-
-    private(set) var poiLabels: [POI: UILabel] = [:]
+    private(set) var poiLabelViews: [POI: POILabelView] = [:]
     private(set) var labelsView = UIView().layoutable()
     private let cameraPreview = CameraPreview().layoutable()
+    private let poiLabelViewType: POILabelView.Type
 
     // MARK: Init
-    override init(frame: CGRect) {
+    init(frame: CGRect, poiLabelViewType: POILabelView.Type) {
+        self.poiLabelViewType = poiLabelViewType
         super.init(frame: frame)
         setupCameraPreview()
         setupLabelsView()
@@ -29,35 +26,28 @@ final class ARView: UIView {
 
     // MARK: Public Methods
     func setupLabels(for pois: [POI]) {
-        poiLabels.removeAll()
+            poiLabelViews.removeAll()
 
-        pois.forEach {
-            let label = UILabel().layoutable()
-            label.textAlignment = .center
-            label.isHidden = true
-            if #available(iOS 13.0, *) {
-                label.backgroundColor = .systemBackground
-            } else {
-                label.backgroundColor = .white
+            pois.forEach {
+                let poiLabelView = poiLabelViewType.init().layoutable()
+                labelsView.addSubview(poiLabelView)
+                activateConstraints(forPOILabelView: poiLabelView)
+                poiLabelViews[$0] = poiLabelView
             }
-            labelsView.addSubview(label)
-            activateConstraints(forDistanceLabel: label)
-            poiLabels[$0] = label
         }
-    }
 
     func updateLabel(forPOI poi: POI, withProperties properties: POILabelProperties) {
-        guard let label = poiLabels[poi] else { return }
-        label.isHidden = properties.isHidden
-        label.text = properties.text
+        guard let poiLabelView = poiLabelViews[poi] else { return }
+        poiLabelView.isHidden = properties.isHidden
+        poiLabelView.distance = properties.distance
 
         let centerXConstraint = labelsView.constraints.first {
-            $0.firstAnchor === label.centerXAnchor
+            $0.firstAnchor === poiLabelView.centerXAnchor
         }
         centerXConstraint?.constant = properties.xOffset
 
         let centerYConstraint = labelsView.constraints.first {
-            $0.firstAnchor === label.centerYAnchor
+            $0.firstAnchor === poiLabelView.centerYAnchor
         }
         centerYConstraint?.constant = properties.yOffset
     }
@@ -99,13 +89,11 @@ final class ARView: UIView {
         )
     }
 
-    private func activateConstraints(forDistanceLabel label: UILabel) {
+    private func activateConstraints(forPOILabelView poiLabelView: POILabelView) {
         NSLayoutConstraint.activate(
             [
-                label.widthAnchor.constraint(equalToConstant: Constants.POILabelWidth),
-                label.heightAnchor.constraint(equalToConstant: Constants.POILabelHeight),
-                label.centerXAnchor.constraint(equalTo: labelsView.centerXAnchor),
-                label.centerYAnchor.constraint(equalTo: labelsView.centerYAnchor)
+                poiLabelView.centerXAnchor.constraint(equalTo: labelsView.centerXAnchor),
+                poiLabelView.centerYAnchor.constraint(equalTo: labelsView.centerYAnchor)
             ]
         )
     }

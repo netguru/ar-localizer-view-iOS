@@ -80,13 +80,13 @@ final public class ARViewController: UIViewController {
 
     // MARK: Other methods
     private func updateView() {
-        arView.labelsView.transform = CGAffineTransform(rotationAngle: CGFloat(deviceRotationInRadians))
-        viewModel.poiLabelsProperties.forEach {
-            arView.updateLabel(forPOI: $0.key, withProperties: $0.value)
-        }
-        UIView.animate(withDuration: 0.1) {
-            self.arView.labelsView.layoutIfNeeded()
-        }
+       arView.labelsView.transform = CGAffineTransform(rotationAngle: CGFloat(deviceRotationInRadians))
+       viewModel.poiLabelsProperties
+           .sorted { $0.value.distance > $1.value.distance }
+           .forEach { arView.updateLabel(forPOI: $0.key, withProperties: $0.value) }
+       UIView.animate(withDuration: 0.2) {
+           self.arView.labelsView.layoutIfNeeded()
+       }
     }
 }
 

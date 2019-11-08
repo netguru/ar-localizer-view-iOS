@@ -50,6 +50,8 @@ final class ARView: UIView {
             $0.firstAnchor === poiLabelView.centerYAnchor
         }
         centerYConstraint?.constant = properties.yOffset
+
+        labelsView.bringSubviewToFront(poiLabelView)
     }
 
     func startCameraPreview() {

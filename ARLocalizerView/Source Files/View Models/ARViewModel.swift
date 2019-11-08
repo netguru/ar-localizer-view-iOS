@@ -16,6 +16,7 @@ final public class ARViewModel: ARViewModelProtocol {
         /// Number of pixels on screen to represent every 1/100th of gravitational force.
         /// It is used to calculate the change in AR label's vertical offset when user tilts.
         static let pixelsForOneHoundrethOfGravity = UIScreen.main.bounds.width / 70.0
+        static let visibilityMargin: Angle = 40.0
     }
 
     // MARK: Public properties
@@ -95,7 +96,7 @@ private extension ARViewModel {
     }
 
     func minimalAngleOfVisibility(forAzimuth azimuth: Angle) -> Angle {
-        var angle = azimuth - deviceAzimuthAccuracy - 15
+        var angle = azimuth - deviceAzimuthAccuracy - Constants.visibilityMargin
         if angle < 0 {
             angle += 360
         }
@@ -103,7 +104,7 @@ private extension ARViewModel {
     }
 
     func maximalAngleOfVisibility(forAzimuth azimuth: Angle) -> Angle {
-        var angle = azimuth + deviceAzimuthAccuracy + 15
+        var angle = azimuth + deviceAzimuthAccuracy + Constants.visibilityMargin
         if angle >= 360 {
             angle -= 360
         }

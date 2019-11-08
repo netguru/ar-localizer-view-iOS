@@ -7,6 +7,17 @@ import UIKit
 import CoreLocation
 
 final public class ARViewModel: ARViewModelProtocol {
+    // MARK: Constants
+    private enum Constants {
+        /// Number of pixels on screen to represent every degree of azimuthal angle.
+        /// It is used to calculate the change in AR label's horizontal offset when user moves the phone horizontally.
+        static let pixelsForOneDegree = UIScreen.main.bounds.width / 40.0
+
+        /// Number of pixels on screen to represent every 1/100th of gravitational force.
+        /// It is used to calculate the change in AR label's vertical offset when user tilts.
+        static let pixelsForOneHoundrethOfGravity = UIScreen.main.bounds.width / 70.0
+    }
+
     // MARK: Public properties
     public var deviceLocation: CLLocation?
     public var deviceAzimuth: Angle
@@ -19,7 +30,7 @@ final public class ARViewModel: ARViewModelProtocol {
 
     // MARK: Private properties
     private var labelsYOffset: CGFloat {
-        let offsetInPixels = CGFloat(deviceGravityZ) * UIScreen.main.pixelsForOneHoundrethOfGravity * 100.0
+        let offsetInPixels = CGFloat(deviceGravityZ) * Constants.pixelsForOneHoundrethOfGravity * 100.0
         return offsetInPixels
     }
 
@@ -71,7 +82,7 @@ private extension ARViewModel {
         let dX = poi.latitude - deviceLocation.coordinate.latitude
         let dY = poi.longitude - deviceLocation.coordinate.longitude
         let tanPhi = abs(dY / dX)
-        let phiAngle = AngleConverter.shared.convertToDegrees(radians: atan(tanPhi))
+        let phiAngle = AngleConverter.convertToDegrees(radians: atan(tanPhi))
 
         if dX < 0 && dY > 0 {
             return 180 - phiAngle
@@ -112,7 +123,7 @@ private extension ARViewModel {
 
     private func labelXOffset(forAzimut azimutForPOI: Angle) -> CGFloat {
         let offsetInDegrees = azimutForPOI.smallestDifference(to: deviceAzimuth)
-        let offsetInPixels = CGFloat(offsetInDegrees) * UIScreen.main.pixelsForOneDegree
+        let offsetInPixels = CGFloat(offsetInDegrees) * Constants.pixelsForOneDegree
         return offsetInPixels
     }
 }

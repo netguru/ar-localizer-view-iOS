@@ -92,7 +92,7 @@ final public class ARViewController: UIViewController {
 extension ARViewController: CLLocationManagerDelegate {
     public func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
         guard let heading = manager.heading else { return }
-        let deviceRotation = AngleConverter.shared.convertToDegrees(radians: deviceRotationInRadians)
+        let deviceRotation = AngleConverter.convertToDegrees(radians: deviceRotationInRadians)
         var newDeviceAzimuth = heading.trueHeading + deviceRotation
         if newDeviceAzimuth < 0 {
             newDeviceAzimuth += 360

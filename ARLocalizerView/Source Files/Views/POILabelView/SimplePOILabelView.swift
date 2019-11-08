@@ -31,8 +31,8 @@ public final class SimplePOILabelView: UIView, POILabelView {
         return label
     }()
 
-    override init(frame: CGRect = CGRect(x: 0, y: 0, width: Constants.width, height: Constants.height)) {
-        super.init(frame: frame)
+    init() {
+        super.init(frame: .zero)
         if #available(iOS 13.0, *) {
             layer.backgroundColor = UIColor.systemBackground.cgColor
             layer.borderColor = UIColor.label.withAlphaComponent(0.5).cgColor

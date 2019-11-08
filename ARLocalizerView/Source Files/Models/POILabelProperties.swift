@@ -8,6 +8,6 @@ import UIKit
 public struct POILabelProperties {
     var xOffset: CGFloat
     var yOffset: CGFloat
-    var text: String
+    var distance: Double
     var isHidden: Bool
 }

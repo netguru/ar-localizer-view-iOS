@@ -16,6 +16,7 @@ final public class ARViewModel: ARViewModelProtocol {
         /// Number of pixels on screen to represent every 1/100th of gravitational force.
         /// It is used to calculate the change in AR label's vertical offset when user tilts.
         static let pixelsForOneHoundrethOfGravity = UIScreen.main.bounds.width / 70.0
+        static let visibilityMargin: Angle = 40.0
     }
 
     // MARK: Public properties
@@ -39,7 +40,7 @@ final public class ARViewModel: ARViewModelProtocol {
         var newPOILabelsProperties: [POI: POILabelProperties] = [:]
 
         poiProvider.pois.forEach {
-            newPOILabelsProperties[$0] = POILabelProperties(xOffset: 0, yOffset: 0, text: "", isHidden: true)
+            newPOILabelsProperties[$0] = POILabelProperties(xOffset: 0, yOffset: 0, distance: 0, isHidden: true)
         }
 
         poiLabelsProperties = newPOILabelsProperties
@@ -63,15 +64,14 @@ final public class ARViewModel: ARViewModelProtocol {
         return POILabelProperties(
             xOffset: labelXOffset(forAzimut: azimuthForPOI),
             yOffset: labelsYOffset,
-            text: distanceText(forPOI: poi),
+            distance: distance(forPOI: poi),
             isHidden: !isAngleInSector(deviceAzimuth, withLeftBound: leftBound, withRightBound: rightBound)
         )
     }
 
-    private func distanceText(forPOI poi: POI) -> String {
+    private func distance(forPOI poi: POI) -> Double {
         guard let deviceLocation = deviceLocation else { fatalError("No device location data.") }
-        let distanceToPOI = Int(poi.clLocation.distance(from: deviceLocation))
-        return "\(distanceToPOI) m"
+        return poi.clLocation.distance(from: deviceLocation)
     }
 }
 
@@ -96,7 +96,7 @@ private extension ARViewModel {
     }
 
     func minimalAngleOfVisibility(forAzimuth azimuth: Angle) -> Angle {
-        var angle = azimuth - deviceAzimuthAccuracy - 15
+        var angle = azimuth - deviceAzimuthAccuracy - Constants.visibilityMargin
         if angle < 0 {
             angle += 360
         }
@@ -104,7 +104,7 @@ private extension ARViewModel {
     }
 
     func maximalAngleOfVisibility(forAzimuth azimuth: Angle) -> Angle {
-        var angle = azimuth + deviceAzimuthAccuracy + 15
+        var angle = azimuth + deviceAzimuthAccuracy + Constants.visibilityMargin
         if angle >= 360 {
             angle -= 360
         }

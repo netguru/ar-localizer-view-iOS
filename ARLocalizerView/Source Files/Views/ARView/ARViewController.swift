@@ -11,6 +11,7 @@ final public class ARViewController: UIViewController {
     // MARK: Private stored properties
     private let locationManager = CLLocationManager()
     private let motionManager = CMMotionManager()
+    private let poiLabelViewType: POILabelView.Type
     private var viewModel: ARViewModelProtocol
     private var timer: Timer?
 
@@ -28,8 +29,9 @@ final public class ARViewController: UIViewController {
     }
 
     // MARK: Init
-    public init(viewModel: ARViewModelProtocol) {
+    public init(viewModel: ARViewModelProtocol, poiLabelViewType: POILabelView.Type = SimplePOILabelView.self) {
         self.viewModel = viewModel
+        self.poiLabelViewType = poiLabelViewType
         super.init(nibName: nil, bundle: nil)
         arView.setupLabels(for: viewModel.pois)
     }
@@ -45,7 +47,7 @@ final public class ARViewController: UIViewController {
 
     // MARK: Lifecycle methods
     override public func loadView() {
-        view = ARView(frame: UIScreen.main.bounds)
+        view = ARView(frame: UIScreen.main.bounds, poiLabelViewType: poiLabelViewType)
     }
 
     override public func viewDidLoad() {

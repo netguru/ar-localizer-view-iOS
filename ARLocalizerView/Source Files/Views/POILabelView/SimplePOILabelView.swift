@@ -42,8 +42,7 @@ public final class SimplePOILabelView: UIView, POILabelView {
         }
         layer.borderWidth = 1
         layer.cornerRadius = 10
-        clipsToBounds = true
-
+        layer.masksToBounds = true
         setupDistanceLabel()
     }
 

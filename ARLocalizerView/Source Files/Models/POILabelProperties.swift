@@ -5,7 +5,7 @@
 
 import UIKit
 
-struct POILabelProperties {
+public struct POILabelProperties {
     var xOffset: CGFloat
     var yOffset: CGFloat
     var text: String

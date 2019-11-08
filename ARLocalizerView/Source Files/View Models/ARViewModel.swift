@@ -7,16 +7,32 @@ import UIKit
 import CoreLocation
 
 final public class ARViewModel: ARViewModelProtocol {
+    // MARK: Constants
+    private enum Constants {
+        /// Number of pixels on screen to represent every degree of azimuthal angle.
+        /// It is used to calculate the change in AR label's horizontal offset when user moves the phone horizontally.
+        static let pixelsForOneDegree = UIScreen.main.bounds.width / 40.0
+
+        /// Number of pixels on screen to represent every 1/100th of gravitational force.
+        /// It is used to calculate the change in AR label's vertical offset when user tilts.
+        static let pixelsForOneHoundrethOfGravity = UIScreen.main.bounds.width / 70.0
+    }
+
     // MARK: Public properties
+    public var deviceLocation: CLLocation?
+    public var deviceAzimuth: Angle
+    public var deviceAzimuthAccuracy: Angle
+    public var deviceGravityZ: Double
+    public var poiLabelsProperties: [POI: POILabelProperties]
     public var pois: [POI] {
         poiLabelsProperties.map { $0.key }
     }
 
     // MARK: Private properties
-    private(set) var poiLabelsProperties: [POI: POILabelProperties]
-    private var deviceLocation: CLLocation?
-    private var deviceAzimuth: Angle
-    private var deviceAzimuthAccuracy: Angle
+    private var labelsYOffset: CGFloat {
+        let offsetInPixels = CGFloat(deviceGravityZ) * Constants.pixelsForOneHoundrethOfGravity * 100.0
+        return offsetInPixels
+    }
 
     // MARK: Init
     public init(poiProvider: POIProvider) {
@@ -29,22 +45,11 @@ final public class ARViewModel: ARViewModelProtocol {
         poiLabelsProperties = newPOILabelsProperties
         deviceAzimuth = 0
         deviceAzimuthAccuracy = 0
-    }
-
-    // MARK: Properties setters
-    func setLocation(_ newLocation: CLLocation) {
-        deviceLocation = newLocation
-        updatePOILabelsProperties()
-    }
-
-    func setHeading(_ newHeading: CLHeading) {
-        deviceAzimuth = newHeading.trueHeading
-        deviceAzimuthAccuracy = newHeading.headingAccuracy
-        updatePOILabelsProperties()
+        deviceGravityZ = 0
     }
 
     // MARK: POI Label Methods
-    private func updatePOILabelsProperties() {
+    public func updatePOILabelsProperties() {
         pois.forEach {
             poiLabelsProperties[$0] = poiLabelProperties(forPOI: $0)
         }
@@ -57,7 +62,7 @@ final public class ARViewModel: ARViewModelProtocol {
 
         return POILabelProperties(
             xOffset: labelXOffset(forAzimut: azimuthForPOI),
-            yOffset: 0,
+            yOffset: labelsYOffset,
             text: distanceText(forPOI: poi),
             isHidden: !isAngleInSector(deviceAzimuth, withLeftBound: leftBound, withRightBound: rightBound)
         )
@@ -76,8 +81,8 @@ private extension ARViewModel {
         guard let deviceLocation = deviceLocation else { fatalError("No device location data.") }
         let dX = poi.latitude - deviceLocation.coordinate.latitude
         let dY = poi.longitude - deviceLocation.coordinate.longitude
-        let tanPhi = Float(abs(dY / dX))
-        let phiAngle = Angle(atan(tanPhi) * 180 / .pi)
+        let tanPhi = abs(dY / dX)
+        let phiAngle = AngleConverter.convertToDegrees(radians: atan(tanPhi))
 
         if dX < 0 && dY > 0 {
             return 180 - phiAngle
@@ -118,7 +123,7 @@ private extension ARViewModel {
 
     private func labelXOffset(forAzimut azimutForPOI: Angle) -> CGFloat {
         let offsetInDegrees = azimutForPOI.smallestDifference(to: deviceAzimuth)
-        let offsetInPixels = CGFloat(offsetInDegrees) * UIScreen.main.pixelsForOneDegree
+        let offsetInPixels = CGFloat(offsetInDegrees) * Constants.pixelsForOneDegree
         return offsetInPixels
     }
 }

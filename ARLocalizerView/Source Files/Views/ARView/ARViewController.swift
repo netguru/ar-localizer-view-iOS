@@ -5,17 +5,30 @@
 
 import UIKit
 import CoreLocation
+import CoreMotion
 
 final public class ARViewController: UIViewController {
-    // MARK: Private properties
-    private let viewModel: ARViewModel
+    // MARK: Private stored properties
     private let locationManager = CLLocationManager()
+    private let motionManager = CMMotionManager()
+    private var viewModel: ARViewModelProtocol
+    private var timer: Timer?
+
+    // MARK: Private computed properties
     private var arView: ARView {
         view as! ARView
     }
+    private var deviceGravityZ: Double {
+        guard let deviceMotion = motionManager.deviceMotion else { return 0 }
+        return deviceMotion.gravity.z
+    }
+    private var deviceRotationInRadians: Double {
+        guard let deviceMotion = motionManager.deviceMotion else { return 0 }
+        return atan2(deviceMotion.gravity.x, deviceMotion.gravity.y) - .pi
+    }
 
     // MARK: Init
-    public init(viewModel: ARViewModel) {
+    public init(viewModel: ARViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         arView.setupLabels(for: viewModel.pois)
@@ -26,19 +39,11 @@ final public class ARViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: Methods
-    private func updateView() {
-        viewModel.poiLabelsProperties.forEach {
-            arView.updateLabel(forPOI: $0.key, withProperties: $0.value)
-        }
-        UIView.animate(withDuration: 0.2) {
-            self.arView.layoutIfNeeded()
-        }
+    deinit {
+        timer?.invalidate()
     }
-}
 
-// MARK: - View Controller
-extension ARViewController {
+    // MARK: Lifecycle methods
     override public func loadView() {
         view = ARView(frame: UIScreen.main.bounds)
     }
@@ -49,11 +54,37 @@ extension ARViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.startUpdatingHeading()
+
+        motionManager.deviceMotionUpdateInterval = 1.0 / 60.0
+        motionManager.startDeviceMotionUpdates(using: .xTrueNorthZVertical)
+
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0 / 60.0, repeats: true) { [weak self] _ in
+            guard
+                let self = self,
+                CLLocationManager.authorizationStatus() == .authorizedWhenInUse
+            else {
+                return
+            }
+            self.viewModel.deviceGravityZ = self.deviceGravityZ
+            self.viewModel.updatePOILabelsProperties()
+            self.updateView()
+        }
     }
 
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         arView.startCameraPreview()
+    }
+
+    // MARK: Other methods
+    private func updateView() {
+        arView.labelsView.transform = CGAffineTransform(rotationAngle: CGFloat(deviceRotationInRadians))
+        viewModel.poiLabelsProperties.forEach {
+            arView.updateLabel(forPOI: $0.key, withProperties: $0.value)
+        }
+        UIView.animate(withDuration: 0.1) {
+            self.arView.labelsView.layoutIfNeeded()
+        }
     }
 }
 
@@ -61,14 +92,18 @@ extension ARViewController {
 extension ARViewController: CLLocationManagerDelegate {
     public func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
         guard let heading = manager.heading else { return }
-        viewModel.setHeading(heading)
-        updateView()
+        let deviceRotation = AngleConverter.convertToDegrees(radians: deviceRotationInRadians)
+        var newDeviceAzimuth = heading.trueHeading + deviceRotation
+        if newDeviceAzimuth < 0 {
+            newDeviceAzimuth += 360
+        }
+        viewModel.deviceAzimuth = newDeviceAzimuth
+        viewModel.deviceAzimuthAccuracy = heading.headingAccuracy
     }
 
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
-        viewModel.setLocation(location)
-        updateView()
+        viewModel.deviceLocation = location
     }
 
     public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

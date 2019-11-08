@@ -14,6 +14,7 @@ final class MainCoordinator: Coordinator {
     init(factory: Factory) {
         self.factory = factory
         let initialViewController = factory.arViewController()
+        navigationController.navigationBar.isHidden = true
         navigationController.pushViewController(initialViewController, animated: true)
     }
 }

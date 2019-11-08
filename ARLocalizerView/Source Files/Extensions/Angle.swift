@@ -5,7 +5,7 @@
 
 import Foundation
 
-typealias Angle = Double
+public typealias Angle = Double
 
 extension Angle {
     /// Calculates smallest difference between two angles.

@@ -12,12 +12,14 @@ final class ARView: UIView {
     }
 
     private(set) var poiLabels: [POI: UILabel] = [:]
+    private(set) var labelsView = UIView().layoutable()
     private let cameraPreview = CameraPreview().layoutable()
 
     // MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupCameraPreview()
+        setupLabelsView()
     }
 
     @available(*, unavailable)
@@ -38,7 +40,7 @@ final class ARView: UIView {
             } else {
                 label.backgroundColor = .white
             }
-            addSubview(label)
+            labelsView.addSubview(label)
             activateConstraints(forDistanceLabel: label)
             poiLabels[$0] = label
         }
@@ -49,12 +51,12 @@ final class ARView: UIView {
         label.isHidden = properties.isHidden
         label.text = properties.text
 
-        let centerXConstraint = constraints.first {
+        let centerXConstraint = labelsView.constraints.first {
             $0.firstAnchor === label.centerXAnchor
         }
         centerXConstraint?.constant = properties.xOffset
 
-        let centerYConstraint = constraints.first {
+        let centerYConstraint = labelsView.constraints.first {
             $0.firstAnchor === label.centerYAnchor
         }
         centerYConstraint?.constant = properties.yOffset
@@ -70,6 +72,11 @@ final class ARView: UIView {
         activateConstaintsForCameraPreview()
     }
 
+    private func setupLabelsView() {
+        addSubview(labelsView)
+        activateConstaintsForLabelsView()
+    }
+
     private func activateConstaintsForCameraPreview() {
         NSLayoutConstraint.activate(
             [
@@ -81,13 +88,24 @@ final class ARView: UIView {
         )
     }
 
+    private func activateConstaintsForLabelsView() {
+      NSLayoutConstraint.activate(
+            [
+                labelsView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height),
+                labelsView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.height),
+                labelsView.centerXAnchor.constraint(equalTo: centerXAnchor),
+                labelsView.centerYAnchor.constraint(equalTo: centerYAnchor)
+            ]
+        )
+    }
+
     private func activateConstraints(forDistanceLabel label: UILabel) {
         NSLayoutConstraint.activate(
             [
                 label.widthAnchor.constraint(equalToConstant: Constants.POILabelWidth),
                 label.heightAnchor.constraint(equalToConstant: Constants.POILabelHeight),
-                label.centerXAnchor.constraint(equalTo: centerXAnchor),
-                label.centerYAnchor.constraint(equalTo: centerYAnchor)
+                label.centerXAnchor.constraint(equalTo: labelsView.centerXAnchor),
+                label.centerYAnchor.constraint(equalTo: labelsView.centerYAnchor)
             ]
         )
     }

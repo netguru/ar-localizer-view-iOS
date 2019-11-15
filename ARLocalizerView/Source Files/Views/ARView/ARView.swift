@@ -15,6 +15,7 @@ final class ARView: UIView {
     init(frame: CGRect, poiLabelViewType: POILabelView.Type) {
         self.poiLabelViewType = poiLabelViewType
         super.init(frame: frame)
+        clipsToBounds = true
         setupCameraPreview()
         setupLabelsView()
     }

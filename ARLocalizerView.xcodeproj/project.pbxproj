@@ -14,9 +14,6 @@
 		A066984C23701F7700441CF1 /* POILabelProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A066984A23701ED800441CF1 /* POILabelProperties.swift */; };
 		A0669856237034EE00441CF1 /* POI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0669854237034CB00441CF1 /* POI.swift */; };
 		A066985A23703EF200441CF1 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A066985823703EF000441CF1 /* UIView+Layout.swift */; };
-		A0669863237058FD00441CF1 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0669862237058FD00441CF1 /* Factory.swift */; };
-		A06698662370598A00441CF1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06698642370598A00441CF1 /* Coordinator.swift */; };
-		A06698672370598A00441CF1 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06698652370598A00441CF1 /* MainCoordinator.swift */; };
 		A0789DBA23745E5B00CD8C74 /* AngleConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0789DB723745D5D00CD8C74 /* AngleConverter.swift */; };
 		A09047FD236973FD0027EA41 /* ARLocalizerView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09047F4236973FD0027EA41 /* ARLocalizerView.framework */; };
 		A0904802236973FD0027EA41 /* ARLocalizerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0904801236973FD0027EA41 /* ARLocalizerViewTests.swift */; };
@@ -27,9 +24,22 @@
 		A0904835236977E10027EA41 /* ARViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09047D1236892220027EA41 /* ARViewModelProtocol.swift */; };
 		A0904853236991A70027EA41 /* ARLocalizerView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09047F4236973FD0027EA41 /* ARLocalizerView.framework */; };
 		A0904854236991A70027EA41 /* ARLocalizerView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A09047F4236973FD0027EA41 /* ARLocalizerView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A0BDE669235D9FB4006BBD03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BDE668235D9FB4006BBD03 /* AppDelegate.swift */; };
 		A0BDE672235D9FB5006BBD03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0BDE671235D9FB5006BBD03 /* Assets.xcassets */; };
 		A0BDE675235D9FB5006BBD03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0BDE673235D9FB5006BBD03 /* LaunchScreen.storyboard */; };
+		A0EFA6B4237E97E40070A5F7 /* ATMProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A1237E97E30070A5F7 /* ATMProvider.swift */; };
+		A0EFA6B5237E97E40070A5F7 /* POIExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A2237E97E30070A5F7 /* POIExtractor.swift */; };
+		A0EFA6B6237E97E40070A5F7 /* ARScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A4237E97E30070A5F7 /* ARScreenCoordinator.swift */; };
+		A0EFA6B7237E97E40070A5F7 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A5237E97E30070A5F7 /* MainCoordinator.swift */; };
+		A0EFA6B8237E97E40070A5F7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A6237E97E30070A5F7 /* Coordinator.swift */; };
+		A0EFA6B9237E97E40070A5F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A8237E97E30070A5F7 /* AppDelegate.swift */; };
+		A0EFA6BA237E97E40070A5F7 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A9237E97E30070A5F7 /* Factory.swift */; };
+		A0EFA6BB237E97E40070A5F7 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6AB237E97E30070A5F7 /* NetworkClient.swift */; };
+		A0EFA6BC237E97E40070A5F7 /* ATMNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6AC237E97E30070A5F7 /* ATMNetworkClient.swift */; };
+		A0EFA6BD237E97E40070A5F7 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6AF237E97E40070A5F7 /* MapScreen.swift */; };
+		A0EFA6BE237E97E40070A5F7 /* MapScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6B0237E97E40070A5F7 /* MapScreenController.swift */; };
+		A0EFA6BF237E97E40070A5F7 /* ARScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6B2237E97E40070A5F7 /* ARScreen.swift */; };
+		A0EFA6C0237E97E40070A5F7 /* ARScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6B3237E97E40070A5F7 /* ARScreenController.swift */; };
+		A0EFA6C2237EB7100070A5F7 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6C1237EB7100070A5F7 /* NetworkError.swift */; };
 		A0FE8E74236B008400516B87 /* NetguruOffices.json in Resources */ = {isa = PBXBuildFile; fileRef = A0FE8E73236B008400516B87 /* NetguruOffices.json */; };
 		A0FE8E7A236B04D600516B87 /* FilePOIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FE8E77236B00A500516B87 /* FilePOIProvider.swift */; };
 		A0FE8E7B236B04D600516B87 /* POIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FE8E76236B00A500516B87 /* POIProvider.swift */; };
@@ -81,9 +91,6 @@
 		A066984A23701ED800441CF1 /* POILabelProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POILabelProperties.swift; sourceTree = "<group>"; };
 		A0669854237034CB00441CF1 /* POI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POI.swift; sourceTree = "<group>"; };
 		A066985823703EF000441CF1 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
-		A0669862237058FD00441CF1 /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
-		A06698642370598A00441CF1 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		A06698652370598A00441CF1 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		A0789DB723745D5D00CD8C74 /* AngleConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngleConverter.swift; sourceTree = "<group>"; };
 		A09047C523675C520027EA41 /* ARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
 		A09047C723675C6B0027EA41 /* ARViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewModel.swift; sourceTree = "<group>"; };
@@ -104,10 +111,23 @@
 		A090482C2369758C0027EA41 /* Common-Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Common-Staging.xcconfig"; sourceTree = "<group>"; };
 		A090485023698C290027EA41 /* Tests-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Base.xcconfig"; sourceTree = "<group>"; };
 		A0BDE665235D9FB4006BBD03 /* ARLocalizerViewSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARLocalizerViewSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0BDE668235D9FB4006BBD03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0BDE671235D9FB5006BBD03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0BDE674235D9FB5006BBD03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0BDE676235D9FB5006BBD03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0EFA6A1237E97E30070A5F7 /* ATMProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATMProvider.swift; sourceTree = "<group>"; };
+		A0EFA6A2237E97E30070A5F7 /* POIExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POIExtractor.swift; sourceTree = "<group>"; };
+		A0EFA6A4237E97E30070A5F7 /* ARScreenCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARScreenCoordinator.swift; sourceTree = "<group>"; };
+		A0EFA6A5237E97E30070A5F7 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		A0EFA6A6237E97E30070A5F7 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		A0EFA6A8237E97E30070A5F7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A0EFA6A9237E97E30070A5F7 /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		A0EFA6AB237E97E30070A5F7 /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		A0EFA6AC237E97E30070A5F7 /* ATMNetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATMNetworkClient.swift; sourceTree = "<group>"; };
+		A0EFA6AF237E97E40070A5F7 /* MapScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
+		A0EFA6B0237E97E40070A5F7 /* MapScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapScreenController.swift; sourceTree = "<group>"; };
+		A0EFA6B2237E97E40070A5F7 /* ARScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARScreen.swift; sourceTree = "<group>"; };
+		A0EFA6B3237E97E40070A5F7 /* ARScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARScreenController.swift; sourceTree = "<group>"; };
+		A0EFA6C1237EB7100070A5F7 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		A0FE8E73236B008400516B87 /* NetguruOffices.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NetguruOffices.json; sourceTree = "<group>"; };
 		A0FE8E76236B00A500516B87 /* POIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POIProvider.swift; sourceTree = "<group>"; };
 		A0FE8E77236B00A500516B87 /* FilePOIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilePOIProvider.swift; sourceTree = "<group>"; };
@@ -168,15 +188,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		A06698682370599000441CF1 /* Coordinators */ = {
-			isa = PBXGroup;
-			children = (
-				A06698642370598A00441CF1 /* Coordinator.swift */,
-				A06698652370598A00441CF1 /* MainCoordinator.swift */,
-			);
-			path = Coordinators;
-			sourceTree = "<group>";
-		};
 		A0789DB923745D6700CD8C74 /* Other */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,15 +222,6 @@
 				A09047CB23675C9E0027EA41 /* CameraPreview.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		A09047D023675D150027EA41 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-				A0669862237058FD00441CF1 /* Factory.swift */,
-				A0BDE668235D9FB4006BBD03 /* AppDelegate.swift */,
-			);
-			path = Other;
 			sourceTree = "<group>";
 		};
 		A09047F5236973FD0027EA41 /* ARLocalizerView */ = {
@@ -367,8 +369,11 @@
 		A0BDE68A235DAF75006BBD03 /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
-				A06698682370599000441CF1 /* Coordinators */,
-				A09047D023675D150027EA41 /* Other */,
+				A0EFA6A7237E97E30070A5F7 /* Application */,
+				A0EFA6A0237E97E30070A5F7 /* ATMProvider */,
+				A0EFA6A3237E97E30070A5F7 /* Coordinators */,
+				A0EFA6AA237E97E30070A5F7 /* Networking */,
+				A0EFA6AD237E97E40070A5F7 /* Screens */,
 			);
 			path = "Source Files";
 			sourceTree = "<group>";
@@ -396,6 +401,71 @@
 				A0BDE676235D9FB5006BBD03 /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A0EFA6A0237E97E30070A5F7 /* ATMProvider */ = {
+			isa = PBXGroup;
+			children = (
+				A0EFA6A1237E97E30070A5F7 /* ATMProvider.swift */,
+				A0EFA6A2237E97E30070A5F7 /* POIExtractor.swift */,
+			);
+			path = ATMProvider;
+			sourceTree = "<group>";
+		};
+		A0EFA6A3237E97E30070A5F7 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				A0EFA6A4237E97E30070A5F7 /* ARScreenCoordinator.swift */,
+				A0EFA6A5237E97E30070A5F7 /* MainCoordinator.swift */,
+				A0EFA6A6237E97E30070A5F7 /* Coordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		A0EFA6A7237E97E30070A5F7 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				A0EFA6A8237E97E30070A5F7 /* AppDelegate.swift */,
+				A0EFA6A9237E97E30070A5F7 /* Factory.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		A0EFA6AA237E97E30070A5F7 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A0EFA6AB237E97E30070A5F7 /* NetworkClient.swift */,
+				A0EFA6C1237EB7100070A5F7 /* NetworkError.swift */,
+				A0EFA6AC237E97E30070A5F7 /* ATMNetworkClient.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		A0EFA6AD237E97E40070A5F7 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				A0EFA6AE237E97E40070A5F7 /* MapScreen */,
+				A0EFA6B1237E97E40070A5F7 /* ARScreen */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		A0EFA6AE237E97E40070A5F7 /* MapScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A0EFA6AF237E97E40070A5F7 /* MapScreen.swift */,
+				A0EFA6B0237E97E40070A5F7 /* MapScreenController.swift */,
+			);
+			path = MapScreen;
+			sourceTree = "<group>";
+		};
+		A0EFA6B1237E97E40070A5F7 /* ARScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A0EFA6B2237E97E40070A5F7 /* ARScreen.swift */,
+				A0EFA6B3237E97E40070A5F7 /* ARScreenController.swift */,
+			);
+			path = ARScreen;
 			sourceTree = "<group>";
 		};
 		A0FE8E75236B008D00516B87 /* POIProvider */ = {
@@ -600,10 +670,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0669863237058FD00441CF1 /* Factory.swift in Sources */,
-				A06698672370598A00441CF1 /* MainCoordinator.swift in Sources */,
-				A0BDE669235D9FB4006BBD03 /* AppDelegate.swift in Sources */,
-				A06698662370598A00441CF1 /* Coordinator.swift in Sources */,
+				A0EFA6BE237E97E40070A5F7 /* MapScreenController.swift in Sources */,
+				A0EFA6C2237EB7100070A5F7 /* NetworkError.swift in Sources */,
+				A0EFA6B9237E97E40070A5F7 /* AppDelegate.swift in Sources */,
+				A0EFA6B4237E97E40070A5F7 /* ATMProvider.swift in Sources */,
+				A0EFA6B7237E97E40070A5F7 /* MainCoordinator.swift in Sources */,
+				A0EFA6C0237E97E40070A5F7 /* ARScreenController.swift in Sources */,
+				A0EFA6BF237E97E40070A5F7 /* ARScreen.swift in Sources */,
+				A0EFA6BC237E97E40070A5F7 /* ATMNetworkClient.swift in Sources */,
+				A0EFA6BD237E97E40070A5F7 /* MapScreen.swift in Sources */,
+				A0EFA6B8237E97E40070A5F7 /* Coordinator.swift in Sources */,
+				A0EFA6B6237E97E40070A5F7 /* ARScreenCoordinator.swift in Sources */,
+				A0EFA6B5237E97E40070A5F7 /* POIExtractor.swift in Sources */,
+				A0EFA6BA237E97E40070A5F7 /* Factory.swift in Sources */,
+				A0EFA6BB237E97E40070A5F7 /* NetworkClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,6 +765,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A090485023698C290027EA41 /* Tests-Base.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 			};
 			name = Development;
 		};
@@ -692,6 +773,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A090485023698C290027EA41 /* Tests-Base.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 			};
 			name = Staging;
 		};

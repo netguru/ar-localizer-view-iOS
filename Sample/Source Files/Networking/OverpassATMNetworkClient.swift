@@ -6,7 +6,7 @@
 import Foundation
 import ARLocalizerView
 
-final class ATMNetworkClient: NetworkClient {
+final class OverpassATMNetworkClient: NetworkClient {
 
     typealias RequestAttributes = LocationBounds
 

@@ -6,8 +6,11 @@
 import Foundation
 import ARLocalizerView
 
-final class POIExtractor: NSObject {
+final class OverpassATMExtractor: NSObject {
     private var pois: [POI] = []
+}
+
+extension OverpassATMExtractor: POIExtractor {
     func extractPOIs(fromXMLData xmlData: Data, completion: @escaping ([POI]) -> Void) {
         pois = []
         let parser = XMLParser(data: xmlData)
@@ -16,7 +19,8 @@ final class POIExtractor: NSObject {
         completion(pois)
     }
 }
-extension POIExtractor: XMLParserDelegate {
+
+extension OverpassATMExtractor: XMLParserDelegate {
     func parser(
         _ parser: XMLParser,
         didStartElement elementName: String,

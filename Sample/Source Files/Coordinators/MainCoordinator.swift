@@ -21,15 +21,14 @@ final class MainCoordinator: Coordinator {
     }
 }
 
-extension MainCoordinator: MapScreenControllerDelegate {
+extension MainCoordinator: MapScreenViewControllerDelegate {
     func didTapOnARViewButton() {
-        let arScreenCoordinator = ARScreenCoordinator(
-            navigationController: navigationController,
-            factory: factory
-        )
-        arScreenCoordinator.didDismiss = { [weak self] in
-            self?.removeChild(coordinator: arScreenCoordinator)
-        }
-        addChild(coordinator: arScreenCoordinator)
+        navigationController.pushViewController(factory.arScreenController(delegate: self), animated: true)
+    }
+}
+
+extension MainCoordinator: ARScreenViewControllerDelegate {
+    func didTapOnMapViewButton(arScreenController: ARScreenViewController) {
+        navigationController.popViewController(animated: true)
     }
 }

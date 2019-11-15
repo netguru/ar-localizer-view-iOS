@@ -6,7 +6,7 @@
 import UIKit
 import ARLocalizerView
 
-final class ARScreen: UIView {
+final class ARScreenView: UIView {
     let mapViewButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false

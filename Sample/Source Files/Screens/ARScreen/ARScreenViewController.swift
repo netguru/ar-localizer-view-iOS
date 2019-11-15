@@ -6,15 +6,15 @@
 import UIKit
 import ARLocalizerView
 
-protocol ARScreenControllerDelegate: AnyObject {
-    func didTapOnMapViewButton(arScreenController: ARScreenController)
+protocol ARScreenViewControllerDelegate: AnyObject {
+    func didTapOnMapViewButton(arScreenController: ARScreenViewController)
 }
 
-final class ARScreenController: UIViewController {
+final class ARScreenViewController: UIViewController {
     private let arViewController: ARViewController
-    private weak var delegate: ARScreenControllerDelegate?
+    private weak var delegate: ARScreenViewControllerDelegate?
 
-    init(arViewController: ARViewController, delegate: ARScreenControllerDelegate) {
+    init(arViewController: ARViewController, delegate: ARScreenViewControllerDelegate) {
         self.arViewController = arViewController
         self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
@@ -27,11 +27,11 @@ final class ARScreenController: UIViewController {
     }
 
     override func loadView() {
-        view = ARScreen(frame: UIScreen.main.bounds, arView: arViewController.view)
+        view = ARScreenView(frame: UIScreen.main.bounds, arView: arViewController.view)
     }
 
     override func viewDidLoad() {
-        guard let view = view as? ARScreen else { return }
+        guard let view = view as? ARScreenView else { return }
         view.mapViewButton.addTarget(self, action: #selector(didTapOnMapViewButton), for: .touchUpInside)
     }
 

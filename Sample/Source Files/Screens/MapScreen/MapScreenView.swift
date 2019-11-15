@@ -6,7 +6,7 @@
 import UIKit
 import MapKit
 
-final class MapScreen: UIView {
+final class MapScreenView: UIView {
     let arViewButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false

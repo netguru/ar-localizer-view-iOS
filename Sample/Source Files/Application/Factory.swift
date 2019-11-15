@@ -13,25 +13,28 @@ final class Factory {
         }
         return FilePOIProvider(fileURL: fileURL)
     }()
-    private let atmProvider = ATMProvider()
+
+    private let atmProvider = OverpassATMProvider(
+        networkClient: OverpassATMNetworkClient(),
+        poiExtractor: OverpassATMExtractor()
+    )
 }
 
 // MARK: - Functions
 
 extension Factory {
-    func arScreenController(delegate: ARScreenControllerDelegate) -> ARScreenController {
-        return ARScreenController(arViewController: arViewController(), delegate: delegate)
-    }
-
-    func mapScreenController(delegate: MapScreenControllerDelegate) -> MapScreenController {
-        return MapScreenController(poiProvider: atmProvider, delegate: delegate)
-    }
-
-    private func arViewController() -> ARViewController {
-        return ARViewController(
-            viewModel: ARViewModel(
-                poiProvider: atmProvider
-            )
+    func arScreenController(delegate: ARScreenViewControllerDelegate) -> ARScreenViewController {
+        return ARScreenViewController(
+            arViewController: ARViewController(
+                viewModel: ARViewModel(
+                    poiProvider: atmProvider
+                )
+            ),
+            delegate: delegate
         )
+    }
+
+    func mapScreenController(delegate: MapScreenViewControllerDelegate) -> MapScreenViewController {
+        return MapScreenViewController(poiProvider: atmProvider, delegate: delegate)
     }
 }

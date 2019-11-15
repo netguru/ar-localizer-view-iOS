@@ -19,8 +19,8 @@ final class ARScreenCoordinator: Coordinator {
     }
 }
 
-extension ARScreenCoordinator: ARScreenControllerDelegate {
-    func didTapOnMapViewButton(arScreenController: ARScreenController) {
+extension ARScreenCoordinator: ARScreenViewControllerDelegate {
+    func didTapOnMapViewButton(arScreenController: ARScreenViewController) {
         navigationController.popViewController(animated: true)
         self.didDismiss?()
     }

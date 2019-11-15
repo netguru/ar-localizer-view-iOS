@@ -7,23 +7,25 @@ import UIKit
 import MapKit
 import ARLocalizerView
 
-protocol MapScreenControllerDelegate: AnyObject {
+protocol MapScreenViewControllerDelegate: AnyObject {
     func didTapOnARViewButton()
 }
 
-final class MapScreenController: UIViewController {
+final class MapScreenViewController: UIViewController {
     private var poiProvider: POIProvider
     private var previousUserLocation: MKUserLocation?
-    private weak var delegate: MapScreenControllerDelegate?
+    private weak var delegate: MapScreenViewControllerDelegate?
 
     // MARK: - Init
-    init(poiProvider: POIProvider, delegate: MapScreenControllerDelegate) {
+    init(poiProvider: POIProvider, delegate: MapScreenViewControllerDelegate) {
         self.poiProvider = poiProvider
         self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
         self.poiProvider.didUpdate = { [weak self] in
             DispatchQueue.main.async {
-                guard let view = self?.view as? MapScreen else { return }
+                guard let view = self?.view as? MapScreenView else {
+                    return
+                }
                 view.mapView.removeAnnotations(view.mapView.annotations)
                 view.mapView.addAnnotations(poiProvider.pois)
             }
@@ -36,11 +38,11 @@ final class MapScreenController: UIViewController {
     }
 
     override func loadView() {
-        view = MapScreen(frame: UIScreen.main.bounds)
+        view = MapScreenView(frame: UIScreen.main.bounds)
     }
 
     override func viewDidLoad() {
-        guard let view = view as? MapScreen else { return }
+        guard let view = view as? MapScreenView else { return }
         view.arViewButton.addTarget(self, action: #selector(didTapOnARViewButton), for: .touchUpInside)
         view.mapView.delegate = self
     }
@@ -51,7 +53,7 @@ final class MapScreenController: UIViewController {
 }
 
 // MARK: - Map View Delegate
-extension MapScreenController: MKMapViewDelegate {
+extension MapScreenViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         guard let location = userLocation.location else { return }
 

@@ -26,7 +26,7 @@
 		A0904854236991A70027EA41 /* ARLocalizerView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A09047F4236973FD0027EA41 /* ARLocalizerView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A0BDE672235D9FB5006BBD03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0BDE671235D9FB5006BBD03 /* Assets.xcassets */; };
 		A0BDE675235D9FB5006BBD03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0BDE673235D9FB5006BBD03 /* LaunchScreen.storyboard */; };
-		A0EFA6B4237E97E40070A5F7 /* ATMProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A1237E97E30070A5F7 /* ATMProvider.swift */; };
+		A0EFA6B4237E97E40070A5F7 /* OverpassATMProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A1237E97E30070A5F7 /* OverpassATMProvider.swift */; };
 		A0EFA6B5237E97E40070A5F7 /* POIExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A2237E97E30070A5F7 /* POIExtractor.swift */; };
 		A0EFA6B6237E97E40070A5F7 /* ARScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A4237E97E30070A5F7 /* ARScreenCoordinator.swift */; };
 		A0EFA6B7237E97E40070A5F7 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A5237E97E30070A5F7 /* MainCoordinator.swift */; };
@@ -34,12 +34,13 @@
 		A0EFA6B9237E97E40070A5F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A8237E97E30070A5F7 /* AppDelegate.swift */; };
 		A0EFA6BA237E97E40070A5F7 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A9237E97E30070A5F7 /* Factory.swift */; };
 		A0EFA6BB237E97E40070A5F7 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6AB237E97E30070A5F7 /* NetworkClient.swift */; };
-		A0EFA6BC237E97E40070A5F7 /* ATMNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6AC237E97E30070A5F7 /* ATMNetworkClient.swift */; };
-		A0EFA6BD237E97E40070A5F7 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6AF237E97E40070A5F7 /* MapScreen.swift */; };
-		A0EFA6BE237E97E40070A5F7 /* MapScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6B0237E97E40070A5F7 /* MapScreenController.swift */; };
-		A0EFA6BF237E97E40070A5F7 /* ARScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6B2237E97E40070A5F7 /* ARScreen.swift */; };
-		A0EFA6C0237E97E40070A5F7 /* ARScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6B3237E97E40070A5F7 /* ARScreenController.swift */; };
+		A0EFA6BC237E97E40070A5F7 /* OverpassATMNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6AC237E97E30070A5F7 /* OverpassATMNetworkClient.swift */; };
+		A0EFA6BD237E97E40070A5F7 /* MapScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6AF237E97E40070A5F7 /* MapScreenView.swift */; };
+		A0EFA6BE237E97E40070A5F7 /* MapScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6B0237E97E40070A5F7 /* MapScreenViewController.swift */; };
+		A0EFA6BF237E97E40070A5F7 /* ARScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6B2237E97E40070A5F7 /* ARScreenView.swift */; };
+		A0EFA6C0237E97E40070A5F7 /* ARScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6B3237E97E40070A5F7 /* ARScreenViewController.swift */; };
 		A0EFA6C2237EB7100070A5F7 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6C1237EB7100070A5F7 /* NetworkError.swift */; };
+		A0EFA6C9237EEEC20070A5F7 /* OverpassATMExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6C8237EEEC20070A5F7 /* OverpassATMExtractor.swift */; };
 		A0FE8E74236B008400516B87 /* NetguruOffices.json in Resources */ = {isa = PBXBuildFile; fileRef = A0FE8E73236B008400516B87 /* NetguruOffices.json */; };
 		A0FE8E7A236B04D600516B87 /* FilePOIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FE8E77236B00A500516B87 /* FilePOIProvider.swift */; };
 		A0FE8E7B236B04D600516B87 /* POIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FE8E76236B00A500516B87 /* POIProvider.swift */; };
@@ -114,7 +115,7 @@
 		A0BDE671235D9FB5006BBD03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0BDE674235D9FB5006BBD03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0BDE676235D9FB5006BBD03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A0EFA6A1237E97E30070A5F7 /* ATMProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATMProvider.swift; sourceTree = "<group>"; };
+		A0EFA6A1237E97E30070A5F7 /* OverpassATMProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverpassATMProvider.swift; sourceTree = "<group>"; };
 		A0EFA6A2237E97E30070A5F7 /* POIExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POIExtractor.swift; sourceTree = "<group>"; };
 		A0EFA6A4237E97E30070A5F7 /* ARScreenCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARScreenCoordinator.swift; sourceTree = "<group>"; };
 		A0EFA6A5237E97E30070A5F7 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -122,12 +123,13 @@
 		A0EFA6A8237E97E30070A5F7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0EFA6A9237E97E30070A5F7 /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		A0EFA6AB237E97E30070A5F7 /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
-		A0EFA6AC237E97E30070A5F7 /* ATMNetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATMNetworkClient.swift; sourceTree = "<group>"; };
-		A0EFA6AF237E97E40070A5F7 /* MapScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
-		A0EFA6B0237E97E40070A5F7 /* MapScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapScreenController.swift; sourceTree = "<group>"; };
-		A0EFA6B2237E97E40070A5F7 /* ARScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARScreen.swift; sourceTree = "<group>"; };
-		A0EFA6B3237E97E40070A5F7 /* ARScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARScreenController.swift; sourceTree = "<group>"; };
+		A0EFA6AC237E97E30070A5F7 /* OverpassATMNetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverpassATMNetworkClient.swift; sourceTree = "<group>"; };
+		A0EFA6AF237E97E40070A5F7 /* MapScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapScreenView.swift; sourceTree = "<group>"; };
+		A0EFA6B0237E97E40070A5F7 /* MapScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapScreenViewController.swift; sourceTree = "<group>"; };
+		A0EFA6B2237E97E40070A5F7 /* ARScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARScreenView.swift; sourceTree = "<group>"; };
+		A0EFA6B3237E97E40070A5F7 /* ARScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARScreenViewController.swift; sourceTree = "<group>"; };
 		A0EFA6C1237EB7100070A5F7 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		A0EFA6C8237EEEC20070A5F7 /* OverpassATMExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverpassATMExtractor.swift; sourceTree = "<group>"; };
 		A0FE8E73236B008400516B87 /* NetguruOffices.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NetguruOffices.json; sourceTree = "<group>"; };
 		A0FE8E76236B00A500516B87 /* POIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POIProvider.swift; sourceTree = "<group>"; };
 		A0FE8E77236B00A500516B87 /* FilePOIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilePOIProvider.swift; sourceTree = "<group>"; };
@@ -370,7 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				A0EFA6A7237E97E30070A5F7 /* Application */,
-				A0EFA6A0237E97E30070A5F7 /* ATMProvider */,
+				A0EFA6A0237E97E30070A5F7 /* Overpass ATM Provider */,
 				A0EFA6A3237E97E30070A5F7 /* Coordinators */,
 				A0EFA6AA237E97E30070A5F7 /* Networking */,
 				A0EFA6AD237E97E40070A5F7 /* Screens */,
@@ -403,13 +405,14 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A0EFA6A0237E97E30070A5F7 /* ATMProvider */ = {
+		A0EFA6A0237E97E30070A5F7 /* Overpass ATM Provider */ = {
 			isa = PBXGroup;
 			children = (
-				A0EFA6A1237E97E30070A5F7 /* ATMProvider.swift */,
+				A0EFA6A1237E97E30070A5F7 /* OverpassATMProvider.swift */,
 				A0EFA6A2237E97E30070A5F7 /* POIExtractor.swift */,
+				A0EFA6C8237EEEC20070A5F7 /* OverpassATMExtractor.swift */,
 			);
-			path = ATMProvider;
+			path = "Overpass ATM Provider";
 			sourceTree = "<group>";
 		};
 		A0EFA6A3237E97E30070A5F7 /* Coordinators */ = {
@@ -434,9 +437,9 @@
 		A0EFA6AA237E97E30070A5F7 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				A0EFA6AB237E97E30070A5F7 /* NetworkClient.swift */,
 				A0EFA6C1237EB7100070A5F7 /* NetworkError.swift */,
-				A0EFA6AC237E97E30070A5F7 /* ATMNetworkClient.swift */,
+				A0EFA6AB237E97E30070A5F7 /* NetworkClient.swift */,
+				A0EFA6AC237E97E30070A5F7 /* OverpassATMNetworkClient.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -453,8 +456,8 @@
 		A0EFA6AE237E97E40070A5F7 /* MapScreen */ = {
 			isa = PBXGroup;
 			children = (
-				A0EFA6AF237E97E40070A5F7 /* MapScreen.swift */,
-				A0EFA6B0237E97E40070A5F7 /* MapScreenController.swift */,
+				A0EFA6AF237E97E40070A5F7 /* MapScreenView.swift */,
+				A0EFA6B0237E97E40070A5F7 /* MapScreenViewController.swift */,
 			);
 			path = MapScreen;
 			sourceTree = "<group>";
@@ -462,8 +465,8 @@
 		A0EFA6B1237E97E40070A5F7 /* ARScreen */ = {
 			isa = PBXGroup;
 			children = (
-				A0EFA6B2237E97E40070A5F7 /* ARScreen.swift */,
-				A0EFA6B3237E97E40070A5F7 /* ARScreenController.swift */,
+				A0EFA6B2237E97E40070A5F7 /* ARScreenView.swift */,
+				A0EFA6B3237E97E40070A5F7 /* ARScreenViewController.swift */,
 			);
 			path = ARScreen;
 			sourceTree = "<group>";
@@ -670,20 +673,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0EFA6BE237E97E40070A5F7 /* MapScreenController.swift in Sources */,
+				A0EFA6BE237E97E40070A5F7 /* MapScreenViewController.swift in Sources */,
 				A0EFA6C2237EB7100070A5F7 /* NetworkError.swift in Sources */,
 				A0EFA6B9237E97E40070A5F7 /* AppDelegate.swift in Sources */,
-				A0EFA6B4237E97E40070A5F7 /* ATMProvider.swift in Sources */,
+				A0EFA6B4237E97E40070A5F7 /* OverpassATMProvider.swift in Sources */,
 				A0EFA6B7237E97E40070A5F7 /* MainCoordinator.swift in Sources */,
-				A0EFA6C0237E97E40070A5F7 /* ARScreenController.swift in Sources */,
-				A0EFA6BF237E97E40070A5F7 /* ARScreen.swift in Sources */,
-				A0EFA6BC237E97E40070A5F7 /* ATMNetworkClient.swift in Sources */,
-				A0EFA6BD237E97E40070A5F7 /* MapScreen.swift in Sources */,
+				A0EFA6C0237E97E40070A5F7 /* ARScreenViewController.swift in Sources */,
+				A0EFA6BF237E97E40070A5F7 /* ARScreenView.swift in Sources */,
+				A0EFA6BC237E97E40070A5F7 /* OverpassATMNetworkClient.swift in Sources */,
+				A0EFA6BD237E97E40070A5F7 /* MapScreenView.swift in Sources */,
 				A0EFA6B8237E97E40070A5F7 /* Coordinator.swift in Sources */,
 				A0EFA6B6237E97E40070A5F7 /* ARScreenCoordinator.swift in Sources */,
 				A0EFA6B5237E97E40070A5F7 /* POIExtractor.swift in Sources */,
 				A0EFA6BA237E97E40070A5F7 /* Factory.swift in Sources */,
 				A0EFA6BB237E97E40070A5F7 /* NetworkClient.swift in Sources */,
+				A0EFA6C9237EEEC20070A5F7 /* OverpassATMExtractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

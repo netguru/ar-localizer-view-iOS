@@ -11,6 +11,8 @@ public final class SimplePOILabelView: UIView, POILabelView {
         static let height: CGFloat = 50
     }
 
+    public var name: String? = ""
+
     public var distance: Double = 0 {
         didSet {
             distanceLabel.text = distanceTextGenerator(distance)

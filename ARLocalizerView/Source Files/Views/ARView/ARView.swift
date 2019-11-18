@@ -40,6 +40,7 @@ final class ARView: UIView {
     func updateLabel(forPOI poi: POI, withProperties properties: POILabelProperties) {
         guard let poiLabelView = poiLabelViews[poi] else { return }
         poiLabelView.isHidden = properties.isHidden
+        poiLabelView.name = properties.name
         poiLabelView.distance = properties.distance
 
         let centerXConstraint = labelsView.constraints.first {

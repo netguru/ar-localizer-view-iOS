@@ -28,7 +28,8 @@ extension Factory {
             arViewController: ARViewController(
                 viewModel: ARViewModel(
                     poiProvider: atmProvider
-                )
+                ),
+                poiLabelViewType: ATMLabelView.self
             ),
             delegate: delegate
         )

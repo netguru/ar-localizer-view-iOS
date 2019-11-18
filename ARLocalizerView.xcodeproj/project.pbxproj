@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A02B198623719E8A008EAE20 /* Angle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02B198523719E8A008EAE20 /* Angle.swift */; };
+		A033A5A82382D6590096E1EE /* ATMLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A033A5A72382D6590096E1EE /* ATMLabelView.swift */; };
 		A0590ECC2375808C00881046 /* POILabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0590ECA2375808C00881046 /* POILabelView.swift */; };
 		A0590ECD2375808C00881046 /* SimplePOILabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0590ECB2375808C00881046 /* SimplePOILabelView.swift */; };
 		A0590ECF2375896F00881046 /* UIScreen+Diagonal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0590ECE2375896F00881046 /* UIScreen+Diagonal.swift */; };
@@ -86,6 +87,7 @@
 
 /* Begin PBXFileReference section */
 		A02B198523719E8A008EAE20 /* Angle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Angle.swift; sourceTree = "<group>"; };
+		A033A5A72382D6590096E1EE /* ATMLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATMLabelView.swift; sourceTree = "<group>"; };
 		A0590ECA2375808C00881046 /* POILabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POILabelView.swift; sourceTree = "<group>"; };
 		A0590ECB2375808C00881046 /* SimplePOILabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimplePOILabelView.swift; sourceTree = "<group>"; };
 		A0590ECE2375896F00881046 /* UIScreen+Diagonal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Diagonal.swift"; sourceTree = "<group>"; };
@@ -466,6 +468,7 @@
 			isa = PBXGroup;
 			children = (
 				A0EFA6B2237E97E40070A5F7 /* ARScreenView.swift */,
+				A033A5A72382D6590096E1EE /* ATMLabelView.swift */,
 				A0EFA6B3237E97E40070A5F7 /* ARScreenViewController.swift */,
 			);
 			path = ARScreen;
@@ -683,6 +686,7 @@
 				A0EFA6BC237E97E40070A5F7 /* OverpassATMNetworkClient.swift in Sources */,
 				A0EFA6BD237E97E40070A5F7 /* MapScreenView.swift in Sources */,
 				A0EFA6B8237E97E40070A5F7 /* Coordinator.swift in Sources */,
+				A033A5A82382D6590096E1EE /* ATMLabelView.swift in Sources */,
 				A0EFA6B6237E97E40070A5F7 /* ARScreenCoordinator.swift in Sources */,
 				A0EFA6B5237E97E40070A5F7 /* POIExtractor.swift in Sources */,
 				A0EFA6BA237E97E40070A5F7 /* Factory.swift in Sources */,

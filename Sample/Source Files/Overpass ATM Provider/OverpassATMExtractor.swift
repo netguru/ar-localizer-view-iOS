@@ -8,6 +8,7 @@ import ARLocalizerView
 
 final class OverpassATMExtractor: NSObject {
     private var pois: [POI] = []
+    private var currentlyParsedPOI: POI?
 }
 
 extension OverpassATMExtractor: POIExtractor {
@@ -28,8 +29,15 @@ extension OverpassATMExtractor: XMLParserDelegate {
         qualifiedName qName: String?,
         attributes attributeDict: [String: String] = [:]
     ) {
+        if elementName == "node" {
+            parseNodeElement(withAttributes: attributeDict)
+        } else if elementName == "tag" {
+            parseTagElement(withAttributes: attributeDict)
+        }
+    }
+
+    private func parseNodeElement(withAttributes attributeDict: [String: String]) {
         guard
-            elementName == "node",
             let latitudeString = attributeDict["lat"],
             let latitude = Double(latitudeString),
             let longitudeString = attributeDict["lon"],
@@ -37,8 +45,32 @@ extension OverpassATMExtractor: XMLParserDelegate {
         else {
             return
         }
-        pois.append(
-            POI(latitude: latitude, longitude: longitude)
-        )
+
+        currentlyParsedPOI = POI(latitude: latitude, longitude: longitude)
+
+    }
+
+    private func parseTagElement(withAttributes attributeDict: [String: String]) {
+        guard attributeDict["k"] == "name" else {
+            return
+        }
+        currentlyParsedPOI?.name = attributeDict["v"]
+    }
+
+    func parser(
+        _ parser: XMLParser,
+        didEndElement elementName: String,
+        namespaceURI: String?,
+        qualifiedName qName: String?
+    ) {
+        guard
+            elementName == "node",
+            let currentlyParsedPOI = currentlyParsedPOI
+        else {
+            return
+        }
+
+        pois.append(currentlyParsedPOI)
+        self.currentlyParsedPOI = nil
     }
 }

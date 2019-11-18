@@ -40,7 +40,13 @@ final public class ARViewModel: ARViewModelProtocol {
         var newPOILabelsProperties: [POI: POILabelProperties] = [:]
 
         poiProvider.pois.forEach {
-            newPOILabelsProperties[$0] = POILabelProperties(xOffset: 0, yOffset: 0, distance: 0, isHidden: true)
+            newPOILabelsProperties[$0] = POILabelProperties(
+                xOffset: 0,
+                yOffset: 0,
+                name: nil,
+                distance: 0,
+                isHidden: true
+            )
         }
 
         poiLabelsProperties = newPOILabelsProperties
@@ -64,6 +70,7 @@ final public class ARViewModel: ARViewModelProtocol {
         return POILabelProperties(
             xOffset: labelXOffset(forAzimut: azimuthForPOI),
             yOffset: labelsYOffset,
+            name: poi.name,
             distance: distance(forPOI: poi),
             isHidden: !isAngleInSector(deviceAzimuth, withLeftBound: leftBound, withRightBound: rightBound)
         )

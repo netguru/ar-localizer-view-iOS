@@ -8,13 +8,15 @@ import CoreLocation
 import MapKit
 
 public final class POI: NSObject, Decodable {
+    public var name: String?
     var latitude: Double
     var longitude: Double
     var clLocation: CLLocation {
         CLLocation(latitude: latitude, longitude: longitude)
     }
 
-    public init(latitude: Double, longitude: Double) {
+    public init(name: String? = nil, latitude: Double, longitude: Double) {
+        self.name = name
         self.latitude = latitude
         self.longitude = longitude
     }

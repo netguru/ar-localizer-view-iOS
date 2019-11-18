@@ -1,5 +1,5 @@
 //
-//  ATMProvider.swift
+//  OverpassATMProvider.swift
 //  ARLocalizerView
 //
 

@@ -6,15 +6,29 @@
 import UIKit
 
 final class MainCoordinator: Coordinator {
-    let navigationController: UINavigationController = UINavigationController()
-    let factory: Factory
-
+    let navigationController: UINavigationController = {
+        let navigationController = UINavigationController()
+        navigationController.navigationBar.isHidden = true
+        return navigationController
+    }()
     var childCoordinators: [Coordinator] = []
+
+    private let factory: Factory
 
     init(factory: Factory) {
         self.factory = factory
-        let initialViewController = factory.arViewController()
-        navigationController.navigationBar.isHidden = true
-        navigationController.pushViewController(initialViewController, animated: true)
+        navigationController.pushViewController(factory.mapScreenController(delegate: self), animated: false)
+    }
+}
+
+extension MainCoordinator: MapScreenViewControllerDelegate {
+    func didTapOnARViewButton() {
+        navigationController.pushViewController(factory.arScreenController(delegate: self), animated: true)
+    }
+}
+
+extension MainCoordinator: ARScreenViewControllerDelegate {
+    func didTapOnMapViewButton(arScreenController: ARScreenViewController) {
+        navigationController.popViewController(animated: true)
     }
 }

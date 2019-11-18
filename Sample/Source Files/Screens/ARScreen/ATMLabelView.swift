@@ -7,36 +7,10 @@ import UIKit
 import ARLocalizerView
 
 public final class ATMLabelView: UIView, POILabelView {
-    private enum Constants {
-        static let width: CGFloat = 100
-        static let labelHeight: CGFloat = 20
-
-        static let backgroundColor: CGColor = {
-            if #available(iOS 13.0, *) {
-                return UIColor.systemBackground.cgColor
-            } else {
-                return UIColor.white.cgColor
-            }
-        }()
-
-        static let borderColor: CGColor = {
-            if #available(iOS 13.0, *) {
-                return UIColor.label.withAlphaComponent(0.3).cgColor
-            } else {
-                return UIColor.black.withAlphaComponent(0.3).cgColor
-            }
-        }()
-    }
-
     public var name: String? {
         didSet {
             nameLabel.text = name
-
-            if name == nil {
-                nameLabelHeightContraint.constant = 0
-            } else {
-                nameLabelHeightContraint.constant = Constants.labelHeight
-            }
+            nameLabelHeightContraint.constant = (name == nil) ? 0 : Constants.labelHeight
         }
     }
 
@@ -83,12 +57,7 @@ public final class ATMLabelView: UIView, POILabelView {
 
     init() {
         super.init(frame: .zero)
-        layer.backgroundColor = Constants.backgroundColor
-        layer.borderColor = Constants.borderColor
-        layer.borderWidth = 1
-        layer.cornerRadius = 10
-        layer.masksToBounds = true
-
+        setupLayer()
         setupNameLabel()
         setupDistanceLabel()
     }
@@ -96,6 +65,14 @@ public final class ATMLabelView: UIView, POILabelView {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setupLayer() {
+        layer.backgroundColor = Constants.backgroundColor
+        layer.borderColor = Constants.borderColor
+        layer.borderWidth = 1
+        layer.cornerRadius = 10
+        layer.masksToBounds = true
     }
 
     private func setupNameLabel() {
@@ -131,5 +108,28 @@ public final class ATMLabelView: UIView, POILabelView {
                 distanceLabel.heightAnchor.constraint(equalToConstant: Constants.labelHeight)
             ]
         )
+    }
+}
+
+private extension ATMLabelView {
+    enum Constants {
+        static let width: CGFloat = 100
+        static let labelHeight: CGFloat = 20
+
+        static let backgroundColor: CGColor = {
+            if #available(iOS 13.0, *) {
+                return UIColor.systemBackground.cgColor
+            } else {
+                return UIColor.white.cgColor
+            }
+        }()
+
+        static let borderColor: CGColor = {
+            if #available(iOS 13.0, *) {
+                return UIColor.label.withAlphaComponent(0.3).cgColor
+            } else {
+                return UIColor.black.withAlphaComponent(0.3).cgColor
+            }
+        }()
     }
 }

@@ -5,7 +5,7 @@
 
 import Foundation
 
-public typealias LocationBounds = (south: Double, west: Double, north: Double, east: Double)
+public typealias LocationBounds = (south: Angle, west: Angle, north: Angle, east: Angle)
 
 public protocol POIProvider {
     var pois: [POI] { get }

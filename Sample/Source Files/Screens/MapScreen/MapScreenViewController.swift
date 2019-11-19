@@ -54,11 +54,12 @@ final class MapScreenViewController: UIViewController {
 
 // MARK: - Map View Delegate
 extension MapScreenViewController: MKMapViewDelegate {
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        mapView.userTrackingMode = .followWithHeading
+    }
+
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         guard let location = userLocation.location else { return }
-
-        updateRegion(of: mapView)
-
         guard let previousLocation = previousUserLocation?.location else {
             updatePOIProviderLocationBounds(with: userLocation)
             return
@@ -74,21 +75,20 @@ extension MapScreenViewController: MKMapViewDelegate {
         previousUserLocation = userLocation
     }
 
-    private func updateRegion(of mapView: MKMapView) {
-        let region = MKCoordinateRegion(
-            center: mapView.userLocation.coordinate,
-            latitudinalMeters: 1000,
-            longitudinalMeters: 1000
-        )
-        mapView.setRegion(region, animated: true)
-    }
-
     private func locationBounds(forUserLocation userLocation: MKUserLocation) -> LocationBounds {
         return (
-            south: userLocation.coordinate.latitude - 0.01,
-            west: userLocation.coordinate.longitude - 0.01,
-            north: userLocation.coordinate.latitude + 0.01,
-            east: userLocation.coordinate.longitude + 0.01
+            south: userLocation.coordinate.latitude - Constants.distanceFromLocationToBound,
+            west: userLocation.coordinate.longitude - Constants.distanceFromLocationToBound,
+            north: userLocation.coordinate.latitude + Constants.distanceFromLocationToBound,
+            east: userLocation.coordinate.longitude + Constants.distanceFromLocationToBound
         )
+    }
+}
+
+// MARK: - Constants
+extension MapScreenViewController {
+    private enum Constants {
+        /// Distance between every location bound and the location used to specify them. Measured in angles.
+        static let distanceFromLocationToBound: Angle = 0.015
     }
 }

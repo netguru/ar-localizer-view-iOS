@@ -15,7 +15,7 @@ final public class ARViewModel: ARViewModelProtocol {
 
         /// Number of pixels on screen to represent every 1/100th of gravitational force.
         /// It is used to calculate the change in AR label's vertical offset when user tilts.
-        static let pixelsForOneHoundrethOfGravity = UIScreen.main.bounds.width / 70.0
+        static let pixelsForOneHoundrethOfGravity = UIScreen.main.bounds.width / 65.0
         static let visibilityMargin: Angle = 40.0
     }
 
@@ -77,7 +77,7 @@ final public class ARViewModel: ARViewModelProtocol {
     }
 
     private func distance(forPOI poi: POI) -> Double {
-        guard let deviceLocation = deviceLocation else { fatalError("No device location data.") }
+        guard let deviceLocation = deviceLocation else { return 0 }
         return poi.clLocation.distance(from: deviceLocation)
     }
 }
@@ -85,7 +85,7 @@ final public class ARViewModel: ARViewModelProtocol {
 // MARK: - Calulations
 private extension ARViewModel {
     func azimuth(forPOI poi: POI) -> Angle {
-        guard let deviceLocation = deviceLocation else { fatalError("No device location data.") }
+        guard let deviceLocation = deviceLocation else { return 0 }
         let dX = poi.latitude - deviceLocation.coordinate.latitude
         let dY = poi.longitude - deviceLocation.coordinate.longitude
         let tanPhi = abs(dY / dX)

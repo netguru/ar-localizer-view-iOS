@@ -77,10 +77,18 @@ extension MapScreenViewController: MKMapViewDelegate {
 
     private func locationBounds(forUserLocation userLocation: MKUserLocation) -> LocationBounds {
         return (
-            south: userLocation.coordinate.latitude - 0.015,
-            west: userLocation.coordinate.longitude - 0.015,
-            north: userLocation.coordinate.latitude + 0.015,
-            east: userLocation.coordinate.longitude + 0.015
+            south: userLocation.coordinate.latitude - Constants.distanceFromLocationToBound,
+            west: userLocation.coordinate.longitude - Constants.distanceFromLocationToBound,
+            north: userLocation.coordinate.latitude + Constants.distanceFromLocationToBound,
+            east: userLocation.coordinate.longitude + Constants.distanceFromLocationToBound
         )
+    }
+}
+
+// MARK: - Constants
+extension MapScreenViewController {
+    private enum Constants {
+        /// Distance between every location bound and the location used to specify them. Measured in angles.
+        static let distanceFromLocationToBound: Angle = 0.015
     }
 }

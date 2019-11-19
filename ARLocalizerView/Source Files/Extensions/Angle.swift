@@ -9,7 +9,7 @@ public typealias Angle = Double
 
 extension Angle {
     /// Calculates smallest difference between two angles.
-    /// Returns positive value for clockwise rotation or negative for counterclockwise.
+    /// Returns positive value for countclockwise rotation or negative for clockwise.
     func smallestDifference(to angle: Angle) -> Angle {
         let difference = self - angle
 

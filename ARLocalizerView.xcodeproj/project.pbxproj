@@ -26,6 +26,7 @@
 		A0904853236991A70027EA41 /* ARLocalizerView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09047F4236973FD0027EA41 /* ARLocalizerView.framework */; };
 		A0904854236991A70027EA41 /* ARLocalizerView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A09047F4236973FD0027EA41 /* ARLocalizerView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A0A54A19238413E300F227F9 /* FilePOIProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A54A18238413E300F227F9 /* FilePOIProviderTests.swift */; };
+		A0A54A1C2384146F00F227F9 /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A54A1B2384146F00F227F9 /* ExtensionsTests.swift */; };
 		A0BDE672235D9FB5006BBD03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0BDE671235D9FB5006BBD03 /* Assets.xcassets */; };
 		A0BDE675235D9FB5006BBD03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0BDE673235D9FB5006BBD03 /* LaunchScreen.storyboard */; };
 		A0EFA6B4237E97E40070A5F7 /* OverpassATMProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A1237E97E30070A5F7 /* OverpassATMProvider.swift */; };
@@ -115,6 +116,7 @@
 		A090482C2369758C0027EA41 /* Common-Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Common-Staging.xcconfig"; sourceTree = "<group>"; };
 		A090485023698C290027EA41 /* Tests-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Base.xcconfig"; sourceTree = "<group>"; };
 		A0A54A18238413E300F227F9 /* FilePOIProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePOIProviderTests.swift; sourceTree = "<group>"; };
+		A0A54A1B2384146F00F227F9 /* ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
 		A0BDE665235D9FB4006BBD03 /* ARLocalizerViewSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARLocalizerViewSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0BDE671235D9FB5006BBD03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0BDE674235D9FB5006BBD03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 			children = (
 				A0A54A1A2384140900F227F9 /* FilePOIProvider */,
 				A0A54A172384115900F227F9 /* Other */,
+				A0A54A1B2384146F00F227F9 /* ExtensionsTests.swift */,
 			);
 			path = "Source Files";
 			sourceTree = "<group>";
@@ -689,6 +692,7 @@
 			files = (
 				A0904802236973FD0027EA41 /* AngleConverterTests.swift in Sources */,
 				A0A54A19238413E300F227F9 /* FilePOIProviderTests.swift in Sources */,
+				A0A54A1C2384146F00F227F9 /* ExtensionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

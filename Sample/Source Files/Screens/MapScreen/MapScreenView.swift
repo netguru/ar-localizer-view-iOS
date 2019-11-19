@@ -24,7 +24,7 @@ final class MapScreenView: UIView {
         let mapView = MKMapView()
         mapView.translatesAutoresizingMaskIntoConstraints = false
         mapView.showsUserLocation = true
-        mapView.showsCompass = true
+        mapView.showsCompass = false
         mapView.isScrollEnabled = false
         mapView.isRotateEnabled = false
         mapView.isZoomEnabled = false

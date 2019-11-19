@@ -77,7 +77,7 @@ final public class ARViewModel: ARViewModelProtocol {
     }
 
     private func distance(forPOI poi: POI) -> Double {
-        guard let deviceLocation = deviceLocation else { fatalError("No device location data.") }
+        guard let deviceLocation = deviceLocation else { return 0 }
         return poi.clLocation.distance(from: deviceLocation)
     }
 }
@@ -85,7 +85,7 @@ final public class ARViewModel: ARViewModelProtocol {
 // MARK: - Calulations
 private extension ARViewModel {
     func azimuth(forPOI poi: POI) -> Angle {
-        guard let deviceLocation = deviceLocation else { fatalError("No device location data.") }
+        guard let deviceLocation = deviceLocation else { return 0 }
         let dX = poi.latitude - deviceLocation.coordinate.latitude
         let dY = poi.longitude - deviceLocation.coordinate.longitude
         let tanPhi = abs(dY / dX)

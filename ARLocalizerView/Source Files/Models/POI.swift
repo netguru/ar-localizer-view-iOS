@@ -26,4 +26,8 @@ extension POI: MKAnnotation {
     public var coordinate: CLLocationCoordinate2D {
         return clLocation.coordinate
     }
+
+    public var title: String? {
+        return name
+    }
 }

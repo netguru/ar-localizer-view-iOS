@@ -6,7 +6,7 @@
 import UIKit
 
 extension CGRect {
-    var diagonal: CGFloat {
+    var diagonalLength: CGFloat {
         return sqrt(pow(width, 2) + pow(height, 2))
     }
 }

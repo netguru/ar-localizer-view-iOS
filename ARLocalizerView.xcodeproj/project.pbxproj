@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A025FF3A2385B5D0002B93A5 /* POITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A025FF392385B5D0002B93A5 /* POITests.swift */; };
 		A02B198623719E8A008EAE20 /* Angle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02B198523719E8A008EAE20 /* Angle.swift */; };
 		A033A5A82382D6590096E1EE /* ATMLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A033A5A72382D6590096E1EE /* ATMLabelView.swift */; };
 		A0590ECC2375808C00881046 /* POILabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0590ECA2375808C00881046 /* POILabelView.swift */; };
@@ -89,6 +90,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A025FF392385B5D0002B93A5 /* POITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POITests.swift; sourceTree = "<group>"; };
 		A02B198523719E8A008EAE20 /* Angle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Angle.swift; sourceTree = "<group>"; };
 		A033A5A72382D6590096E1EE /* ATMLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATMLabelView.swift; sourceTree = "<group>"; };
 		A0590ECA2375808C00881046 /* POILabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POILabelView.swift; sourceTree = "<group>"; };
@@ -170,6 +172,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A025FF3B2385B83C002B93A5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A025FF392385B5D0002B93A5 /* POITests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		A03068E523842D0D009DE554 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +328,7 @@
 		A090482E236977330027EA41 /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
+				A025FF3B2385B83C002B93A5 /* Models */,
 				A0A54A1A2384140900F227F9 /* FilePOIProvider */,
 				A0A54A172384115900F227F9 /* Other */,
 				A03068E523842D0D009DE554 /* View Models */,
@@ -702,6 +713,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0904802236973FD0027EA41 /* AngleConverterTests.swift in Sources */,
+				A025FF3A2385B5D0002B93A5 /* POITests.swift in Sources */,
 				A0A54A1623840FD900F227F9 /* ARViewModelTests.swift in Sources */,
 				A0A54A19238413E300F227F9 /* FilePOIProviderTests.swift in Sources */,
 				A0A54A1C2384146F00F227F9 /* ExtensionsTests.swift in Sources */,

@@ -85,8 +85,8 @@ final class ARView: UIView {
     private func activateConstaintsForLabelsView() {
         NSLayoutConstraint.activate(
             [
-                labelsView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.diagonalLength),
-                labelsView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.diagonalLength),
+                labelsView.heightAnchor.constraint(equalToConstant: bounds.diagonalLength),
+                labelsView.widthAnchor.constraint(equalToConstant: bounds.diagonalLength),
                 labelsView.centerXAnchor.constraint(equalTo: centerXAnchor),
                 labelsView.centerYAnchor.constraint(equalTo: centerYAnchor)
             ]

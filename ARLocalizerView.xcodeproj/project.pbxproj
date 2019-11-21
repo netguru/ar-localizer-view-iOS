@@ -17,6 +17,7 @@
 		A0669856237034EE00441CF1 /* POI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0669854237034CB00441CF1 /* POI.swift */; };
 		A066985A23703EF200441CF1 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A066985823703EF000441CF1 /* UIView+Layout.swift */; };
 		A0789DBA23745E5B00CD8C74 /* AngleConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0789DB723745D5D00CD8C74 /* AngleConverter.swift */; };
+		A081A2FD2386B16400FDE33B /* ARViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A081A2FC2386B16400FDE33B /* ARViewControllerTests.swift */; };
 		A09047FD236973FD0027EA41 /* ARLocalizerView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09047F4236973FD0027EA41 /* ARLocalizerView.framework */; };
 		A0904802236973FD0027EA41 /* AngleConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0904801236973FD0027EA41 /* AngleConverterTests.swift */; };
 		A0904831236977D40027EA41 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09047CB23675C9E0027EA41 /* CameraPreview.swift */; };
@@ -100,6 +101,7 @@
 		A0669854237034CB00441CF1 /* POI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POI.swift; sourceTree = "<group>"; };
 		A066985823703EF000441CF1 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		A0789DB723745D5D00CD8C74 /* AngleConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngleConverter.swift; sourceTree = "<group>"; };
+		A081A2FC2386B16400FDE33B /* ARViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewControllerTests.swift; sourceTree = "<group>"; };
 		A09047C523675C520027EA41 /* ARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
 		A09047C723675C6B0027EA41 /* ARViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewModel.swift; sourceTree = "<group>"; };
 		A09047C923675C860027EA41 /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +226,22 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		A081A2FE23870A3B00FDE33B /* ARView */ = {
+			isa = PBXGroup;
+			children = (
+				A081A2FC2386B16400FDE33B /* ARViewControllerTests.swift */,
+			);
+			path = ARView;
+			sourceTree = "<group>";
+		};
+		A081A2FF23870A4400FDE33B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A081A2FE23870A3B00FDE33B /* ARView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		A09047CD23675CE90027EA41 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,6 +350,7 @@
 				A0A54A1A2384140900F227F9 /* FilePOIProvider */,
 				A0A54A172384115900F227F9 /* Other */,
 				A03068E523842D0D009DE554 /* View Models */,
+				A081A2FF23870A4400FDE33B /* Views */,
 				A0A54A1B2384146F00F227F9 /* ExtensionsTests.swift */,
 			);
 			path = "Source Files";
@@ -715,6 +734,7 @@
 				A0904802236973FD0027EA41 /* AngleConverterTests.swift in Sources */,
 				A025FF3A2385B5D0002B93A5 /* POITests.swift in Sources */,
 				A0A54A1623840FD900F227F9 /* ARViewModelTests.swift in Sources */,
+				A081A2FD2386B16400FDE33B /* ARViewControllerTests.swift in Sources */,
 				A0A54A19238413E300F227F9 /* FilePOIProviderTests.swift in Sources */,
 				A0A54A1C2384146F00F227F9 /* ExtensionsTests.swift in Sources */,
 			);

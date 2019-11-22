@@ -37,9 +37,7 @@
 		A0BDE675235D9FB5006BBD03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0BDE673235D9FB5006BBD03 /* LaunchScreen.storyboard */; };
 		A0EFA6B4237E97E40070A5F7 /* OverpassATMProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A1237E97E30070A5F7 /* OverpassATMProvider.swift */; };
 		A0EFA6B5237E97E40070A5F7 /* POIExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A2237E97E30070A5F7 /* POIExtractor.swift */; };
-		A0EFA6B6237E97E40070A5F7 /* ARScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A4237E97E30070A5F7 /* ARScreenCoordinator.swift */; };
-		A0EFA6B7237E97E40070A5F7 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A5237E97E30070A5F7 /* MainCoordinator.swift */; };
-		A0EFA6B8237E97E40070A5F7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A6237E97E30070A5F7 /* Coordinator.swift */; };
+		A0EFA6B7237E97E40070A5F7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A5237E97E30070A5F7 /* Coordinator.swift */; };
 		A0EFA6B9237E97E40070A5F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A8237E97E30070A5F7 /* AppDelegate.swift */; };
 		A0EFA6BA237E97E40070A5F7 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A9237E97E30070A5F7 /* Factory.swift */; };
 		A0EFA6BB237E97E40070A5F7 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6AB237E97E30070A5F7 /* NetworkClient.swift */; };
@@ -135,9 +133,7 @@
 		A0BDE676235D9FB5006BBD03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0EFA6A1237E97E30070A5F7 /* OverpassATMProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverpassATMProvider.swift; sourceTree = "<group>"; };
 		A0EFA6A2237E97E30070A5F7 /* POIExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POIExtractor.swift; sourceTree = "<group>"; };
-		A0EFA6A4237E97E30070A5F7 /* ARScreenCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARScreenCoordinator.swift; sourceTree = "<group>"; };
-		A0EFA6A5237E97E30070A5F7 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
-		A0EFA6A6237E97E30070A5F7 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		A0EFA6A5237E97E30070A5F7 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A0EFA6A8237E97E30070A5F7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0EFA6A9237E97E30070A5F7 /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		A0EFA6AB237E97E30070A5F7 /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
@@ -363,12 +359,8 @@
 		A090482E236977330027EA41 /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
-				A025FF3B2385B83C002B93A5 /* Models */,
-				A0A54A1A2384140900F227F9 /* FilePOIProvider */,
-				A0A54A172384115900F227F9 /* Other */,
-				A03068E523842D0D009DE554 /* View Models */,
-				A081A2FF23870A4400FDE33B /* Views */,
-				A0A54A1B2384146F00F227F9 /* ExtensionsTests.swift */,
+				A0DD98372387E9800061CFF5 /* Sample */,
+				A0DD98362387E95D0061CFF5 /* ARLocalizerView */,
 			);
 			path = "Source Files";
 			sourceTree = "<group>";
@@ -487,6 +479,26 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A0DD98362387E95D0061CFF5 /* ARLocalizerView */ = {
+			isa = PBXGroup;
+			children = (
+				A025FF3B2385B83C002B93A5 /* Models */,
+				A0A54A1A2384140900F227F9 /* FilePOIProvider */,
+				A0A54A172384115900F227F9 /* Other */,
+				A03068E523842D0D009DE554 /* View Models */,
+				A081A2FF23870A4400FDE33B /* Views */,
+				A0A54A1B2384146F00F227F9 /* ExtensionsTests.swift */,
+			);
+			path = ARLocalizerView;
+			sourceTree = "<group>";
+		};
+		A0DD98372387E9800061CFF5 /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sample;
+			sourceTree = "<group>";
+		};
 		A0EFA6A0237E97E30070A5F7 /* Overpass ATM Provider */ = {
 			isa = PBXGroup;
 			children = (
@@ -500,9 +512,7 @@
 		A0EFA6A3237E97E30070A5F7 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				A0EFA6A4237E97E30070A5F7 /* ARScreenCoordinator.swift */,
-				A0EFA6A5237E97E30070A5F7 /* MainCoordinator.swift */,
-				A0EFA6A6237E97E30070A5F7 /* Coordinator.swift */,
+				A0EFA6A5237E97E30070A5F7 /* Coordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -768,14 +778,12 @@
 				A0EFA6C2237EB7100070A5F7 /* NetworkError.swift in Sources */,
 				A0EFA6B9237E97E40070A5F7 /* AppDelegate.swift in Sources */,
 				A0EFA6B4237E97E40070A5F7 /* OverpassATMProvider.swift in Sources */,
-				A0EFA6B7237E97E40070A5F7 /* MainCoordinator.swift in Sources */,
+				A0EFA6B7237E97E40070A5F7 /* Coordinator.swift in Sources */,
 				A0EFA6C0237E97E40070A5F7 /* ARScreenViewController.swift in Sources */,
 				A0EFA6BF237E97E40070A5F7 /* ARScreenView.swift in Sources */,
 				A0EFA6BC237E97E40070A5F7 /* OverpassATMNetworkClient.swift in Sources */,
 				A0EFA6BD237E97E40070A5F7 /* MapScreenView.swift in Sources */,
-				A0EFA6B8237E97E40070A5F7 /* Coordinator.swift in Sources */,
 				A033A5A82382D6590096E1EE /* ATMLabelView.swift in Sources */,
-				A0EFA6B6237E97E40070A5F7 /* ARScreenCoordinator.swift in Sources */,
 				A0EFA6B5237E97E40070A5F7 /* POIExtractor.swift in Sources */,
 				A0EFA6BA237E97E40070A5F7 /* Factory.swift in Sources */,
 				A0EFA6BB237E97E40070A5F7 /* NetworkClient.swift in Sources */,

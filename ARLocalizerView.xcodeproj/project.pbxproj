@@ -11,8 +11,10 @@
 		A02B198623719E8A008EAE20 /* Angle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02B198523719E8A008EAE20 /* Angle.swift */; };
 		A033A5A82382D6590096E1EE /* ATMLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A033A5A72382D6590096E1EE /* ATMLabelView.swift */; };
 		A0440E572387FC5B0047440C /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0440E562387FC5B0047440C /* URLSessionProtocol.swift */; };
-		A0440E5A238803040047440C /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0440E59238803040047440C /* MockURLSession.swift */; };
+		A0440E5A238803040047440C /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0440E59238803040047440C /* MockSession.swift */; };
 		A0440E5C238803A80047440C /* MockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0440E5B238803A80047440C /* MockError.swift */; };
+		A0440E5F238829B90047440C /* OverpassATMProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0440E5E238829B90047440C /* OverpassATMProviderTests.swift */; };
+		A0440E63238831B70047440C /* OverpassSample.xml in Resources */ = {isa = PBXBuildFile; fileRef = A0440E602388306F0047440C /* OverpassSample.xml */; };
 		A0590ECC2375808C00881046 /* POILabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0590ECA2375808C00881046 /* POILabelView.swift */; };
 		A0590ECD2375808C00881046 /* SimplePOILabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0590ECB2375808C00881046 /* SimplePOILabelView.swift */; };
 		A0590ECF2375896F00881046 /* CGRect+Diagonal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0590ECE2375896F00881046 /* CGRect+Diagonal.swift */; };
@@ -102,8 +104,10 @@
 		A02B198523719E8A008EAE20 /* Angle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Angle.swift; sourceTree = "<group>"; };
 		A033A5A72382D6590096E1EE /* ATMLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATMLabelView.swift; sourceTree = "<group>"; };
 		A0440E562387FC5B0047440C /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
-		A0440E59238803040047440C /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		A0440E59238803040047440C /* MockSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
 		A0440E5B238803A80047440C /* MockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockError.swift; sourceTree = "<group>"; };
+		A0440E5E238829B90047440C /* OverpassATMProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverpassATMProviderTests.swift; sourceTree = "<group>"; };
+		A0440E602388306F0047440C /* OverpassSample.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = OverpassSample.xml; sourceTree = "<group>"; };
 		A0590ECA2375808C00881046 /* POILabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POILabelView.swift; sourceTree = "<group>"; };
 		A0590ECB2375808C00881046 /* SimplePOILabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimplePOILabelView.swift; sourceTree = "<group>"; };
 		A0590ECE2375896F00881046 /* CGRect+Diagonal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Diagonal.swift"; sourceTree = "<group>"; };
@@ -207,10 +211,18 @@
 		A0440E58238802EB0047440C /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				A0440E59238803040047440C /* MockURLSession.swift */,
+				A0440E59238803040047440C /* MockSession.swift */,
 				A0440E5B238803A80047440C /* MockError.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		A0440E5D238829A00047440C /* OverpassATMProvider */ = {
+			isa = PBXGroup;
+			children = (
+				A0440E5E238829B90047440C /* OverpassATMProviderTests.swift */,
+			);
+			path = OverpassATMProvider;
 			sourceTree = "<group>";
 		};
 		A0590EC92375808C00881046 /* POILabelView */ = {
@@ -381,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				A0440E58238802EB0047440C /* Mocks */,
+				A0440E5D238829A00047440C /* OverpassATMProvider */,
 				A0DD98372387E9800061CFF5 /* Sample */,
 				A0DD98362387E95D0061CFF5 /* ARLocalizerView */,
 			);
@@ -468,7 +481,7 @@
 			isa = PBXGroup;
 			children = (
 				A0EFA6A7237E97E30070A5F7 /* Application */,
-				A0EFA6A0237E97E30070A5F7 /* Overpass ATM Provider */,
+				A0EFA6A0237E97E30070A5F7 /* OverpassATMProvider */,
 				A0EFA6A3237E97E30070A5F7 /* Coordinators */,
 				A0EFA6AA237E97E30070A5F7 /* Networking */,
 				A0EFA6AD237E97E40070A5F7 /* Screens */,
@@ -480,6 +493,7 @@
 			isa = PBXGroup;
 			children = (
 				A0BDE671235D9FB5006BBD03 /* Assets.xcassets */,
+				A0440E602388306F0047440C /* OverpassSample.xml */,
 				A0FE8E73236B008400516B87 /* NetguruOffices.json */,
 			);
 			path = Resources;
@@ -540,14 +554,14 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		A0EFA6A0237E97E30070A5F7 /* Overpass ATM Provider */ = {
+		A0EFA6A0237E97E30070A5F7 /* OverpassATMProvider */ = {
 			isa = PBXGroup;
 			children = (
 				A0EFA6A1237E97E30070A5F7 /* OverpassATMProvider.swift */,
 				A0EFA6A2237E97E30070A5F7 /* POIExtractor.swift */,
 				A0EFA6C8237EEEC20070A5F7 /* OverpassATMExtractor.swift */,
 			);
-			path = "Overpass ATM Provider";
+			path = OverpassATMProvider;
 			sourceTree = "<group>";
 		};
 		A0EFA6A3237E97E30070A5F7 /* Coordinators */ = {
@@ -747,6 +761,7 @@
 			files = (
 				A0BDE675235D9FB5006BBD03 /* LaunchScreen.storyboard in Resources */,
 				A0FE8E74236B008400516B87 /* NetguruOffices.json in Resources */,
+				A0440E63238831B70047440C /* OverpassSample.xml in Resources */,
 				A0BDE672235D9FB5006BBD03 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -801,6 +816,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0440E5C238803A80047440C /* MockError.swift in Sources */,
+				A0440E5F238829B90047440C /* OverpassATMProviderTests.swift in Sources */,
 				A081A3032387177800FDE33B /* SimplePOILabelViewTests.swift in Sources */,
 				A0904802236973FD0027EA41 /* AngleConverterTests.swift in Sources */,
 				A0DD983C2387EE310061CFF5 /* NetworkErrorTests.swift in Sources */,
@@ -813,7 +829,7 @@
 				A0A54A19238413E300F227F9 /* FilePOIProviderTests.swift in Sources */,
 				A081A30623871A3100FDE33B /* CameraPreviewTests.swift in Sources */,
 				A0A54A1C2384146F00F227F9 /* ExtensionsTests.swift in Sources */,
-				A0440E5A238803040047440C /* MockURLSession.swift in Sources */,
+				A0440E5A238803040047440C /* MockSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

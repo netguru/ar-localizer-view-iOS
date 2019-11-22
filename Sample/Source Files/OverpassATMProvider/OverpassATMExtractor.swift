@@ -29,6 +29,7 @@ extension OverpassATMExtractor: XMLParserDelegate {
         qualifiedName qName: String?,
         attributes attributeDict: [String: String] = [:]
     ) {
+        print(elementName)
         if elementName == "node" {
             parseNodeElement(withAttributes: attributeDict)
         } else if elementName == "tag" {

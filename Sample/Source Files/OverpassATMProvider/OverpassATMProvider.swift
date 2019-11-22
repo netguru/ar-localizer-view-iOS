@@ -28,7 +28,7 @@ final class OverpassATMProvider: POIProvider {
         self.poiExtractor = poiExtractor
     }
 
-    func updateAndGetData(session: URLSession = URLSession.shared) {
+    func updateAndGetData(session: URLSessionProtocol = URLSession.shared) {
         guard let locationBounds = locationBounds else {
             return
         }

@@ -35,6 +35,7 @@
 		A0A54A1C2384146F00F227F9 /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A54A1B2384146F00F227F9 /* ExtensionsTests.swift */; };
 		A0BDE672235D9FB5006BBD03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0BDE671235D9FB5006BBD03 /* Assets.xcassets */; };
 		A0BDE675235D9FB5006BBD03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0BDE673235D9FB5006BBD03 /* LaunchScreen.storyboard */; };
+		A0DD983A2387E9E20061CFF5 /* CoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD98392387E9E20061CFF5 /* CoordinatorTests.swift */; };
 		A0EFA6B4237E97E40070A5F7 /* OverpassATMProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A1237E97E30070A5F7 /* OverpassATMProvider.swift */; };
 		A0EFA6B5237E97E40070A5F7 /* POIExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A2237E97E30070A5F7 /* POIExtractor.swift */; };
 		A0EFA6B7237E97E40070A5F7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A5237E97E30070A5F7 /* Coordinator.swift */; };
@@ -131,6 +132,7 @@
 		A0BDE671235D9FB5006BBD03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0BDE674235D9FB5006BBD03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0BDE676235D9FB5006BBD03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0DD98392387E9E20061CFF5 /* CoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorTests.swift; sourceTree = "<group>"; };
 		A0EFA6A1237E97E30070A5F7 /* OverpassATMProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverpassATMProvider.swift; sourceTree = "<group>"; };
 		A0EFA6A2237E97E30070A5F7 /* POIExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POIExtractor.swift; sourceTree = "<group>"; };
 		A0EFA6A5237E97E30070A5F7 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -495,8 +497,17 @@
 		A0DD98372387E9800061CFF5 /* Sample */ = {
 			isa = PBXGroup;
 			children = (
+				A0DD98382387E9CF0061CFF5 /* Coordinators */,
 			);
 			path = Sample;
+			sourceTree = "<group>";
+		};
+		A0DD98382387E9CF0061CFF5 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				A0DD98392387E9E20061CFF5 /* CoordinatorTests.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		A0EFA6A0237E97E30070A5F7 /* Overpass ATM Provider */ = {
@@ -764,6 +775,7 @@
 				A025FF3A2385B5D0002B93A5 /* POITests.swift in Sources */,
 				A0A54A1623840FD900F227F9 /* ARViewModelTests.swift in Sources */,
 				A081A2FD2386B16400FDE33B /* ARViewControllerTests.swift in Sources */,
+				A0DD983A2387E9E20061CFF5 /* CoordinatorTests.swift in Sources */,
 				A0A54A19238413E300F227F9 /* FilePOIProviderTests.swift in Sources */,
 				A081A30623871A3100FDE33B /* CameraPreviewTests.swift in Sources */,
 				A0A54A1C2384146F00F227F9 /* ExtensionsTests.swift in Sources */,

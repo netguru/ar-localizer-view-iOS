@@ -7,7 +7,13 @@ import UIKit
 import ARLocalizerView
 
 protocol ARScreenViewControllerDelegate: AnyObject {
-    func didTapOnMapViewButton(arScreenController: ARScreenViewController)
+    func didTapOnMapViewButton(arScreenController: ARScreenViewController, animateTransition: Bool)
+}
+
+extension ARScreenViewControllerDelegate {
+    func didTapOnMapViewButton(arScreenController: ARScreenViewController) {
+        didTapOnMapViewButton(arScreenController: arScreenController, animateTransition: true)
+    }
 }
 
 final class ARScreenViewController: UIViewController {

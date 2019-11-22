@@ -8,7 +8,13 @@ import MapKit
 import ARLocalizerView
 
 protocol MapScreenViewControllerDelegate: AnyObject {
-    func didTapOnARViewButton()
+    func didTapOnARViewButton(animateTransition: Bool)
+}
+
+extension MapScreenViewControllerDelegate {
+    func didTapOnARViewButton() {
+        didTapOnARViewButton(animateTransition: true)
+    }
 }
 
 final class MapScreenViewController: UIViewController {

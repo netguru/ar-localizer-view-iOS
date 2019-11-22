@@ -21,13 +21,13 @@ final class Coordinator {
 }
 
 extension Coordinator: MapScreenViewControllerDelegate {
-    func didTapOnARViewButton() {
-        navigationController.pushViewController(factory.arScreenController(delegate: self), animated: true)
+    func didTapOnARViewButton(animateTransition: Bool = true) {
+        navigationController.pushViewController(factory.arScreenController(delegate: self), animated: animateTransition)
     }
 }
 
 extension Coordinator: ARScreenViewControllerDelegate {
-    func didTapOnMapViewButton(arScreenController: ARScreenViewController) {
-        navigationController.popViewController(animated: true)
+    func didTapOnMapViewButton(arScreenController: ARScreenViewController, animateTransition: Bool = true) {
+        navigationController.popViewController(animated: animateTransition)
     }
 }

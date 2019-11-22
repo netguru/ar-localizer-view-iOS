@@ -31,8 +31,6 @@ class NetworkErrorTests: XCTestCase {
     }
 
     func testDescriptions() {
-        struct MockError: Swift.Error {}
-
         XCTAssertEqual(
             NetworkError.connectionError(MockError()).description,
             "Connection Error: \(MockError().localizedDescription)"
@@ -73,6 +71,5 @@ class NetworkErrorTests: XCTestCase {
             NetworkError.downloadError.description,
             "Download Error"
         )
-
     }
 }

@@ -10,6 +10,9 @@
 		A025FF3A2385B5D0002B93A5 /* POITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A025FF392385B5D0002B93A5 /* POITests.swift */; };
 		A02B198623719E8A008EAE20 /* Angle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02B198523719E8A008EAE20 /* Angle.swift */; };
 		A033A5A82382D6590096E1EE /* ATMLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A033A5A72382D6590096E1EE /* ATMLabelView.swift */; };
+		A0440E572387FC5B0047440C /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0440E562387FC5B0047440C /* URLSessionProtocol.swift */; };
+		A0440E5A238803040047440C /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0440E59238803040047440C /* MockURLSession.swift */; };
+		A0440E5C238803A80047440C /* MockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0440E5B238803A80047440C /* MockError.swift */; };
 		A0590ECC2375808C00881046 /* POILabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0590ECA2375808C00881046 /* POILabelView.swift */; };
 		A0590ECD2375808C00881046 /* SimplePOILabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0590ECB2375808C00881046 /* SimplePOILabelView.swift */; };
 		A0590ECF2375896F00881046 /* CGRect+Diagonal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0590ECE2375896F00881046 /* CGRect+Diagonal.swift */; };
@@ -37,6 +40,7 @@
 		A0BDE675235D9FB5006BBD03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0BDE673235D9FB5006BBD03 /* LaunchScreen.storyboard */; };
 		A0DD983A2387E9E20061CFF5 /* CoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD98392387E9E20061CFF5 /* CoordinatorTests.swift */; };
 		A0DD983C2387EE310061CFF5 /* NetworkErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD983B2387EE310061CFF5 /* NetworkErrorTests.swift */; };
+		A0DD983F2387F2AB0061CFF5 /* OverpassATMNetworkClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD983E2387F2AB0061CFF5 /* OverpassATMNetworkClientTests.swift */; };
 		A0EFA6B4237E97E40070A5F7 /* OverpassATMProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A1237E97E30070A5F7 /* OverpassATMProvider.swift */; };
 		A0EFA6B5237E97E40070A5F7 /* POIExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A2237E97E30070A5F7 /* POIExtractor.swift */; };
 		A0EFA6B7237E97E40070A5F7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EFA6A5237E97E30070A5F7 /* Coordinator.swift */; };
@@ -97,6 +101,9 @@
 		A025FF392385B5D0002B93A5 /* POITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POITests.swift; sourceTree = "<group>"; };
 		A02B198523719E8A008EAE20 /* Angle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Angle.swift; sourceTree = "<group>"; };
 		A033A5A72382D6590096E1EE /* ATMLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATMLabelView.swift; sourceTree = "<group>"; };
+		A0440E562387FC5B0047440C /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		A0440E59238803040047440C /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		A0440E5B238803A80047440C /* MockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockError.swift; sourceTree = "<group>"; };
 		A0590ECA2375808C00881046 /* POILabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POILabelView.swift; sourceTree = "<group>"; };
 		A0590ECB2375808C00881046 /* SimplePOILabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimplePOILabelView.swift; sourceTree = "<group>"; };
 		A0590ECE2375896F00881046 /* CGRect+Diagonal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Diagonal.swift"; sourceTree = "<group>"; };
@@ -135,6 +142,7 @@
 		A0BDE676235D9FB5006BBD03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0DD98392387E9E20061CFF5 /* CoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorTests.swift; sourceTree = "<group>"; };
 		A0DD983B2387EE310061CFF5 /* NetworkErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorTests.swift; sourceTree = "<group>"; };
+		A0DD983E2387F2AB0061CFF5 /* OverpassATMNetworkClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverpassATMNetworkClientTests.swift; sourceTree = "<group>"; };
 		A0EFA6A1237E97E30070A5F7 /* OverpassATMProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverpassATMProvider.swift; sourceTree = "<group>"; };
 		A0EFA6A2237E97E30070A5F7 /* POIExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POIExtractor.swift; sourceTree = "<group>"; };
 		A0EFA6A5237E97E30070A5F7 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -194,6 +202,15 @@
 				A0A54A1523840FD900F227F9 /* ARViewModelTests.swift */,
 			);
 			path = "View Models";
+			sourceTree = "<group>";
+		};
+		A0440E58238802EB0047440C /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				A0440E59238803040047440C /* MockURLSession.swift */,
+				A0440E5B238803A80047440C /* MockError.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		A0590EC92375808C00881046 /* POILabelView */ = {
@@ -363,6 +380,7 @@
 		A090482E236977330027EA41 /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
+				A0440E58238802EB0047440C /* Mocks */,
 				A0DD98372387E9800061CFF5 /* Sample */,
 				A0DD98362387E95D0061CFF5 /* ARLocalizerView */,
 			);
@@ -517,6 +535,7 @@
 			isa = PBXGroup;
 			children = (
 				A0DD983B2387EE310061CFF5 /* NetworkErrorTests.swift */,
+				A0DD983E2387F2AB0061CFF5 /* OverpassATMNetworkClientTests.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -553,6 +572,7 @@
 			children = (
 				A0EFA6C1237EB7100070A5F7 /* NetworkError.swift */,
 				A0EFA6AB237E97E30070A5F7 /* NetworkClient.swift */,
+				A0440E562387FC5B0047440C /* URLSessionProtocol.swift */,
 				A0EFA6AC237E97E30070A5F7 /* OverpassATMNetworkClient.swift */,
 			);
 			path = Networking;
@@ -780,6 +800,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0440E5C238803A80047440C /* MockError.swift in Sources */,
 				A081A3032387177800FDE33B /* SimplePOILabelViewTests.swift in Sources */,
 				A0904802236973FD0027EA41 /* AngleConverterTests.swift in Sources */,
 				A0DD983C2387EE310061CFF5 /* NetworkErrorTests.swift in Sources */,
@@ -787,10 +808,12 @@
 				A025FF3A2385B5D0002B93A5 /* POITests.swift in Sources */,
 				A0A54A1623840FD900F227F9 /* ARViewModelTests.swift in Sources */,
 				A081A2FD2386B16400FDE33B /* ARViewControllerTests.swift in Sources */,
+				A0DD983F2387F2AB0061CFF5 /* OverpassATMNetworkClientTests.swift in Sources */,
 				A0DD983A2387E9E20061CFF5 /* CoordinatorTests.swift in Sources */,
 				A0A54A19238413E300F227F9 /* FilePOIProviderTests.swift in Sources */,
 				A081A30623871A3100FDE33B /* CameraPreviewTests.swift in Sources */,
 				A0A54A1C2384146F00F227F9 /* ExtensionsTests.swift in Sources */,
+				A0440E5A238803040047440C /* MockURLSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,6 +821,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0440E572387FC5B0047440C /* URLSessionProtocol.swift in Sources */,
 				A0EFA6BE237E97E40070A5F7 /* MapScreenViewController.swift in Sources */,
 				A0EFA6C2237EB7100070A5F7 /* NetworkError.swift in Sources */,
 				A0EFA6B9237E97E40070A5F7 /* AppDelegate.swift in Sources */,

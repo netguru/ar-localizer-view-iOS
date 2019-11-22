@@ -28,11 +28,11 @@ final class OverpassATMProvider: POIProvider {
         self.poiExtractor = poiExtractor
     }
 
-    func updateAndGetData() {
+    func updateAndGetData(session: URLSession = URLSession.shared) {
         guard let locationBounds = locationBounds else {
             return
         }
-        networkClient.getData(usingAttributes: locationBounds) { [weak self] data, networkError in
+        networkClient.getData(usingAttributes: locationBounds, session: session) { [weak self] data, networkError in
             if let networkError = networkError {
                 print(networkError.description)
                 return

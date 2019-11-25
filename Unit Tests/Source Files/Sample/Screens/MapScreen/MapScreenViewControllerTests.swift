@@ -31,7 +31,8 @@ class MapScreenViewControllerTests: XCTestCase {
         )
         mockPOIProvider.pois = [poi]
         mockPOIProvider.didUpdate?()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+
+        DispatchQueue.main.async {
             XCTAssertEqual(
                 (self.mapScreenViewController.view as? MapScreenView)?.mapView.annotations.count,
                 1

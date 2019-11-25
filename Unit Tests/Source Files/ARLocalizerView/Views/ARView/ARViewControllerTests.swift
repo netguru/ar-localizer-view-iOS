@@ -21,10 +21,13 @@ class ARViewControllerTests: XCTestCase {
     func testUpdateViewTimerInitAndDeinit() {
         var controller: ARViewController? = ARViewController(viewModel: ARViewModel(poiProvider: nil))
         let timer = controller?.updateViewTimer
+
         XCTAssertNotNil(timer)
         XCTAssertEqual(timer?.isValid, true)
+
         controller = nil
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+
+        DispatchQueue.main.async {
             XCTAssertEqual(timer?.isValid, false)
         }
     }

@@ -76,7 +76,9 @@ final public class ARViewModel: ARViewModelProtocol {
 // MARK: - Calulations
 extension ARViewModel {
     func azimuth(forPOI poi: POI) -> Angle {
-        guard let deviceLocation = deviceLocation else { return 0 }
+        guard let deviceLocation = deviceLocation else {
+            return 0
+        }
         let x = poi.latitude - deviceLocation.coordinate.latitude
         let y = poi.longitude - deviceLocation.coordinate.longitude
         let tanPhi = abs(y / x)
@@ -87,23 +89,17 @@ extension ARViewModel {
 
     func angleAdjustedBasedOnCoordinateSystemQuarter(angle: Angle, isXPositive: Bool, isYPositive: Bool) -> Angle {
         switch (isXPositive, isYPositive) {
-        // First quarter
-        case (true, true):
-            return angle
-        // Second quarter
-        case (false, true):
-            return 180 - angle
-        // Third quarter
-        case (false, false):
-            return 180 + angle
-        // Fourth quarter
-        case (true, false):
-            return 360 - angle
+        case (true, true): return angle
+        case (false, true): return 180 - angle
+        case (false, false): return 180 + angle
+        case (true, false): return 360 - angle
         }
     }
 
     private func distance(toPOI poi: POI) -> Double {
-        guard let deviceLocation = deviceLocation else { return 0 }
+        guard let deviceLocation = deviceLocation else {
+            return 0
+        }
         return poi.clLocation.distance(from: deviceLocation)
     }
 
@@ -134,7 +130,7 @@ extension ARViewModel {
     }
 
     private func labelXOffset(forAzimut azimutForPOI: Angle) -> CGFloat {
-        let offsetInDegrees = azimutForPOI.smallestDifference(to: deviceAzimuth)
+        let offsetInDegrees = azimutForPOI.angularDistance(to: deviceAzimuth)
         let offsetInPixels = CGFloat(offsetInDegrees) * Constants.pixelsForOneDegree
         return offsetInPixels
     }

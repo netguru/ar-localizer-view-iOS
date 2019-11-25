@@ -37,7 +37,9 @@ final class ARScreenViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-        guard let view = view as? ARScreenView else { return }
+        guard let view = view as? ARScreenView else {
+            return
+        }
         view.mapViewButton.addTarget(self, action: #selector(didTapOnMapViewButton), for: .touchUpInside)
     }
 

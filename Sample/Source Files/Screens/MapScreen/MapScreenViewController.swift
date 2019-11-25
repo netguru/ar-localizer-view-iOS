@@ -48,7 +48,9 @@ final class MapScreenViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-        guard let view = view as? MapScreenView else { return }
+        guard let view = view as? MapScreenView else {
+            return
+        }
         view.arViewButton.addTarget(self, action: #selector(didTapOnARViewButton), for: .touchUpInside)
         view.mapView.delegate = self
     }
@@ -65,13 +67,17 @@ extension MapScreenViewController: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        guard let location = userLocation.location else { return }
+        guard let location = userLocation.location else {
+            return
+        }
         guard let previousLocation = previousLocation else {
             updatePOIProviderLocationBounds(with: location)
             return
         }
 
-        guard location.distance(from: previousLocation) > 200 else { return }
+        guard location.distance(from: previousLocation) > 200 else {
+            return
+        }
 
         updatePOIProviderLocationBounds(with: location)
     }

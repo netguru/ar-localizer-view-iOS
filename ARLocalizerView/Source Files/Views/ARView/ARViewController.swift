@@ -9,7 +9,7 @@ import CoreMotion
 
 final public class ARViewController: UIViewController {
     // MARK: Internal stored properties
-    var updateViewTimer: Timer?
+    var viewUpdatingTimer: Timer?
 
     // MARK: Private stored properties
     private let locationManager = CLLocationManager()
@@ -23,11 +23,15 @@ final public class ARViewController: UIViewController {
         view as! ARView
     }
     private var deviceGravityZ: Double {
-        guard let deviceMotion = motionManager.deviceMotion else { return 0 }
+        guard let deviceMotion = motionManager.deviceMotion else {
+            return 0
+        }
         return deviceMotion.gravity.z
     }
     private var deviceRotationInRadians: Double {
-        guard let deviceMotion = motionManager.deviceMotion else { return 0 }
+        guard let deviceMotion = motionManager.deviceMotion else {
+            return 0
+        }
         return atan2(deviceMotion.gravity.x, deviceMotion.gravity.y) - .pi
     }
 
@@ -50,7 +54,7 @@ final public class ARViewController: UIViewController {
     }
 
     deinit {
-        updateViewTimer?.invalidate()
+        viewUpdatingTimer?.invalidate()
     }
 
     // MARK: Lifecycle methods
@@ -60,8 +64,9 @@ final public class ARViewController: UIViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-
-        guard viewRefreshInterval > 0 else { return }
+        guard viewRefreshInterval > 0 else {
+            return
+        }
 
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -71,7 +76,7 @@ final public class ARViewController: UIViewController {
         motionManager.deviceMotionUpdateInterval = viewRefreshInterval
         motionManager.startDeviceMotionUpdates(using: .xTrueNorthZVertical)
 
-        setupUpdateViewTimer()
+        setupViewUpdatingTimer()
     }
 
     override public func viewDidAppear(_ animated: Bool) {
@@ -80,8 +85,8 @@ final public class ARViewController: UIViewController {
     }
 
     // MARK: Other methods
-    private func setupUpdateViewTimer() {
-        updateViewTimer = Timer.scheduledTimer(withTimeInterval: viewRefreshInterval, repeats: true) { [weak self] _ in
+    private func setupViewUpdatingTimer() {
+        viewUpdatingTimer = Timer.scheduledTimer(withTimeInterval: viewRefreshInterval, repeats: true) { [weak self] _ in
             self?.updateView()
         }
     }
@@ -118,7 +123,9 @@ extension ARViewController: CLLocationManagerDelegate {
     }
 
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else { return }
+        guard let location = locations.first else {
+            return
+        }
         viewModel.deviceLocation = location
     }
 

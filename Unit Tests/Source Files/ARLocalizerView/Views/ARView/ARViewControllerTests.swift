@@ -20,7 +20,7 @@ class ARViewControllerTests: XCTestCase {
 
     func testUpdateViewTimerInitAndDeinit() {
         var controller: ARViewController? = ARViewController(viewModel: ARViewModel(poiProvider: nil))
-        let timer = controller?.updateViewTimer
+        let timer = controller?.viewUpdatingTimer
 
         XCTAssertNotNil(timer)
         XCTAssertEqual(timer?.isValid, true)

@@ -37,10 +37,21 @@ class ARViewModelTests: XCTestCase {
     }
 
     func testPOILabelPropertiesGeneration() {
+        let properties = arViewModel.poiLabelProperties(forPOI: examplePOI)
         XCTAssertEqual(
-            arViewModel.poiLabelProperties(forPOI: examplePOI),
-            examplePOILabelProperties,
-            "Label properties generated for example POI should equal example label properties."
+            properties.distance,
+            examplePOILabelProperties.distance,
+            "Distance property generated for example POI should equal example distance property."
+        )
+        XCTAssertEqual(
+            properties.name,
+            examplePOILabelProperties.name,
+            "Name property generated for example POI should equal example name property."
+        )
+        XCTAssertEqual(
+            properties.isHidden,
+            examplePOILabelProperties.isHidden,
+            "isHidden property generated for example POI should equal example isHidden property."
         )
     }
 
@@ -58,13 +69,19 @@ class ARViewModelTests: XCTestCase {
     }
 
     func testUpdatePOILabelsProperties() {
-        arViewModel.poiLabelsProperties[examplePOI] = examplePOILabelProperties
         arViewModel.deviceLocation = CLLocation(latitude: 50, longitude: 18)
         arViewModel.updatePOILabelsProperties()
+
+        let properties = arViewModel.poiLabelProperties(forPOI: examplePOI)
         XCTAssertNotEqual(
-            arViewModel.poiLabelsProperties[examplePOI],
-            examplePOILabelProperties,
-            "Label proearties generated for latitude = 50 and longitude = 18 should not equal example label proparties."
+            properties.distance,
+            examplePOILabelProperties.distance,
+            "Distance property generated for latitude = 50 and longitude = 18 should equal example distance property."
+        )
+        XCTAssertNotEqual(
+            properties.isHidden,
+            examplePOILabelProperties.isHidden,
+            "isHidden property generated for latitude = 50 and longitude = 18 should equal example isHidden property."
         )
     }
 

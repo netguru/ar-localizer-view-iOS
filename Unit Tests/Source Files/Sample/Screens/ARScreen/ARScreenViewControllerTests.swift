@@ -16,9 +16,7 @@ class ARScreenViewControllerTests: XCTestCase {
         super.setUp()
         mockScreenViewControllerDelegate = MockScreenViewControllerDelegate()
         arScreenViewController = ARScreenViewController(
-            arViewController: ARViewController(
-                viewModel: ARViewModel(poiProvider: MockPOIProvider())
-            ),
+            arViewController: ARViewController(viewModel: ARViewModel(poiProvider: nil)),
             delegate: mockScreenViewControllerDelegate
         )
     }

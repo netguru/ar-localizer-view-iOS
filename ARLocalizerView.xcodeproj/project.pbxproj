@@ -31,6 +31,7 @@
 		A08BADD7238BBF06003914C8 /* MapScreenViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08BADD6238BBF06003914C8 /* MapScreenViewControllerTests.swift */; };
 		A08BADD9238BBFC9003914C8 /* MockScreenViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08BADD8238BBFC9003914C8 /* MockScreenViewControllerDelegate.swift */; };
 		A08BADDB238BC97B003914C8 /* MockPOIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08BADDA238BC97B003914C8 /* MockPOIProvider.swift */; };
+		A08BADDD238BE8E0003914C8 /* ARScreenViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08BADDC238BE8E0003914C8 /* ARScreenViewControllerTests.swift */; };
 		A09047FD236973FD0027EA41 /* ARLocalizerView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09047F4236973FD0027EA41 /* ARLocalizerView.framework */; };
 		A0904802236973FD0027EA41 /* AngleConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0904801236973FD0027EA41 /* AngleConverterTests.swift */; };
 		A0904831236977D40027EA41 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09047CB23675C9E0027EA41 /* CameraPreview.swift */; };
@@ -129,6 +130,7 @@
 		A08BADD6238BBF06003914C8 /* MapScreenViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenViewControllerTests.swift; sourceTree = "<group>"; };
 		A08BADD8238BBFC9003914C8 /* MockScreenViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockScreenViewControllerDelegate.swift; sourceTree = "<group>"; };
 		A08BADDA238BC97B003914C8 /* MockPOIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPOIProvider.swift; sourceTree = "<group>"; };
+		A08BADDC238BE8E0003914C8 /* ARScreenViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARScreenViewControllerTests.swift; sourceTree = "<group>"; };
 		A09047C523675C520027EA41 /* ARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
 		A09047C723675C6B0027EA41 /* ARViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewModel.swift; sourceTree = "<group>"; };
 		A09047C923675C860027EA41 /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				A08BADD4238BBC36003914C8 /* ARScreenViewTests.swift */,
+				A08BADDC238BE8E0003914C8 /* ARScreenViewControllerTests.swift */,
 			);
 			path = ARScreen;
 			sourceTree = "<group>";
@@ -874,6 +877,7 @@
 				A08BADDB238BC97B003914C8 /* MockPOIProvider.swift in Sources */,
 				A0440E5A238803040047440C /* MockSession.swift in Sources */,
 				A08BADD2238BBA3C003914C8 /* MapScreenViewTests.swift in Sources */,
+				A08BADDD238BE8E0003914C8 /* ARScreenViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,7 @@ final class OverpassATMNetworkClient: NetworkClient {
 
     private let basePath = "https://overpass-api.de/api/interpreter"
 
-    internal func requestPath(withAttributes attributes: RequestAttributes) -> String {
+    func requestPath(withAttributes attributes: RequestAttributes) -> String {
         var path = basePath
         path += "?data=node[amenity=atm]("
         path += "\(attributes.south),\(attributes.west),\(attributes.north),\(attributes.east)"

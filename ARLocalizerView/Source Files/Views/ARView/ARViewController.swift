@@ -9,7 +9,7 @@ import CoreMotion
 
 final public class ARViewController: UIViewController {
     // MARK: Internal stored properties
-    internal var updateViewTimer: Timer?
+    var updateViewTimer: Timer?
 
     // MARK: Private stored properties
     private let locationManager = CLLocationManager()
@@ -86,7 +86,7 @@ final public class ARViewController: UIViewController {
         }
     }
 
-    internal func updateView(
+    func updateView(
         withAuthorizationStatus authorizationStatus: CLAuthorizationStatus = CLLocationManager.authorizationStatus()
     ) {
         guard authorizationStatus == .authorizedWhenInUse else {
@@ -122,7 +122,7 @@ extension ARViewController: CLLocationManagerDelegate {
         viewModel.deviceLocation = location
     }
 
-    internal func updateDeviceAzimuthInViewModel(
+    func updateDeviceAzimuthInViewModel(
         withTrueHeading trueHeading: CLLocationDirection,
         andHeadingAccuracy headingAccuracy: CLLocationDirection
     ) {

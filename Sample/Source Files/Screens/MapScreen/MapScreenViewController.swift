@@ -76,7 +76,7 @@ extension MapScreenViewController: MKMapViewDelegate {
         updatePOIProviderLocationBounds(with: location)
     }
 
-    internal func updatePOIProviderLocationBounds(with location: CLLocation) {
+    func updatePOIProviderLocationBounds(with location: CLLocation) {
         poiProvider.locationBounds = locationBounds(forCoordinate: location.coordinate)
         previousLocation = location
     }

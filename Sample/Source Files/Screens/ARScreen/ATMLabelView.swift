@@ -24,7 +24,7 @@ public final class ATMLabelView: UIView, POILabelView {
         return "\(Int(distance)) m"
     }
 
-    internal var appropriateAlpha: CGFloat {
+    var appropriateAlpha: CGFloat {
         switch distance {
         case 0 ..< 300:
             return 1
@@ -39,7 +39,7 @@ public final class ATMLabelView: UIView, POILabelView {
 
     lazy private var nameLabelHeightContraint = nameLabel.heightAnchor.constraint(equalToConstant: 0)
 
-    internal let nameLabel: UILabel = {
+    let nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
@@ -47,7 +47,7 @@ public final class ATMLabelView: UIView, POILabelView {
         return label
     }()
 
-    internal let distanceLabel: UILabel = {
+    let distanceLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center

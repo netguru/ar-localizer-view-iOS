@@ -24,7 +24,7 @@ final public class ARViewModel: ARViewModelProtocol {
     public var deviceAzimuth: Angle = 0
     public var deviceAzimuthAccuracy: Angle = 0
     public var deviceGravityZ: Double = 0
-    public var poiLabelsProperties: [POI: POILabelProperties] = [:]
+    public var poiLabelsProperties = [POI: POILabelProperties]()
     public var pois: [POI] {
         poiLabelsProperties.map { $0.key }
     }
@@ -41,7 +41,7 @@ final public class ARViewModel: ARViewModelProtocol {
     }
 
     // MARK: POI Label Methods
-    internal func setupPOILabels(forPOIs pois: [POI]?) {
+    func setupPOILabels(forPOIs pois: [POI]?) {
         pois?.forEach {
             poiLabelsProperties[$0] = POILabelProperties(
                 xOffset: 0,
@@ -58,7 +58,7 @@ final public class ARViewModel: ARViewModelProtocol {
         }
     }
 
-    internal func poiLabelProperties(forPOI poi: POI) -> POILabelProperties {
+    func poiLabelProperties(forPOI poi: POI) -> POILabelProperties {
         let azimuthForPOI = azimuth(forPOI: poi)
         let leftBound = minimalAngleOfVisibility(forAzimuth: azimuthForPOI)
         let rightBound = maximalAngleOfVisibility(forAzimuth: azimuthForPOI)
@@ -123,7 +123,7 @@ extension ARViewModel {
         return angle
     }
 
-    internal func isAngleInSector(
+    func isAngleInSector(
         _ angle: Angle, withLeftBound leftBound: Angle, withRightBound rightBound: Angle
     ) -> Bool {
         if leftBound > rightBound {

@@ -17,7 +17,7 @@ public final class SimplePOILabelView: UIView, POILabelView {
         return "\(Int(distance)) m"
     }
 
-    internal let distanceLabel: UILabel = {
+    let distanceLabel: UILabel = {
         let label = UILabel().layoutable()
         label.textAlignment = .center
         return label

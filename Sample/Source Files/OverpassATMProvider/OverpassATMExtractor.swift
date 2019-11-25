@@ -29,7 +29,6 @@ extension OverpassATMExtractor: XMLParserDelegate {
         qualifiedName qName: String?,
         attributes attributeDict: [String: String] = [:]
     ) {
-        print(elementName)
         if elementName == "node" {
             parseNodeElement(withAttributes: attributeDict)
         } else if elementName == "tag" {
@@ -48,7 +47,6 @@ extension OverpassATMExtractor: XMLParserDelegate {
         }
 
         currentlyParsedPOI = POI(latitude: latitude, longitude: longitude)
-
     }
 
     private func parseTagElement(withAttributes attributeDict: [String: String]) {

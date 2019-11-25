@@ -19,7 +19,7 @@ extension MapScreenViewControllerDelegate {
 
 final class MapScreenViewController: UIViewController {
     private var poiProvider: POIProvider
-    private var previousUserLocation: MKUserLocation?
+    private var previousLocation: CLLocation?
     private weak var delegate: MapScreenViewControllerDelegate?
 
     // MARK: - Init
@@ -66,27 +66,27 @@ extension MapScreenViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         guard let location = userLocation.location else { return }
-        guard let previousLocation = previousUserLocation?.location else {
-            updatePOIProviderLocationBounds(with: userLocation)
+        guard let previousLocation = previousLocation else {
+            updatePOIProviderLocationBounds(with: location)
             return
         }
 
         guard location.distance(from: previousLocation) > 200 else { return }
 
-        updatePOIProviderLocationBounds(with: userLocation)
+        updatePOIProviderLocationBounds(with: location)
     }
 
-    private func updatePOIProviderLocationBounds(with userLocation: MKUserLocation) {
-        poiProvider.locationBounds = locationBounds(forUserLocation: userLocation)
-        previousUserLocation = userLocation
+    internal func updatePOIProviderLocationBounds(with location: CLLocation) {
+        poiProvider.locationBounds = locationBounds(forCoordinate: location.coordinate)
+        previousLocation = location
     }
 
-    private func locationBounds(forUserLocation userLocation: MKUserLocation) -> LocationBounds {
+    private func locationBounds(forCoordinate coordinate: CLLocationCoordinate2D) -> LocationBounds {
         return (
-            south: userLocation.coordinate.latitude - Constants.distanceFromLocationToBound,
-            west: userLocation.coordinate.longitude - Constants.distanceFromLocationToBound,
-            north: userLocation.coordinate.latitude + Constants.distanceFromLocationToBound,
-            east: userLocation.coordinate.longitude + Constants.distanceFromLocationToBound
+            south: coordinate.latitude - Constants.distanceFromLocationToBound,
+            west: coordinate.longitude - Constants.distanceFromLocationToBound,
+            north: coordinate.latitude + Constants.distanceFromLocationToBound,
+            east: coordinate.longitude + Constants.distanceFromLocationToBound
         )
     }
 }

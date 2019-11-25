@@ -7,9 +7,9 @@ import XCTest
 import CoreLocation
 @testable import ARLocalizerView
 
-let poi = POI(name: "netguru-HQ", latitude: 52.4015279, longitude: 16.8918892)
-
 class POITests: XCTestCase {
+    let poi = POI(name: "netguru-HQ", latitude: 52.4015279, longitude: 16.8918892)
+
     func testInit() {
         XCTAssertEqual(poi.name, "netguru-HQ")
         XCTAssertEqual(poi.latitude, 52.4015279)

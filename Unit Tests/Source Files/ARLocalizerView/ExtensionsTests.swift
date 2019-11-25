@@ -22,7 +22,7 @@ class ExtensionsTests: XCTestCase {
         let angle2: Angle = 100
         let angle3: Angle = 220
 
-        XCTAssert(angle1.smallestDifference(to: angle2) == -90)
-        XCTAssert(angle1.smallestDifference(to: angle3) == 150)
+        XCTAssert(angle1.angularDistance(to: angle2) == -90)
+        XCTAssert(angle1.angularDistance(to: angle3) == 150)
     }
 }

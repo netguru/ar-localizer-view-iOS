@@ -60,15 +60,12 @@ final public class ARViewModel: ARViewModelProtocol {
 
     func poiLabelProperties(forPOI poi: POI) -> POILabelProperties {
         let azimuthForPOI = azimuth(forPOI: poi)
-        let leftBound = minimalAngleOfVisibility(forAzimuth: azimuthForPOI)
-        let rightBound = maximalAngleOfVisibility(forAzimuth: azimuthForPOI)
-
         return POILabelProperties(
             xOffset: labelXOffset(forAzimut: azimuthForPOI),
             yOffset: labelsYOffset,
             name: poi.name,
             distance: distance(toPOI: poi),
-            isHidden: !isAngleInSector(deviceAzimuth, withLeftBound: leftBound, withRightBound: rightBound)
+            isHidden: !shouldPOIBeVisible(azimuthForPOI: azimuthForPOI)
         )
     }
 }
@@ -98,34 +95,19 @@ extension ARViewModel {
 
     private func distance(toPOI poi: POI) -> Double? {
         guard let deviceLocation = deviceLocation else {
-            return 0
+            return nil
         }
         return poi.clLocation.distance(from: deviceLocation)
     }
 
-    private func minimalAngleOfVisibility(forAzimuth azimuth: Angle) -> Angle {
-        var angle = azimuth - deviceAzimuthAccuracy - Constants.visibilityMargin
-        while angle < 0 {
-            angle += 360
-        }
-        return angle
-    }
+    func shouldPOIBeVisible(azimuthForPOI poiAzimuth: Angle) -> Bool {
+        let leftBound = (poiAzimuth - deviceAzimuthAccuracy - Constants.visibilityMargin).positiveAngle
+        let rightBound = (poiAzimuth + deviceAzimuthAccuracy + Constants.visibilityMargin).positiveAngle
 
-    private func maximalAngleOfVisibility(forAzimuth azimuth: Angle) -> Angle {
-        var angle = azimuth + deviceAzimuthAccuracy + Constants.visibilityMargin
-        while angle >= 360 {
-            angle -= 360
-        }
-        return angle
-    }
-
-    func isAngleInSector(
-        _ angle: Angle, withLeftBound leftBound: Angle, withRightBound rightBound: Angle
-    ) -> Bool {
         if leftBound > rightBound {
-            return (leftBound...360).contains(angle) || (0...rightBound).contains(angle)
+            return (leftBound...360).contains(deviceAzimuth) || (0...rightBound).contains(deviceAzimuth)
         } else {
-            return angle >= leftBound && angle <= rightBound
+            return deviceAzimuth >= leftBound && deviceAzimuth <= rightBound
         }
     }
 

@@ -19,23 +19,16 @@ extension MapScreenViewControllerDelegate {
 
 final class MapScreenViewController: UIViewController {
     private var poiProvider: POIProvider
-    private var previousLocation: CLLocation?
     private weak var delegate: MapScreenViewControllerDelegate?
+
+    private var previousLocation: CLLocation?
 
     // MARK: - Init
     init(poiProvider: POIProvider, delegate: MapScreenViewControllerDelegate) {
         self.poiProvider = poiProvider
         self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
-        self.poiProvider.didUpdate = { [weak self] in
-            DispatchQueue.main.async {
-                guard let view = self?.view as? MapScreenView else {
-                    return
-                }
-                view.mapView.removeAnnotations(view.mapView.annotations)
-                view.mapView.addAnnotations(poiProvider.pois)
-            }
-        }
+        self.poiProvider.didUpdate = didUpdate
     }
 
     @available(*, unavailable)
@@ -57,6 +50,25 @@ final class MapScreenViewController: UIViewController {
 
     @objc func didTapOnARViewButton() {
         delegate?.didTapOnARViewButton()
+    }
+
+    func didUpdate() {
+        let updateAnnotations = {
+            guard
+                let view = self.view as? MapScreenView
+            else {
+                return
+            }
+            view.mapView.removeAnnotations(view.mapView.annotations)
+            view.mapView.addAnnotations(self.poiProvider.pois)
+        }
+
+        guard !Thread.isMainThread else {
+            updateAnnotations()
+            return
+        }
+
+        DispatchQueue.main.async(execute: updateAnnotations)
     }
 }
 

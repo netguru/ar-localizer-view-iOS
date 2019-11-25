@@ -18,20 +18,6 @@ class ARViewControllerTests: XCTestCase {
         XCTAssertNotNil(arViewController.view as? ARView)
     }
 
-    func testUpdateViewTimerInitAndDeinit() {
-        var controller: ARViewController? = ARViewController(viewModel: ARViewModel(poiProvider: nil))
-        let timer = controller?.viewUpdatingTimer
-
-        XCTAssertNotNil(timer)
-        XCTAssertEqual(timer?.isValid, true)
-
-        controller = nil
-
-        DispatchQueue.main.async {
-            XCTAssertEqual(timer?.isValid, false)
-        }
-    }
-
     func testDidUpdateHeading() {
         arViewController.updateDeviceAzimuthInViewModel(withTrueHeading: 45, andHeadingAccuracy: 2)
         XCTAssertEqual(viewModel.deviceAzimuth, 45)
@@ -40,7 +26,8 @@ class ARViewControllerTests: XCTestCase {
 
     func testDidUpdateLocation() {
         arViewController.locationManager(
-            CLLocationManager(), didUpdateLocations: [CLLocation(latitude: 50, longitude: 16)]
+            CLLocationManager(),
+            didUpdateLocations: [CLLocation(latitude: 50, longitude: 16)]
         )
         XCTAssertEqual(viewModel.deviceLocation?.coordinate.latitude, 50)
         XCTAssertEqual(viewModel.deviceLocation?.coordinate.longitude, 16)

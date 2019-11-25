@@ -8,18 +8,8 @@ import CoreLocation
 @testable import ARLocalizerView
 
 class ARViewModelTests: XCTestCase {
-    // MARK: - Objects
-    let arViewModel: ARViewModel = {
-        let arViewModel = ARViewModel(poiProvider: nil)
-        arViewModel.deviceAzimuth = 280
-        arViewModel.deviceLocation = CLLocation(latitude: 52.2389356, longitude: 20.9930279)
-        arViewModel.deviceGravityZ = 0.5
-        return arViewModel
-    }()
-
-    let poi = POI(name: "netguru-HQ", latitude: 52.4015279, longitude: 16.8918892)
-
-    let poiLabelProperties = POILabelProperties(
+    let examplePOI = POI(name: "netguru-HQ", latitude: 52.4015279, longitude: 16.8918892)
+    let examplePOILabelProperties = POILabelProperties(
         xOffset: -72.46556908927708,
         yOffset: 288.46153846153845,
         name: "netguru-HQ",
@@ -27,36 +17,55 @@ class ARViewModelTests: XCTestCase {
         isHidden: false
     )
 
+    var arViewModel: ARViewModel!
+
+    override func setUp() {
+        super.setUp()
+        arViewModel = ARViewModel(poiProvider: nil)
+        arViewModel.deviceAzimuth = 280
+        arViewModel.deviceLocation = CLLocation(latitude: 52.2389356, longitude: 20.9930279)
+        arViewModel.deviceGravityZ = 0.5
+    }
+
     // MARK: - Test Methods
     func testAzimuthForPOI() {
-        XCTAssertEqual(arViewModel.azimuth(forPOI: poi), 272.2703392971438)
+        XCTAssertEqual(
+            arViewModel.azimuth(forPOI: examplePOI),
+            272.2703392971438,
+            "Azimuth for example POI should equal 272.2703392971438."
+        )
     }
 
     func testPOILabelPropertiesGeneration() {
-        let properties = arViewModel.poiLabelProperties(forPOI: poi)
-        XCTAssertEqual(properties.distance, poiLabelProperties.distance)
-        XCTAssertEqual(properties.name, poiLabelProperties.name)
-        XCTAssertEqual(properties.isHidden, poiLabelProperties.isHidden)
+        XCTAssertEqual(
+            arViewModel.poiLabelProperties(forPOI: examplePOI),
+            examplePOILabelProperties,
+            "Label properties generated for example POI should equal example label properties."
+        )
     }
 
     func testSetupPOILabelsProperties() {
-        XCTAssertEqual(arViewModel.poiLabelsProperties.count, 0)
-        arViewModel.setupPOILabels(forPOIs: [poi])
-        XCTAssertEqual(arViewModel.poiLabelsProperties.count, 1)
-        arViewModel.poiLabelsProperties.removeAll()
+        XCTAssertEqual(arViewModel.poiLabelsProperties.count, 0, "Initialy there should be 0 label property sets.")
+        arViewModel.setupPOILabels(forPOIs: [examplePOI])
+        XCTAssertEqual(arViewModel.poiLabelsProperties.count, 1, "There should be exactly 1 label property set.")
     }
 
     func testPOIsArray() {
-        XCTAssertEqual(arViewModel.pois.count, 0)
-        arViewModel.poiLabelsProperties[poi] = poiLabelProperties
-        XCTAssertEqual(arViewModel.pois.first, poi)
+        XCTAssertEqual(arViewModel.pois.count, 0, "Initialy there should be 0 POIs in view model.")
+        arViewModel.poiLabelsProperties[examplePOI] = examplePOILabelProperties
+        XCTAssertEqual(arViewModel.pois.count, 1, "There should be exactly one POI in view model.")
+        XCTAssertEqual(arViewModel.pois.first, examplePOI, "The only POI in view model should be example POI.")
     }
 
     func testUpdatePOILabelsProperties() {
-        arViewModel.poiLabelsProperties[poi] = poiLabelProperties
+        arViewModel.poiLabelsProperties[examplePOI] = examplePOILabelProperties
         arViewModel.deviceLocation = CLLocation(latitude: 50, longitude: 18)
         arViewModel.updatePOILabelsProperties()
-        XCTAssertNotEqual(arViewModel.poiLabelsProperties[poi], poiLabelProperties)
+        XCTAssertNotEqual(
+            arViewModel.poiLabelsProperties[examplePOI],
+            examplePOILabelProperties,
+            "Label proearties generated for latitude = 50 and longitude = 18 should not equal example label proparties."
+        )
     }
 
     func testAdjustingAngleBasedOnCoordinateSystemQuarter() {
@@ -66,27 +75,27 @@ class ARViewModelTests: XCTestCase {
             isXPositive: true,
             isYPositive: true
         )
-        XCTAssertEqual(angleInFirstQuarter, 45)
+        XCTAssertEqual(angleInFirstQuarter, 45, "In first quarter of coordinate system 45 angle should equal 45.")
 
         let angleInSecondQuarter = arViewModel.angleAdjustedBasedOnCoordinateSystemQuarter(
             angle: angle,
             isXPositive: false,
             isYPositive: true
         )
-        XCTAssertEqual(angleInSecondQuarter, 135)
+        XCTAssertEqual(angleInSecondQuarter, 135, "In second quarter of coordinate system 45 angle should equal 135.")
 
         let angleInThirdQuarter = arViewModel.angleAdjustedBasedOnCoordinateSystemQuarter(
             angle: angle,
             isXPositive: false,
             isYPositive: false
         )
-        XCTAssertEqual(angleInThirdQuarter, 225)
+        XCTAssertEqual(angleInThirdQuarter, 225, "In third quarter of coordinate system 45 angle should equal 225.")
 
         let angleInForthQuarter = arViewModel.angleAdjustedBasedOnCoordinateSystemQuarter(
             angle: angle,
             isXPositive: true,
             isYPositive: false
         )
-        XCTAssertEqual(angleInForthQuarter, 315)
+        XCTAssertEqual(angleInForthQuarter, 315, "In fourth quarter of coordinate system 45 angle should equal 315.")
     }
 }

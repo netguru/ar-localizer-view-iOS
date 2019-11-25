@@ -8,21 +8,30 @@ import XCTest
 
 class ExtensionsTests: XCTestCase {
     func testUIViewLayout() {
-        let layoutableView = UIView().layoutable()
-        XCTAssertFalse(layoutableView.translatesAutoresizingMaskIntoConstraints)
+        XCTAssertFalse(
+            UIView().layoutable().translatesAutoresizingMaskIntoConstraints,
+            "Layoutable UIView should not translate autorisizing mask into constraints."
+        )
     }
 
     func testCGRectDiagonal() {
-        let rect = CGRect(x: 0, y: 0, width: 30, height: 40)
-        XCTAssertEqual(rect.diagonalLength, 50)
+        XCTAssertEqual(
+            CGRect(x: 0, y: 0, width: 30, height: 40).diagonalLength,
+            50,
+            "The diagonal of 30x40 rectangle should be equal 50."
+        )
     }
 
     func testSmallestAngle() {
-        let angle1: Angle = 10
-        let angle2: Angle = 100
-        let angle3: Angle = 220
-
-        XCTAssertEqual(angle1.angularDistance(to: angle2), -90)
-        XCTAssertEqual(angle1.angularDistance(to: angle3), 150)
+        XCTAssertEqual(
+            10.0.angularDistance(to: 100),
+            -90,
+            "Distance from 10 to should be equal -90."
+        )
+        XCTAssertEqual(
+            10.0.angularDistance(to: 220),
+            150,
+            "Distance from 10 to 220 should be equal 150."
+        )
     }
 }

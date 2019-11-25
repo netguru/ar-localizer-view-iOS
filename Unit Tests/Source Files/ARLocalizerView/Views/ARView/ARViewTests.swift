@@ -7,7 +7,7 @@ import XCTest
 @testable import ARLocalizerView
 
 class ARViewTests: XCTestCase {
-    let poi = POI(name: "netguru-HQ", latitude: 52.4015279, longitude: 16.8918892)
+    let examplePOI = POI(name: "netguru-HQ", latitude: 52.4015279, longitude: 16.8918892)
 
     let arView = ARView(
         frame: CGRect(x: 0, y: 0, width: 30, height: 40),
@@ -23,12 +23,12 @@ class ARViewTests: XCTestCase {
     }
 
     func testSetupLabels() {
-        XCTAssertNil(arView.poiLabelViews[poi])
-        arView.setupLabels(for: [poi])
+        XCTAssertNil(arView.poiLabelViews[examplePOI])
+        arView.setupLabels(for: [examplePOI])
         arView.labelsView.layoutIfNeeded()
-        XCTAssertNotNil(arView.poiLabelViews[poi])
-        XCTAssertEqual(arView.poiLabelViews[poi]?.frame.minX, -25)
-        XCTAssertEqual(arView.poiLabelViews[poi]?.frame.minY, 0)
+        XCTAssertNotNil(arView.poiLabelViews[examplePOI])
+        XCTAssertEqual(arView.poiLabelViews[examplePOI]?.frame.minX, -25)
+        XCTAssertEqual(arView.poiLabelViews[examplePOI]?.frame.minY, 0)
     }
 
     func testUpdateLabel() {
@@ -40,12 +40,12 @@ class ARViewTests: XCTestCase {
             isHidden: false
         )
         XCTAssertNil(arView.poiLabelViews.first?.value)
-        arView.setupLabels(for: [poi])
-        XCTAssertNotEqual(arView.poiLabelViews[poi]?.name, "netguru-HQ")
-        XCTAssertNotEqual(arView.poiLabelViews[poi]?.distance, 500)
-        arView.updateLabel(forPOI: poi, withProperties: properties)
-        XCTAssertEqual(arView.poiLabelViews[poi]?.name, "netguru-HQ")
-        XCTAssertEqual(arView.poiLabelViews[poi]?.distance, 500)
+        arView.setupLabels(for: [examplePOI])
+        XCTAssertNotEqual(arView.poiLabelViews[examplePOI]?.name, "netguru-HQ")
+        XCTAssertNotEqual(arView.poiLabelViews[examplePOI]?.distance, 500)
+        arView.updateLabel(forPOI: examplePOI, withProperties: properties)
+        XCTAssertEqual(arView.poiLabelViews[examplePOI]?.name, "netguru-HQ")
+        XCTAssertEqual(arView.poiLabelViews[examplePOI]?.distance, 500)
     }
 
 }

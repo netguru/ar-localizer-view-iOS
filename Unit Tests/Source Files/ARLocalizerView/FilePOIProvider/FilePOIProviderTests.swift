@@ -10,6 +10,6 @@ class FilePOIProviderTests: XCTestCase {
     func testFilePOIProvider() {
         let fileURL = Bundle.main.url(forResource: "NetguruOffices", withExtension: "json")!
         let filePOIProvider = FilePOIProvider(fileURL: fileURL)
-        XCTAssertEqual(filePOIProvider.pois.count, 9)
+        XCTAssertEqual(filePOIProvider.pois.count, 9, "POIs count should be equal 9.")
     }
 }

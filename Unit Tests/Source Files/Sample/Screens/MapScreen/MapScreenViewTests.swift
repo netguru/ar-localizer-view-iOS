@@ -7,12 +7,13 @@ import XCTest
 @testable import ARLocalizerViewSample
 
 class MapScreenViewTests: XCTestCase {
-    let mapScreenView: MapScreenView = {
-        let view = MapScreenView(frame: CGRect(x: 0, y: 0, width: 300, height: 400))
-        view.layoutIfNeeded()
-        return view
-    }()
+    var mapScreenView: MapScreenView!
 
+    override func setUp() {
+        super.setUp()
+        mapScreenView = MapScreenView(frame: CGRect(x: 0, y: 0, width: 300, height: 400))
+        mapScreenView.layoutIfNeeded()
+    }
     func testAddingSubview() {
         XCTAssertEqual(mapScreenView.subviews.count, 2)
     }

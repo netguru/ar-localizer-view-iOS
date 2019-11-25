@@ -27,6 +27,7 @@
 		A081A3032387177800FDE33B /* SimplePOILabelViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A081A3022387177800FDE33B /* SimplePOILabelViewTests.swift */; };
 		A081A30623871A3100FDE33B /* CameraPreviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A081A30523871A3100FDE33B /* CameraPreviewTests.swift */; };
 		A08BADD2238BBA3C003914C8 /* MapScreenViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08BADD1238BBA3C003914C8 /* MapScreenViewTests.swift */; };
+		A08BADD5238BBC36003914C8 /* ARScreenViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08BADD4238BBC36003914C8 /* ARScreenViewTests.swift */; };
 		A09047FD236973FD0027EA41 /* ARLocalizerView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09047F4236973FD0027EA41 /* ARLocalizerView.framework */; };
 		A0904802236973FD0027EA41 /* AngleConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0904801236973FD0027EA41 /* AngleConverterTests.swift */; };
 		A0904831236977D40027EA41 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09047CB23675C9E0027EA41 /* CameraPreview.swift */; };
@@ -121,6 +122,7 @@
 		A081A3022387177800FDE33B /* SimplePOILabelViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePOILabelViewTests.swift; sourceTree = "<group>"; };
 		A081A30523871A3100FDE33B /* CameraPreviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewTests.swift; sourceTree = "<group>"; };
 		A08BADD1238BBA3C003914C8 /* MapScreenViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenViewTests.swift; sourceTree = "<group>"; };
+		A08BADD4238BBC36003914C8 /* ARScreenViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARScreenViewTests.swift; sourceTree = "<group>"; };
 		A09047C523675C520027EA41 /* ARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
 		A09047C723675C6B0027EA41 /* ARViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewModel.swift; sourceTree = "<group>"; };
 		A09047C923675C860027EA41 /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 		A08BADCF238BBA0E003914C8 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				A08BADD3238BBC1F003914C8 /* ARScreen */,
 				A08BADD0238BBA1B003914C8 /* MapScreen */,
 			);
 			path = Screens;
@@ -304,6 +307,14 @@
 				A08BADD1238BBA3C003914C8 /* MapScreenViewTests.swift */,
 			);
 			path = MapScreen;
+			sourceTree = "<group>";
+		};
+		A08BADD3238BBC1F003914C8 /* ARScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A08BADD4238BBC36003914C8 /* ARScreenViewTests.swift */,
+			);
+			path = ARScreen;
 			sourceTree = "<group>";
 		};
 		A09047CD23675CE90027EA41 /* View Models */ = {
@@ -847,6 +858,7 @@
 				A0DD983A2387E9E20061CFF5 /* CoordinatorTests.swift in Sources */,
 				A0A54A19238413E300F227F9 /* FilePOIProviderTests.swift in Sources */,
 				A081A30623871A3100FDE33B /* CameraPreviewTests.swift in Sources */,
+				A08BADD5238BBC36003914C8 /* ARScreenViewTests.swift in Sources */,
 				A0A54A1C2384146F00F227F9 /* ExtensionsTests.swift in Sources */,
 				A0440E5A238803040047440C /* MockSession.swift in Sources */,
 				A08BADD2238BBA3C003914C8 /* MapScreenViewTests.swift in Sources */,

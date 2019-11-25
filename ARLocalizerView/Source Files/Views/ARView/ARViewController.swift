@@ -86,7 +86,10 @@ final public class ARViewController: UIViewController {
 
     // MARK: Other methods
     private func setupViewUpdatingTimer() {
-        viewUpdatingTimer = Timer.scheduledTimer(withTimeInterval: viewRefreshInterval, repeats: true) { [weak self] _ in
+        viewUpdatingTimer = Timer.scheduledTimer(
+            withTimeInterval: viewRefreshInterval,
+            repeats: true
+        ) { [weak self] _ in
             self?.updateView()
         }
     }
@@ -105,7 +108,7 @@ final public class ARViewController: UIViewController {
     private func updateLabelViews() {
        arView.labelsView.transform = CGAffineTransform(rotationAngle: CGFloat(deviceRotationInRadians))
        viewModel.poiLabelsProperties
-           .sorted { $0.value.distance > $1.value.distance }
+           .sorted { $0.value.distance ?? 0 > $1.value.distance ?? 0 }
            .forEach { arView.updateLabel(forPOI: $0.key, withProperties: $0.value) }
        UIView.animate(withDuration: 0.2) {
            self.arView.labelsView.layoutIfNeeded()

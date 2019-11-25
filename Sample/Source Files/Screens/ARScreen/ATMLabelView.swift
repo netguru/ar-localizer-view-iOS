@@ -14,17 +14,23 @@ public final class ATMLabelView: UIView, POILabelView {
         }
     }
 
-    public var distance: Double = 0 {
+    public var distance: Double? {
         didSet {
             distanceLabel.text = distanceTextGenerator(distance)
             alpha = appropriateAlpha
         }
     }
-    public var distanceTextGenerator: (Double) -> String = { distance in
+    public var distanceTextGenerator: (Double?) -> String = { distance in
+        guard let distance = distance else {
+            return ""
+        }
         return "\(Int(distance)) m"
     }
 
     var appropriateAlpha: CGFloat {
+        guard let distance = distance else {
+            return 0
+        }
         switch distance {
         case 0 ..< 300:
             return 1

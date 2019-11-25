@@ -96,7 +96,7 @@ extension ARViewModel {
         }
     }
 
-    private func distance(toPOI poi: POI) -> Double {
+    private func distance(toPOI poi: POI) -> Double? {
         guard let deviceLocation = deviceLocation else {
             return 0
         }

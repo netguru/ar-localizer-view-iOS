@@ -6,14 +6,17 @@
 import UIKit
 
 public final class SimplePOILabelView: UIView, POILabelView {
-    public var name: String? = ""
+    public var name: String?
 
-    public var distance: Double = 0 {
+    public var distance: Double? {
         didSet {
             distanceLabel.text = distanceTextGenerator(distance)
         }
     }
-    public var distanceTextGenerator: (Double) -> String = { distance in
+    public var distanceTextGenerator: (Double?) -> String = { distance in
+        guard let distance = distance else {
+            return ""
+        }
         return "\(Int(distance)) m"
     }
 

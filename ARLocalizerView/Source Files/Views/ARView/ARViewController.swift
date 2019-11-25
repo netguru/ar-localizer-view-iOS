@@ -137,11 +137,8 @@ extension ARViewController: CLLocationManagerDelegate {
         andHeadingAccuracy headingAccuracy: CLLocationDirection
     ) {
         let deviceRotation = AngleConverter.convertToDegrees(radians: deviceRotationInRadians)
-        var deviceAzimuth = trueHeading + deviceRotation
-        if deviceAzimuth < 0 {
-            deviceAzimuth += 360
-        }
-        viewModel.deviceAzimuth = deviceAzimuth
+        let deviceAzimuth = trueHeading + deviceRotation
+        viewModel.deviceAzimuth = deviceAzimuth.positiveAngle
         viewModel.deviceAzimuthAccuracy = headingAccuracy
     }
 }

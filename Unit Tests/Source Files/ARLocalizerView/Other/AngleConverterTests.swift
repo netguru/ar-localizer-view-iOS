@@ -8,6 +8,6 @@ import XCTest
 
 class AngleConverterTests: XCTestCase {
     func testConvertToDegress() {
-        XCTAssert(AngleConverter.convertToDegrees(radians: .pi) == 180)
+        XCTAssertEqual(AngleConverter.convertToDegrees(radians: .pi), 180)
     }
 }

@@ -6,51 +6,43 @@
 import UIKit
 
 public final class SimplePOILabelView: UIView, POILabelView {
-    private enum Constants {
-        static let width: CGFloat = 100
-        static let height: CGFloat = 50
-    }
+    public var name: String?
 
-    public var name: String? = ""
-
-    public var distance: Double = 0 {
+    public var distance: Double? {
         didSet {
             distanceLabel.text = distanceTextGenerator(distance)
         }
     }
-    public var distanceTextGenerator: (Double) -> String = { distance in
+    public var distanceTextGenerator: (Double?) -> String = { distance in
+        guard let distance = distance else {
+            return ""
+        }
         return "\(Int(distance)) m"
     }
 
-    private let distanceLabel: UILabel = {
+    let distanceLabel: UILabel = {
         let label = UILabel().layoutable()
         label.textAlignment = .center
-        if #available(iOS 13.0, *) {
-            label.backgroundColor = .systemBackground
-        } else {
-            label.backgroundColor = .white
-        }
         return label
     }()
 
     init() {
         super.init(frame: .zero)
-        if #available(iOS 13.0, *) {
-            layer.backgroundColor = UIColor.systemBackground.cgColor
-            layer.borderColor = UIColor.label.withAlphaComponent(0.5).cgColor
-        } else {
-            layer.backgroundColor = UIColor.white.cgColor
-            layer.borderColor = UIColor.black.withAlphaComponent(0.5).cgColor
-        }
-        layer.borderWidth = 1
-        layer.cornerRadius = 10
-        layer.masksToBounds = true
+        setupLayer()
         setupDistanceLabel()
     }
 
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setupLayer() {
+        layer.backgroundColor = Constants.backgroundColor
+        layer.borderColor = Constants.borderColor
+        layer.borderWidth = 1
+        layer.cornerRadius = 10
+        layer.masksToBounds = true
     }
 
     private func setupDistanceLabel() {
@@ -69,5 +61,28 @@ public final class SimplePOILabelView: UIView, POILabelView {
                 distanceLabel.heightAnchor.constraint(equalToConstant: Constants.height)
             ]
         )
+    }
+}
+
+private extension SimplePOILabelView {
+    enum Constants {
+        static let width: CGFloat = 100
+        static let height: CGFloat = 50
+
+        static let backgroundColor: CGColor = {
+            if #available(iOS 13.0, *) {
+                return UIColor.systemBackground.cgColor
+            } else {
+                return UIColor.white.cgColor
+            }
+        }()
+
+        static let borderColor: CGColor = {
+            if #available(iOS 13.0, *) {
+                return UIColor.label.withAlphaComponent(0.5).cgColor
+            } else {
+                return UIColor.black.withAlphaComponent(0.5).cgColor
+            }
+        }()
     }
 }

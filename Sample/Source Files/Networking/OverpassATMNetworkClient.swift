@@ -7,13 +7,11 @@ import Foundation
 import ARLocalizerView
 
 final class OverpassATMNetworkClient: NetworkClient {
-
     typealias RequestAttributes = LocationBounds
 
-    private let session = URLSession(configuration: .default)
     private let basePath = "https://overpass-api.de/api/interpreter"
 
-    private func requestPath(withAttributes attributes: RequestAttributes) -> String {
+    func requestPath(withAttributes attributes: RequestAttributes) -> String {
         var path = basePath
         path += "?data=node[amenity=atm]("
         path += "\(attributes.south),\(attributes.west),\(attributes.north),\(attributes.east)"
@@ -21,14 +19,18 @@ final class OverpassATMNetworkClient: NetworkClient {
         return path
     }
 
-    func getData(usingAttributes attributes: RequestAttributes, completion: @escaping (Data?, NetworkError?) -> Void) {
+    func getData(
+        usingAttributes attributes: RequestAttributes,
+        session: URLSessionProtocol = URLSession.shared,
+        completion: @escaping (Data?, NetworkError?) -> Void
+    ) {
         let path = requestPath(withAttributes: attributes)
         guard let url = URL(string: path) else {
             completion(nil, .invalidPath(path))
             return
         }
 
-        let task = session.downloadTask(with: url) { localURL, response, error in
+        session.downloadFile(with: url) { localURL, response, error in
             if let error = error {
                 completion(nil, .connectionError(error))
                 return
@@ -51,6 +53,5 @@ final class OverpassATMNetworkClient: NetworkClient {
             }
             completion(try? Data(contentsOf: localURL), nil)
         }
-        task.resume()
     }
 }

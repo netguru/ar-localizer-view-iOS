@@ -7,7 +7,7 @@ import UIKit
 import AVFoundation
 
 final class CameraPreview: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
-    private let session = AVCaptureSession()
+    let session = AVCaptureSession()
 
     func start() {
         setupPreviewLayer()

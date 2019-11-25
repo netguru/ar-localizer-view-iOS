@@ -47,7 +47,6 @@ extension OverpassATMExtractor: XMLParserDelegate {
         }
 
         currentlyParsedPOI = POI(latitude: latitude, longitude: longitude)
-
     }
 
     private func parseTagElement(withAttributes attributeDict: [String: String]) {

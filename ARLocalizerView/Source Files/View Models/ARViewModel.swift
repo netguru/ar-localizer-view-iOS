@@ -21,10 +21,10 @@ final public class ARViewModel: ARViewModelProtocol {
 
     // MARK: Public properties
     public var deviceLocation: CLLocation?
-    public var deviceAzimuth: Angle
-    public var deviceAzimuthAccuracy: Angle
-    public var deviceGravityZ: Double
-    public var poiLabelsProperties: [POI: POILabelProperties]
+    public var deviceAzimuth: Angle = 0
+    public var deviceAzimuthAccuracy: Angle = 0
+    public var deviceGravityZ: Double = 0
+    public var poiLabelsProperties = [POI: POILabelProperties]()
     public var pois: [POI] {
         poiLabelsProperties.map { $0.key }
     }
@@ -36,11 +36,14 @@ final public class ARViewModel: ARViewModelProtocol {
     }
 
     // MARK: Init
-    public init(poiProvider: POIProvider) {
-        var newPOILabelsProperties: [POI: POILabelProperties] = [:]
+    public init(poiProvider: POIProvider?) {
+        setupPOILabels(forPOIs: poiProvider?.pois)
+    }
 
-        poiProvider.pois.forEach {
-            newPOILabelsProperties[$0] = POILabelProperties(
+    // MARK: POI Label Methods
+    func setupPOILabels(forPOIs pois: [POI]?) {
+        pois?.forEach {
+            poiLabelsProperties[$0] = POILabelProperties(
                 xOffset: 0,
                 yOffset: 0,
                 name: nil,
@@ -48,88 +51,68 @@ final public class ARViewModel: ARViewModelProtocol {
                 isHidden: true
             )
         }
-
-        poiLabelsProperties = newPOILabelsProperties
-        deviceAzimuth = 0
-        deviceAzimuthAccuracy = 0
-        deviceGravityZ = 0
     }
-
-    // MARK: POI Label Methods
     public func updatePOILabelsProperties() {
         pois.forEach {
             poiLabelsProperties[$0] = poiLabelProperties(forPOI: $0)
         }
     }
 
-    private func poiLabelProperties(forPOI poi: POI) -> POILabelProperties {
+    func poiLabelProperties(forPOI poi: POI) -> POILabelProperties {
         let azimuthForPOI = azimuth(forPOI: poi)
-        let leftBound = minimalAngleOfVisibility(forAzimuth: azimuthForPOI)
-        let rightBound = maximalAngleOfVisibility(forAzimuth: azimuthForPOI)
-
         return POILabelProperties(
             xOffset: labelXOffset(forAzimut: azimuthForPOI),
             yOffset: labelsYOffset,
             name: poi.name,
-            distance: distance(forPOI: poi),
-            isHidden: !isAngleInSector(deviceAzimuth, withLeftBound: leftBound, withRightBound: rightBound)
+            distance: distance(toPOI: poi),
+            isHidden: !shouldPOIBeVisible(azimuthForPOI: azimuthForPOI)
         )
-    }
-
-    private func distance(forPOI poi: POI) -> Double {
-        guard let deviceLocation = deviceLocation else { return 0 }
-        return poi.clLocation.distance(from: deviceLocation)
     }
 }
 
 // MARK: - Calulations
-private extension ARViewModel {
+extension ARViewModel {
     func azimuth(forPOI poi: POI) -> Angle {
-        guard let deviceLocation = deviceLocation else { return 0 }
-        let dX = poi.latitude - deviceLocation.coordinate.latitude
-        let dY = poi.longitude - deviceLocation.coordinate.longitude
-        let tanPhi = abs(dY / dX)
+        guard let deviceLocation = deviceLocation else {
+            return 0
+        }
+        let x = poi.latitude - deviceLocation.coordinate.latitude
+        let y = poi.longitude - deviceLocation.coordinate.longitude
+        let tanPhi = abs(y / x)
         let phiAngle = AngleConverter.convertToDegrees(radians: atan(tanPhi))
 
-        if dX < 0 && dY > 0 {
-            return 180 - phiAngle
-        } else if dX < 0 && dY < 0 {
-            return 180 + phiAngle
-        } else if dX > 0 && dY < 0 {
-            return 360 - phiAngle
-        } else {
-            return phiAngle
+        return angleAdjustedBasedOnCoordinateSystemQuarter(angle: phiAngle, isXPositive: x > 0, isYPositive: y > 0)
+    }
+
+    func angleAdjustedBasedOnCoordinateSystemQuarter(angle: Angle, isXPositive: Bool, isYPositive: Bool) -> Angle {
+        switch (isXPositive, isYPositive) {
+        case (true, true): return angle
+        case (false, true): return 180 - angle
+        case (false, false): return 180 + angle
+        case (true, false): return 360 - angle
         }
     }
 
-    func minimalAngleOfVisibility(forAzimuth azimuth: Angle) -> Angle {
-        var angle = azimuth - deviceAzimuthAccuracy - Constants.visibilityMargin
-        if angle < 0 {
-            angle += 360
+    private func distance(toPOI poi: POI) -> Double? {
+        guard let deviceLocation = deviceLocation else {
+            return nil
         }
-        return angle
+        return poi.clLocation.distance(from: deviceLocation)
     }
 
-    func maximalAngleOfVisibility(forAzimuth azimuth: Angle) -> Angle {
-        var angle = azimuth + deviceAzimuthAccuracy + Constants.visibilityMargin
-        if angle >= 360 {
-            angle -= 360
-        }
-        return angle
-    }
+    func shouldPOIBeVisible(azimuthForPOI poiAzimuth: Angle) -> Bool {
+        let leftBound = (poiAzimuth - deviceAzimuthAccuracy - Constants.visibilityMargin).positiveAngle
+        let rightBound = (poiAzimuth + deviceAzimuthAccuracy + Constants.visibilityMargin).positiveAngle
 
-    func isAngleInSector(
-        _ angle: Angle, withLeftBound leftBound: Angle, withRightBound rightBound: Angle
-    ) -> Bool {
         if leftBound > rightBound {
-            return (leftBound...360).contains(angle) || (0...rightBound).contains(angle)
+            return (leftBound...360).contains(deviceAzimuth) || (0...rightBound).contains(deviceAzimuth)
         } else {
-            return angle >= leftBound && angle <= rightBound
+            return deviceAzimuth >= leftBound && deviceAzimuth <= rightBound
         }
     }
 
     private func labelXOffset(forAzimut azimutForPOI: Angle) -> CGFloat {
-        let offsetInDegrees = azimutForPOI.smallestDifference(to: deviceAzimuth)
+        let offsetInDegrees = azimutForPOI.angularDistance(to: deviceAzimuth)
         let offsetInPixels = CGFloat(offsetInDegrees) * Constants.pixelsForOneDegree
         return offsetInPixels
     }

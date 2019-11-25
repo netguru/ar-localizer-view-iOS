@@ -20,7 +20,7 @@ final class ARScreenView: UIView {
         button.layer.cornerRadius = 10
         return button
     }()
-    private let arView: UIView
+    let arView: UIView
 
     init(frame: CGRect, arView: UIView) {
         self.arView = arView

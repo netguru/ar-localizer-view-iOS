@@ -5,10 +5,10 @@
 
 import UIKit
 
-public struct POILabelProperties {
+public struct POILabelProperties: Equatable {
     var xOffset: CGFloat
     var yOffset: CGFloat
     var name: String?
-    var distance: Double
+    var distance: Double?
     var isHidden: Bool
 }

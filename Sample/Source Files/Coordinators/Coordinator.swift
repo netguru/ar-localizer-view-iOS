@@ -5,23 +5,29 @@
 
 import UIKit
 
-protocol Coordinator: AnyObject {
-    var navigationController: UINavigationController { get }
-    var childCoordinators: [Coordinator] { get set }
+final class Coordinator {
+    let navigationController: UINavigationController = {
+        let navigationController = UINavigationController()
+        navigationController.navigationBar.isHidden = true
+        return navigationController
+    }()
+
+    private let factory: Factory
+
+    init(factory: Factory) {
+        self.factory = factory
+        navigationController.pushViewController(factory.mapScreenController(delegate: self), animated: false)
+    }
 }
 
-extension Coordinator {
-    func addChild(coordinator: Coordinator) {
-        guard !isCoordinatorAChild(coordinator: coordinator) else { return }
-        childCoordinators.append(coordinator)
+extension Coordinator: MapScreenViewControllerDelegate {
+    func didTapOnARViewButton(animateTransition: Bool = true) {
+        navigationController.pushViewController(factory.arScreenController(delegate: self), animated: animateTransition)
     }
+}
 
-    func removeChild(coordinator: Coordinator) {
-        guard isCoordinatorAChild(coordinator: coordinator) else { return }
-        childCoordinators = childCoordinators.filter { $0 !== coordinator }
-    }
-
-    private func isCoordinatorAChild(coordinator: Coordinator) -> Bool {
-        return childCoordinators.contains { $0 === coordinator }
+extension Coordinator: ARScreenViewControllerDelegate {
+    func didTapOnMapViewButton(arScreenController: ARScreenViewController, animateTransition: Bool = true) {
+        navigationController.popViewController(animated: animateTransition)
     }
 }

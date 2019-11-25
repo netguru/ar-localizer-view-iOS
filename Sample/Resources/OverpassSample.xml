@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="Overpass API 0.7.55.7 8b86ff77">
+<note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
+<meta osm_base="2019-11-14T08:51:02Z"/>
+
+  <node id="29947498" lat="52.3141083" lon="15.0732014">
+    <tag k="amenity" v="atm"/>
+    <tag k="operator" v="Spółdzielncza Grupa Bankowa SGB-BANK S.A."/>
+  </node>
+  <node id="30007993" lat="50.0169651" lon="14.4432635">
+    <tag k="amenity" v="atm"/>
+    <tag k="operator" v="Česká spořitelna"/>
+  </node>
+  <node id="30091071" lat="51.7591060" lon="19.4590647">
+    <tag k="amenity" v="atm"/>
+  </node>
+  <node id="30091073" lat="51.7569558" lon="19.4588040">
+    <tag k="addr:city" v="Łódź"/>
+    <tag k="addr:housenumber" v="183"/>
+    <tag k="addr:street" v="Piotrkowska"/>
+    <tag k="amenity" v="atm"/>
+    <tag k="atm_ref" v="MBPL499A"/>
+    <tag k="millennium:date" v="2009-05-21 17:13:02"/>
+    <tag k="millennium:network" v="Millennium"/>
+    <tag k="millennium:ref" v="18432"/>
+    <tag k="millennium:subtype" v="Euronet"/>
+    <tag k="name" v="Bankomat Millennium"/>
+    <tag k="operator" v="Euronet Sp. z o.o."/>
+  </node>
+  <node id="30091074" lat="51.7571617" lon="19.4592117">
+    <tag k="amenity" v="atm"/>
+  </node>
+  <node id="30091075" lat="51.7565585" lon="19.4594656">
+    <tag k="addr:housenumber" v="192"/>
+    <tag k="addr:street" v="Piotrkowska"/>
+    <tag k="amenity" v="atm"/>
+  </node>
+  <node id="60352684" lat="49.7018724" lon="17.0753404">
+    <tag k="amenity" v="atm"/>
+    <tag k="brand" v="ČSOB"/>
+    <tag k="operator" v="ČSOB"/>
+  </node>
+  <node id="82556135" lat="50.2564406" lon="14.5142816">
+    <tag k="amenity" v="atm"/>
+    <tag k="operator" v="Česká Spořitelna"/>
+  </node>
+  <node id="82613395" lat="50.2589221" lon="14.5161425">
+    <tag k="amenity" v="atm"/>
+    <tag k="brand" v="MONETA Money Bank"/>
+    <tag k="currency:CZK" v="yes"/>
+    <tag k="opening_hours" v="24/7"/>
+    <tag k="operator" v="MONETA Money Bank, a.s."/>
+    <tag k="wheelchair" v="yes"/>
+  </node>
+  <node id="82613399" lat="50.2597670" lon="14.5173356">
+    <tag k="amenity" v="atm"/>
+  </node>
+  <node id="152370561" lat="49.7001282" lon="17.0753540">
+    <tag k="amenity" v="atm"/>
+    <tag k="name" v="MONETA Money Bank"/>
+    <tag k="operator" v="MONETA Money Bank, a.s."/>
+  </node>
+  <node id="152370565" lat="49.7011185" lon="17.0753890">
+    <tag k="amenity" v="atm"/>
+    <tag k="name" v="Komerční banka"/>
+  </node>
+  <node id="155416622" lat="50.1348592" lon="14.5142196">
+    <tag k="amenity" v="atm"/>
+    <tag k="created_by" v="Potlatch 0.10d"/>
+    <tag k="name" v="Česká spořitelna"/>
+  </node>
+  <node id="190739112" lat="51.1768661" lon="14.4336129">
+    <tag k="amenity" v="atm"/>
+    <tag k="operator" v="Sparkasse"/>
+  </node>
+  <node id="193514475" lat="51.5212302" lon="14.0050970">
+    <tag k="amenity" v="atm"/>
+    <tag k="wheelchair" v="yes"/>
+  </node>
+  <node id="206933208" lat="50.8545801" lon="14.8437673">
+    <tag k="amenity" v="atm"/>
+  </node>
+  <node id="207628429" lat="52.2359082" lon="20.9964035">
+    <tag k="amenity" v="atm"/>
+    <tag k="name" v="BZWBK"/>
+    <tag k="source" v="survey"/>
+  </node>
+  <node id="225403604" lat="51.7610610" lon="14.3486987">
+    <tag k="amenity" v="atm"/>
+    <tag k="created_by" v="Potlatch 0.7a"/>
+    <tag k="name" v="Deutsche Bank"/>
+  </node>
+  <node id="225426456" lat="51.7174802" lon="14.3220633">
+    <tag k="amenity" v="atm"/>
+    <tag k="name" v="Sparkasse Spree-Neiße"/>
+    <tag k="wheelchair" v="limited"/>
+    <tag k="wheelchair:description" v="ungünstig zum Bedienen"/>
+  </node>
+  <node id="248407964" lat="50.0681552" lon="14.5081966">
+    <tag k="amenity" v="atm"/>
+    <tag k="created_by" v="JOSM"/>
+    <tag k="operator" v="Česká Spořitelna"/>
+  </node>
+  <node id="249060809" lat="49.9687925" lon="20.4300489">
+    <tag k="amenity" v="atm"/>
+    <tag k="created_by" v="JOSM"/>
+    <tag k="name" v="PKO BP"/>
+  </node>
+  <node id="249519484" lat="49.5541179" lon="15.9397668">
+    <tag k="amenity" v="atm"/>
+    <tag k="created_by" v="JOSM"/>
+    <tag k="operator" v="Česká Spořitelna"/>
+  </node>
+  <node id="250223411" lat="49.5551459" lon="15.9374108">
+    <tag k="amenity" v="atm"/>
+    <tag k="name" v="MONETA Money Bank"/>
+    <tag k="opening_hours" v="07:00-20:00"/>
+    <tag k="operator" v="MONETA Money Bank, a.s."/>
+  </node>
+  <node id="250942212" lat="51.7836601" lon="14.3166483">
+    <tag k="amenity" v="atm"/>
+    <tag k="name" v="ING-DiBa"/>
+    <tag k="operator" v="Postbank"/>
+  </node>
+  <node id="254332154" lat="52.2030707" lon="21.0006722">
+    <tag k="amenity" v="atm"/>
+    <tag k="level" v="0"/>
+    <tag k="location" v="indoor"/>
+    <tag k="name" v="PeKaO S.A."/>
+  </node>
+  <node id="254385189" lat="52.2088167" lon="21.0083668">
+    <tag k="amenity" v="atm"/>
+    <tag k="name" v="PeKaO S.A."/>
+  </node>
+  <node id="254385191" lat="52.2078542" lon="21.0080328">
+    <tag k="amenity" v="atm"/>
+    <tag k="created_by" v="JOSM"/>
+    <tag k="layer" v="-1"/>
+    <tag k="name" v="PeKaO S.A."/>
+  </node>
+  <node id="256485141" lat="49.5922710" lon="17.2780444">
+    <tag k="amenity" v="atm"/>
+    <tag k="contact:website" v="http://www.csas.cz"/>
+    <tag k="name" v="Hlavní nádraží ČD, Olomouc"/>
+    <tag k="opening_hours" v="24/7"/>
+    <tag k="operator" v="Česká spořitelna"/>
+  </node>
+  <node id="256779562" lat="50.1028943" lon="14.4498095">
+    <tag k="amenity" v="atm"/>
+    <tag k="opening_hours" v="24/7"/>
+    <tag k="operator" v="Raiffeisenbank"/>
+    <tag k="source" v="local_knowledge"/>
+  </node>
+  <node id="256779563" lat="50.1030955" lon="14.4501648">
+    <tag k="amenity" v="atm"/>
+    <tag k="operator" v="Unicredit Bank"/>
+  </node>
+  <node id="256779572" lat="50.1015583" lon="14.5017396">
+    <tag k="amenity" v="atm"/>
+    <tag k="description" v="Železniční stanice ČD - Praha Libeň"/>
+    <tag k="name" v="Fio banka"/>
+    <tag k="note" v="v restauraci La Rocket"/>
+    <tag k="opening_hours" v="24/7"/>
+    <tag k="operator" v="Pharro"/>
+    <tag k="ref" v="Praha 9 - Vysočany,Českomoravská 316/24"/>
+    <tag k="source" v="fio.cz"/>
+  </node>
+  <node id="257812441" lat="50.1091946" lon="14.5774256">
+    <tag k="amenity" v="atm"/>
+    <tag k="currency:CZK" v="yes"/>
+    <tag k="drive_through" v="no"/>
+    <tag k="note" v="u výstupní zastávky busů"/>
+    <tag k="operator" v="Česká Spořitelna"/>
+    <tag k="wheelchair" v="yes"/>
+  </node>
+  <node id="262514278" lat="50.0683103" lon="14.5091917">
+    <tag k="amenity" v="atm"/>
+    <tag k="operator" v="Komerční Banka"/>
+  </node>
+  <node id="263891458" lat="50.1195371" lon="14.4996567">
+    <tag k="amenity" v="atm"/>
+    <tag k="created_by" v="JOSM"/>
+    <tag k="note" v="v Bille"/>
+    <tag k="operator" v="Česká Spořitelna"/>
+  </node>
+  <node id="263891459" lat="50.1200951" lon="14.4987948">
+    <tag k="amenity" v="atm"/>
+    <tag k="note" v="v nákupním centru"/>
+    <tag k="operator" v="Komerční Banka"/>
+  </node>
+  <node id="263905362" lat="50.1259180" lon="14.4890740">
+    <tag k="amenity" v="atm"/>
+    <tag k="layer" v="-1"/>
+    <tag k="note" v="ve vestibulu metra"/>
+    <tag k="operator" v="Pharro"/>
+  </node>
+  <node id="263905364" lat="50.1253248" lon="14.5159663">
+    <tag k="amenity" v="atm"/>
+    <tag k="created_by" v="JOSM"/>
+    <tag k="layer" v="-1"/>
+    <tag k="note" v="ve vestibulu metra"/>
+    <tag k="operator" v="Pharro"/>
+  </node>
+  <node id="264838978" lat="50.1005990" lon="14.4463288">
+    <tag k="amenity" v="atm"/>
+    <tag k="created_by" v="JOSM"/>
+    <tag k="operator" v="ČSOB"/>
+  </node>
+  <node id="265431799" lat="49.7785856" lon="14.6840715">
+    <tag k="amenity" v="atm"/>
+    <tag k="operator" v="Česká Spořitelna"/>
+  </node>
+  <node id="266614662" lat="51.2012570" lon="16.2065675">
+    <tag k="addr:city" v="Legnica"/>
+    <tag k="addr:country" v="PL"/>
+    <tag k="addr:housenumber" v="15"/>
+    <tag k="addr:postcode" v="59-220"/>
+    <tag k="addr:street" v="Pomorska"/>
+    <tag k="amenity" v="atm"/>
+    <tag k="operator" v="BZ WBK"/>
+  </node>
+  <node id="266616354" lat="51.2063184" lon="16.1574350">
+    <tag k="amenity" v="atm"/>
+    <tag k="operator" v="Santander"/>
+  </node>
+  <node id="266850703" lat="51.2054654" lon="16.1774556">
+    <tag k="amenity" v="atm"/>
+  </node>
+  <node id="266850704" lat="51.2053642" lon="16.1763025">
+    <tag k="amenity" v="atm"/>
+  </node>
+  <node id="267797353" lat="52.1728768" lon="21.0205656">
+    <tag k="amenity" v="atm"/>
+    <tag k="operator" v="Euronet"/>
+  </node>
+  <node id="267817902" lat="50.1069964" lon="14.5612102">
+    <tag k="amenity" v="atm"/>
+    <tag k="currency:CZK" v="yes"/>
+    <tag k="drive_through" v="no"/>
+    <tag k="level" v="3"/>
+    <tag k="operator" v="Česká Spořitelna"/>
+  </node>
+  <node id="267922517" lat="53.4329079" lon="14.5494687">
+    <tag k="amenity" v="atm"/>
+    <tag k="name" v="PKO BP"/>
+    <tag k="operator" v="PKO BP"/>
+  </node>
+  <node id="268289370" lat="52.0343830" lon="23.1238925">
+    <tag k="amenity" v="atm"/>
+    <tag k="name" v="Lukas"/>
+  </node>
+  <node id="269746580" lat="49.7750065" lon="16.9302660">
+    <tag k="amenity" v="atm"/>
+  </node>
+  <node id="271278126" lat="50.0561555" lon="14.4701418">
+    <tag k="amenity" v="atm"/>
+    <tag k="created_by" v="Potlatch 0.9c"/>
+    <tag k="name" v="MONETA Money Bank"/>
+    <tag k="operator" v="MONETA Money Bank, a.s."/>
+  </node>
+  <node id="275278562" lat="51.7815895" lon="14.9805794">
+    <tag k="amenity" v="atm"/>
+    <tag k="currency:CHF" v="no"/>
+    <tag k="currency:CNY" v="no"/>
+    <tag k="currency:DKK" v="no"/>
+    <tag k="currency:EUR" v="no"/>
+    <tag k="currency:GBP" v="no"/>
+    <tag k="currency:INR" v="no"/>
+    <tag k="currency:JPY" v="no"/>
+    <tag k="currency:NOK" v="no"/>
+    <tag k="currency:SEK" v="no"/>
+    <tag k="currency:USD" v="no"/>
+    <tag k="currency:others" v="yes"/>
+    <tag k="drive_through" v="no"/>
+    <tag k="operator" v="PKOBP"/>
+  </node>
+  <node id="275751329" lat="49.7115034" lon="16.0351138">
+    <tag k="amenity" v="atm"/>
+    <tag k="created_by" v="Merkaartor 0.11"/>
+    <tag k="name" v="MONETA Money Bank"/>
+    <tag k="operator" v="MONETA Money Bank, a.s."/>
+  </node>
+  <node id="276115448" lat="51.7281561" lon="14.3277794">
+    <tag k="amenity" v="atm"/>
+    <tag k="created_by" v="Merkaartor 0.12"/>
+    <tag k="name" v="Deutsche Bank"/>
+  </node>
+  <node id="277454583" lat="53.1508070" lon="23.1221000">
+    <tag k="amenity" v="atm"/>
+    <tag k="name" v="Bankomat Pekao"/>
+    <tag k="operator" v="Pekao"/>
+  </node>
+  <node id="277454599" lat="53.1406610" lon="23.1371621">
+    <tag k="amenity" v="atm"/>
+  </node>
+  <node id="277454690" lat="53.1363022" lon="23.1253959">
+    <tag k="amenity" v="atm"/>
+    <tag k="name" v="PKO"/>
+  </node>
+  <node id="277454696" lat="53.1398944" lon="23.1390484">
+    <tag k="amenity" v="atm"/>
+    <tag k="name" v="PKO"/>
+  </node>
+  <node id="278015902" lat="52.1040902" lon="19.9438709">
+    <tag k="addr:housenumber" v="8"/>
+    <tag k="addr:street" v="Nowa"/>
+    <tag k="amenity" v="atm"/>
+    <tag k="name" v="Bank Pekao"/>
+  </node>
+  <node id="278646729" lat="54.0664542" lon="13.9569208">
+    <tag k="amenity" v="atm"/>
+    <tag k="name" v="Geldautomat"/>
+    <tag k="operator" v="Euronet"/>
+  </node>
+</osm>

@@ -34,7 +34,9 @@ class ARViewModelTests: XCTestCase {
 
     func testPOILabelPropertiesGeneration() {
         let properties = arViewModel.poiLabelProperties(forPOI: poi)
-        XCTAssertEqual(properties, poiLabelProperties)
+        XCTAssertEqual(properties.distance, poiLabelProperties.distance)
+        XCTAssertEqual(properties.name, poiLabelProperties.name)
+        XCTAssertEqual(properties.isHidden, poiLabelProperties.isHidden)
     }
 
     func testSetupPOILabelsProperties() {

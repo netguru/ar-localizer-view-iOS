@@ -7,6 +7,14 @@
 
 Welcome to the ARLocalizerView for iOS project. It's a lightweight and simple AR view made for displaying chosen locations distances on a camera preview.
 
+## Features
+
+- [x] Displays labels showing direction from user to POIs.
+- [x] Lightweight and easy to use.
+- [x] Uses basic data from device's sensors to work on as wide range of iDevices as possible.
+- [x] Easily customizable labels and POI provider. Check out Sample app's custom implementations to learn how to customize them yourself :).
+- [x] Built in data conversion method with `Command` wrapper.
+
 ##  Displaying AR view:
 
 Here is the simplest way to show an AR view:

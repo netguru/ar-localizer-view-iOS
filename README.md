@@ -13,7 +13,6 @@ Welcome to the ARLocalizerView for iOS project. It's a lightweight and simple AR
 - [x] Lightweight and easy to use.
 - [x] Uses basic data from device's sensors to work on as wide range of iDevices as possible.
 - [x] Easily customizable labels and POI provider. Check out Sample app's custom implementations to learn how to customize them yourself :).
-- [x] Built in data conversion method with `Command` wrapper.
 
 ##  Displaying AR view:
 
@@ -50,9 +49,13 @@ but what's more important it's supported by most common dependency management!
 
 Just drop the line below to your Podfile:
 
-`pod 'ARLocalizerView'`
+`pod 'ARLocalizerView', :git => 'https://github.com/netguru/ar-localizer-view-iOS.git'`
 
-(but probably you'd like to pin it to the nearest major release, so `pod 'ARLocalizerView' , '~> 1.0.0'`)
+(but probably you'd like to pin it to the nearest major release, so:
+
+`pod 'ARLocalizerView', :git => 'https://github.com/netguru/ar-localizer-view-iOS.git', '~> 1.0.0'`
+
+)
 
 ### ![](https://img.shields.io/badge/carthage-compatible-green.svg)
 
@@ -60,7 +63,9 @@ The same as with Cocoapods, insert the line below to your Cartfile:
 
 `github 'netguru/ar-localizer-view-ios'`
 
-, or including version - `github 'netguru/ar-localizer-view-ios' ~> 1.0.0`
+, or including version:
+
+`github 'netguru/ar-localizer-view-ios' ~> 1.0.0`
 
 ## 📄 License
 
